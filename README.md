@@ -60,7 +60,7 @@ Progress is stored in `localStorage` under `boli.progress.v1`. Clear it with the
 You need **Node.js 18.17 or newer** ([download](https://nodejs.org/)).
 
 ```bash
-git clone https://github.com/amanchausali1-ai/DEMO-BOLI.git
+git clone https://github.com/00-deku/DEMO-BOLI.git
 cd DEMO-BOLI
 npm install
 npm run dev

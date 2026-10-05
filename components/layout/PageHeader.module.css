@@ -1,0 +1,67 @@
+.header {
+  position: relative;
+  overflow: hidden;
+  padding: calc(var(--nav-h) + 64px) 0 72px;
+  border-bottom: var(--border);
+}
+
+.fire {
+  background: var(--grad-fire);
+  color: var(--ink);
+}
+
+.geru {
+  background: var(--grad-geru);
+  color: var(--cream);
+}
+
+.earth {
+  background: var(--grad-earth);
+  color: var(--cream);
+}
+
+.motif {
+  position: absolute;
+  right: -120px;
+  top: 50%;
+  translate: 0 -50%;
+  opacity: 0.18;
+  animation: spin 80s linear infinite;
+  pointer-events: none;
+}
+
+.inner {
+  position: relative;
+  display: grid;
+  gap: 22px;
+  justify-items: start;
+}
+
+.title {
+  max-width: 14ch;
+  font-size: clamp(2.8rem, 8vw, 7rem);
+  animation: rise 0.9s var(--ease-out) both;
+}
+
+.title :global(.serif) {
+  display: block;
+}
+
+.lede {
+  max-width: 52ch;
+  font-size: 1.15rem;
+  animation: rise 0.9s var(--ease-out) 0.15s both;
+}
+
+@keyframes spin {
+  to {
+    rotate: 360deg;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+}

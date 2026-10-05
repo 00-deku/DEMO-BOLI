@@ -1,0 +1,50 @@
+.section {
+  padding: clamp(80px, 14vh, 160px) 0;
+  background:
+    radial-gradient(circle at 85% 20%, rgba(196, 39, 27, 0.18), transparent 40%),
+    var(--paper);
+}
+
+.header {
+  display: grid;
+  gap: 22px;
+  justify-items: center;
+  text-align: center;
+  margin-bottom: 72px;
+}
+
+.title {
+  max-width: 18ch;
+  font-size: clamp(2.4rem, 6vw, 5rem);
+}
+
+.title :global(.serif) {
+  color: var(--saffron);
+}
+
+.lede {
+  max-width: 52ch;
+  font-size: 1.1rem;
+}
+
+/* A wooden shelf the medals stand on */
+.shelf {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 32px 20px;
+  padding-bottom: 40px;
+  border-bottom: 14px solid var(--bark);
+  box-shadow: 0 6px 0 var(--ink);
+}
+
+@media (max-width: 960px) {
+  .shelf {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .shelf {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

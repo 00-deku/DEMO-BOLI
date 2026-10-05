@@ -1,0 +1,6 @@
+/* The canvas fills whatever box its parent gives it. */
+.canvas {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}

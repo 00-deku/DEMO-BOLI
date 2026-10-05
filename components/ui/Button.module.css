@@ -1,0 +1,74 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  border: var(--border);
+  border-radius: 999px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  box-shadow: var(--shadow-hard-s);
+  transition:
+    transform 0.25s var(--ease-bounce),
+    box-shadow 0.25s var(--ease-out);
+  white-space: nowrap;
+}
+
+.button:hover {
+  transform: translate(-2px, -2px) rotate(-1.5deg);
+  box-shadow: 6px 6px 0 var(--ink);
+}
+
+.button:active {
+  transform: translate(2px, 2px);
+  box-shadow: 0 0 0 var(--ink);
+}
+
+.button:disabled {
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.m {
+  padding: 0.85em 1.6em;
+  font-size: 0.95rem;
+}
+
+.s {
+  padding: 0.6em 1.1em;
+  font-size: 0.8rem;
+}
+
+.l {
+  padding: 1em 2.1em;
+  font-size: 1.1rem;
+}
+
+.fire {
+  background: var(--grad-fire);
+  color: var(--white);
+  text-shadow: 0 1px 0 rgba(20, 12, 8, 0.35);
+}
+
+.ink {
+  background: var(--ink);
+  color: var(--cream);
+  border-color: var(--ink);
+  box-shadow: 3px 3px 0 var(--saffron);
+}
+
+.ink:hover {
+  box-shadow: 6px 6px 0 var(--saffron);
+}
+
+.paper {
+  background: var(--paper);
+  color: var(--ink);
+}

@@ -1,0 +1,99 @@
+.medal {
+  margin: 0;
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+  text-align: center;
+  isolation: isolate;
+}
+
+.coin {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 128px;
+  height: 128px;
+  border: var(--border);
+  border-radius: 50%;
+  box-shadow: var(--shadow-hard-s);
+  transition: transform 0.6s var(--ease-bounce);
+}
+
+/* Scalloped outer edge */
+.coin::before {
+  content: '';
+  position: absolute;
+  inset: -12px;
+  border-radius: 50%;
+  background: radial-gradient(circle, currentColor 0 4px, transparent 4.5px) 0 0 / 18px 18px;
+  -webkit-mask: radial-gradient(circle, transparent 62px, #000 63px);
+  mask: radial-gradient(circle, transparent 62px, #000 63px);
+  opacity: 0.6;
+  z-index: -1;
+}
+
+.medal:hover .coin {
+  transform: rotate(-12deg) scale(1.06);
+}
+
+.s .coin {
+  width: 88px;
+  height: 88px;
+}
+
+.s .coin::before {
+  inset: -9px;
+  -webkit-mask: radial-gradient(circle, transparent 42px, #000 43px);
+  mask: radial-gradient(circle, transparent 42px, #000 43px);
+}
+
+.caption {
+  display: grid;
+  gap: 4px;
+  max-width: 200px;
+}
+
+.caption strong {
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.caption span {
+  font-size: 0.85rem;
+  line-height: 1.4;
+  opacity: 0.8;
+}
+
+.s .caption span {
+  display: none;
+}
+
+.geru .coin {
+  background: var(--grad-geru);
+  color: var(--cream);
+}
+
+.fire .coin {
+  background: var(--grad-fire);
+  color: var(--ink);
+}
+
+.earth .coin {
+  background: var(--grad-earth);
+  color: var(--marigold);
+}
+
+/* Locked: dashed outline in the surrounding text colour, works on light and dark. */
+.locked .coin {
+  background: transparent;
+  color: inherit;
+  border-color: currentColor;
+  border-style: dashed;
+  box-shadow: none;
+  opacity: 0.4;
+}
+
+.locked .caption {
+  opacity: 0.6;
+}

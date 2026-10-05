@@ -1,0 +1,217 @@
+.layout {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 40px;
+  align-items: start;
+  padding-top: 56px;
+  padding-bottom: 120px;
+}
+
+/* ---- Progress panel ---- */
+.panel {
+  position: sticky;
+  top: calc(var(--nav-h) + 20px);
+  display: grid;
+  gap: 22px;
+  padding: 24px;
+  border: var(--border);
+  border-radius: var(--radius-l);
+  background: var(--ink);
+  color: var(--cream);
+  box-shadow: 6px 6px 0 var(--saffron);
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.stat {
+  display: grid;
+  gap: 2px;
+  padding: 14px 8px;
+  border-radius: var(--radius-s);
+  background: rgba(246, 236, 219, 0.08);
+  text-align: center;
+}
+
+.statValue {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: var(--marigold);
+}
+
+.statLabel {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+
+.panelTitle {
+  font-size: 1.1rem;
+  letter-spacing: 0.06em;
+}
+
+.badges {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px 8px;
+  font-size: 0.75rem;
+}
+
+/* Locked badges need a lighter outline on the dark panel. */
+.badges :global(figure) {
+  color: var(--cream);
+}
+
+.reset {
+  justify-self: start;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-size: 0.8rem;
+  text-decoration: underline;
+  opacity: 0.6;
+}
+
+/* ---- Units ---- */
+.units {
+  display: grid;
+  gap: 36px;
+}
+
+.unit {
+  border: var(--border);
+  border-radius: var(--radius-l);
+  overflow: hidden;
+  box-shadow: var(--shadow-hard);
+  scroll-margin-top: calc(var(--nav-h) + 20px);
+}
+
+.unitHeader {
+  display: grid;
+  gap: 8px;
+  padding: 28px 28px 24px;
+  border-bottom: var(--border);
+}
+
+.sindoor .unitHeader {
+  background: var(--sindoor);
+  color: var(--cream);
+}
+
+.saffron .unitHeader {
+  background: var(--marigold);
+}
+
+.umber .unitHeader {
+  background: var(--bark);
+  color: var(--cream);
+}
+
+.unitNumber {
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
+.unitDeva {
+  font-size: 2.2rem;
+  line-height: 1.2;
+}
+
+.unitTitle {
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+}
+
+.lessons {
+  list-style: none;
+  margin: 0;
+  padding: 8px;
+  background: var(--paper);
+}
+
+.lesson {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  border-radius: var(--radius-m);
+  transition: background 0.2s;
+}
+
+.lesson:hover {
+  background: var(--cream);
+}
+
+.check {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 3px solid var(--ink);
+  border-radius: 50%;
+  font-weight: 900;
+}
+
+.done .check {
+  background: var(--saffron);
+}
+
+.lessonText {
+  display: grid;
+  gap: 2px;
+  flex: 1;
+}
+
+.lessonText strong {
+  font-size: 1.1rem;
+}
+
+.lessonText span {
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+.go {
+  padding: 8px 16px;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  transition:
+    background 0.2s,
+    color 0.2s;
+}
+
+.lesson:hover .go {
+  background: var(--ink);
+  color: var(--cream);
+}
+
+.more {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 24px;
+  border: 3px dashed var(--ink);
+  border-radius: var(--radius-l);
+}
+
+@media (max-width: 960px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+  .panel {
+    position: static;
+  }
+}

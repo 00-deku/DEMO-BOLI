@@ -1,0 +1,118 @@
+.wrap {
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+  width: 100%;
+  perspective: 1400px;
+}
+
+.card {
+  position: relative;
+  width: min(100%, 520px);
+  aspect-ratio: 5 / 4;
+  padding: 0;
+  border: 0;
+  background: none;
+  transform-style: preserve-3d;
+  transition: transform 0.8s var(--ease-bounce);
+}
+
+.card:hover {
+  transform: rotateX(4deg) rotateY(-6deg);
+}
+
+.flipped,
+.flipped:hover {
+  transform: rotateY(180deg);
+}
+
+.face {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 10px;
+  padding: 32px;
+  border: var(--border);
+  border-radius: var(--radius-l);
+  box-shadow: 8px 8px 0 var(--ink);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  text-align: center;
+}
+
+.front {
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.25), transparent 60%),
+    var(--grad-geru);
+  color: var(--cream);
+}
+
+/* Aipan dot border inside the front face */
+.front::before {
+  content: '';
+  position: absolute;
+  inset: 14px;
+  border: 3px dotted rgba(246, 236, 219, 0.6);
+  border-radius: calc(var(--radius-l) - 10px);
+  pointer-events: none;
+}
+
+.back {
+  background: var(--paper);
+  color: var(--ink);
+  transform: rotateY(180deg);
+}
+
+.corner {
+  position: absolute;
+  top: 26px;
+  left: 30px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.deva {
+  font-size: clamp(2.6rem, 9vw, 4.6rem);
+  line-height: 1.2;
+}
+
+.roman {
+  font-size: 1.3rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--marigold);
+}
+
+.hint {
+  position: absolute;
+  bottom: 26px;
+  left: 0;
+  right: 0;
+  font-size: 0.78rem;
+  opacity: 0.6;
+}
+
+.meaning {
+  font-size: clamp(1.6rem, 4.5vw, 2.4rem);
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.note {
+  max-width: 34ch;
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--clay);
+}
+
+.audio {
+  font-size: 0.8rem;
+  opacity: 0.6;
+}

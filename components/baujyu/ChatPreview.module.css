@@ -1,0 +1,165 @@
+.section {
+  padding: clamp(80px, 12vh, 140px) 0;
+  background: var(--grad-earth);
+  color: var(--cream);
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.copy {
+  display: grid;
+  gap: 18px;
+  justify-items: start;
+  max-width: 46ch;
+}
+
+.badge {
+  padding: 6px 14px;
+  border: 2px solid var(--marigold);
+  border-radius: 999px;
+  color: var(--marigold);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.title {
+  font-size: clamp(2.2rem, 5vw, 4rem);
+}
+
+/* ---- Phone mock ---- */
+.phone {
+  justify-self: center;
+  width: min(100%, 380px);
+  border: 3px solid var(--cream);
+  border-radius: 40px;
+  background: var(--paper);
+  color: var(--ink);
+  overflow: hidden;
+  box-shadow: 10px 10px 0 var(--saffron);
+  rotate: 2deg;
+}
+
+.phoneHead {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 20px;
+  border-bottom: var(--border);
+  background: var(--marigold);
+}
+
+.phoneHead div:last-child {
+  display: grid;
+}
+
+.phoneHead span {
+  font-size: 0.8rem;
+  opacity: 0.75;
+}
+
+.avatar {
+  width: 52px;
+  height: 52px;
+  flex: none;
+  border: var(--border);
+  border-radius: 50%;
+  background: var(--cream);
+  overflow: hidden;
+}
+
+.avatar svg {
+  width: 150%;
+  max-width: none;
+  margin: -8% 0 0 -25%;
+}
+
+.messages {
+  list-style: none;
+  margin: 0;
+  padding: 20px;
+  display: grid;
+  gap: 12px;
+  min-height: 300px;
+  align-content: start;
+  background:
+    radial-gradient(circle, rgba(196, 39, 27, 0.12) 1.5px, transparent 2px) 0 0 / 18px 18px,
+    var(--cream);
+}
+
+.message {
+  max-width: 82%;
+  padding: 12px 16px;
+  border: 2px solid var(--ink);
+  font-size: 0.95rem;
+  line-height: 1.4;
+  animation: in 0.5s var(--ease-out) both;
+  animation-delay: calc(var(--i) * 0.35s + 0.2s);
+}
+
+.message :global(.deva) {
+  color: var(--sindoor);
+  font-size: 1.1em;
+}
+
+.baujyu {
+  justify-self: start;
+  border-radius: 18px 18px 18px 4px;
+  background: var(--paper);
+}
+
+.you {
+  justify-self: end;
+  border-radius: 18px 18px 4px 18px;
+  background: var(--ink);
+  color: var(--cream);
+}
+
+.input {
+  display: flex;
+  gap: 10px;
+  padding: 14px;
+  border-top: var(--border);
+}
+
+.input input {
+  flex: 1;
+  min-width: 0;
+  padding: 12px 16px;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  background: var(--paper);
+  font: inherit;
+}
+
+.input button {
+  width: 46px;
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+  background: var(--saffron);
+  font-weight: 900;
+}
+
+.input :disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@keyframes in {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.96);
+  }
+}
+
+@media (max-width: 860px) {
+  .inner {
+    grid-template-columns: 1fr;
+  }
+}

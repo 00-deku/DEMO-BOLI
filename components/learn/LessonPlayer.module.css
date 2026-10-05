@@ -1,0 +1,175 @@
+.page {
+  min-height: 100svh;
+  padding-top: calc(var(--nav-h) + 24px);
+  padding-bottom: 96px;
+  background:
+    radial-gradient(circle at 80% 10%, rgba(246, 165, 58, 0.35), transparent 40%),
+    radial-gradient(circle at 10% 90%, rgba(196, 39, 27, 0.18), transparent 40%),
+    var(--cream);
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  max-width: 860px;
+}
+
+.close {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  flex: none;
+  border: var(--border);
+  border-radius: 50%;
+  background: var(--paper);
+  font-weight: 900;
+  transition: transform 0.25s var(--ease-bounce);
+}
+
+.close:hover {
+  transform: rotate(90deg);
+}
+
+.bar {
+  flex: 1;
+  height: 20px;
+  border: var(--border);
+  border-radius: 999px;
+  background: var(--paper);
+  overflow: hidden;
+}
+
+.bar span {
+  display: block;
+  height: 100%;
+  background:
+    repeating-linear-gradient(-45deg, transparent 0 8px, rgba(255, 255, 255, 0.25) 8px 16px),
+    var(--grad-fire);
+  border-right: 3px solid var(--ink);
+  transition: width 0.6s var(--ease-out);
+}
+
+.xp {
+  font-weight: 900;
+  color: var(--sindoor);
+}
+
+.stage {
+  max-width: 860px;
+  padding-top: 48px;
+}
+
+.step {
+  display: grid;
+  justify-items: center;
+  gap: 28px;
+  animation: enter 0.5s var(--ease-out) both;
+}
+
+.continue {
+  min-width: 220px;
+}
+
+/* ---- Intro ---- */
+.intro {
+  display: grid;
+  justify-items: center;
+  gap: 20px;
+  text-align: center;
+}
+
+.unit {
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--clay);
+}
+
+.unit :global(.deva) {
+  font-size: 1.2em;
+}
+
+.introTitle {
+  max-width: 14ch;
+  font-size: clamp(2.6rem, 7vw, 5rem);
+}
+
+.introText {
+  max-width: 44ch;
+  font-size: 1.2rem;
+}
+
+.introMeta {
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+/* ---- Done ---- */
+.done {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: 18px;
+  text-align: center;
+  animation: enter 0.6s var(--ease-bounce) both;
+}
+
+.doneDeva {
+  font-size: clamp(2rem, 6vw, 3.4rem);
+  color: var(--sindoor);
+}
+
+.doneTitle {
+  font-size: clamp(3rem, 9vw, 6.5rem);
+  text-shadow: 5px 5px 0 var(--marigold);
+}
+
+.doneText {
+  max-width: 44ch;
+  font-size: 1.15rem;
+}
+
+.newBadges {
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+  margin: 12px 0;
+  padding: 24px 32px;
+  border: var(--border);
+  border-radius: var(--radius-l);
+  background: var(--paper);
+  box-shadow: var(--shadow-hard);
+  animation: pop 0.7s var(--ease-bounce) 0.3s both;
+}
+
+.newBadgesLabel {
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--sindoor);
+}
+
+.doneActions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 12px;
+}
+
+@keyframes enter {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.98);
+  }
+}
+
+@keyframes pop {
+  from {
+    opacity: 0;
+    transform: scale(0.6) rotate(-8deg);
+  }
+}

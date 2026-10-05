@@ -1,0 +1,44 @@
+.section {
+  position: relative;
+  min-height: 140vh;
+  padding: clamp(100px, 16vh, 180px) 0;
+  background: var(--grad-earth);
+  color: var(--cream);
+}
+
+.inner {
+  position: sticky;
+  top: calc(var(--nav-h) + 40px);
+  display: grid;
+  gap: 32px;
+}
+
+.text {
+  max-width: 22ch;
+  font-size: clamp(2rem, 5.2vw, 4.6rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+.word {
+  opacity: 0.14;
+  transition:
+    opacity 0.4s var(--ease-out),
+    color 0.4s;
+}
+
+.word[data-lit='true'] {
+  opacity: 1;
+}
+
+.accent[data-lit='true'] {
+  color: var(--marigold);
+}
+
+@media (max-width: 640px) {
+  .text {
+    max-width: none;
+  }
+}

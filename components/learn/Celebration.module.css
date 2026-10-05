@@ -1,0 +1,41 @@
+.shower {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.petal {
+  position: absolute;
+  top: -40px;
+  border-radius: 50% 0 50% 0;
+  border: 2px solid var(--ink);
+  animation-name: fall;
+  animation-timing-function: linear;
+  animation-iteration-count: 2;
+  animation-fill-mode: both;
+}
+
+.h0 {
+  background: var(--marigold);
+}
+
+.h1 {
+  background: var(--saffron);
+}
+
+.h2 {
+  background: var(--sindoor);
+}
+
+@keyframes fall {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(60px, 110vh) rotate(540deg);
+    opacity: 0.8;
+  }
+}

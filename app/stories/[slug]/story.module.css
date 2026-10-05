@@ -1,0 +1,134 @@
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 56px;
+  align-items: start;
+  padding-top: 72px;
+  padding-bottom: 96px;
+}
+
+.body {
+  display: grid;
+  gap: 24px;
+  max-width: 62ch;
+  font-family: var(--font-accent);
+  font-size: clamp(1.15rem, 1.6vw, 1.35rem);
+  line-height: 1.65;
+}
+
+/* Big painted drop cap */
+.first::first-letter {
+  float: left;
+  margin: 6px 12px 0 0;
+  padding: 8px 14px;
+  border: var(--border);
+  border-radius: 14px;
+  background: var(--grad-fire);
+  color: var(--paper);
+  font-family: var(--font-head);
+  font-weight: 900;
+  font-size: 3.4em;
+  line-height: 0.85;
+  box-shadow: var(--shadow-hard-s);
+}
+
+.note {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  opacity: 0.6;
+}
+
+.words {
+  position: sticky;
+  top: calc(var(--nav-h) + 24px);
+  display: grid;
+  gap: 18px;
+  padding: 24px;
+  border: var(--border);
+  border-radius: var(--radius-l);
+  background: var(--cream);
+  box-shadow: var(--shadow-hard);
+  rotate: 1.5deg;
+}
+
+.wordsTitle {
+  font-size: 1.3rem;
+}
+
+.words ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 14px;
+}
+
+.words li {
+  display: grid;
+  gap: 2px;
+  padding-bottom: 14px;
+  border-bottom: 2px dashed rgba(20, 12, 8, 0.2);
+}
+
+.words li :global(.deva) {
+  font-size: 1.8rem;
+  color: var(--sindoor);
+}
+
+.words li span:last-child {
+  font-size: 0.9rem;
+  opacity: 0.75;
+}
+
+.more {
+  display: grid;
+  gap: 18px;
+  padding-top: 56px;
+  padding-bottom: 96px;
+}
+
+.moreLabel {
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.moreList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.moreLink {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 12px;
+  padding: 14px 22px;
+  border: var(--border);
+  border-radius: 999px;
+  background: var(--paper);
+  font-weight: 800;
+  text-transform: uppercase;
+  box-shadow: var(--shadow-hard-s);
+  transition: transform 0.25s var(--ease-bounce);
+}
+
+.moreLink:hover {
+  transform: rotate(-2deg) translateY(-3px);
+  background: var(--haldi);
+}
+
+.moreLink :global(.deva) {
+  font-size: 1.3rem;
+  color: var(--sindoor);
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+  .words {
+    position: static;
+    rotate: 0deg;
+  }
+}

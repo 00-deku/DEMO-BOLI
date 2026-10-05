@@ -1,0 +1,156 @@
+.layout {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: clamp(32px, 5vw, 72px);
+  align-items: start;
+  padding-top: 72px;
+  padding-bottom: 96px;
+}
+
+.portraitCol {
+  position: sticky;
+  top: calc(var(--nav-h) + 24px);
+  display: grid;
+  gap: 14px;
+}
+
+.arch {
+  aspect-ratio: 4 / 5;
+  padding: 28px 20px 0;
+  display: flex;
+  align-items: flex-end;
+  border: var(--border);
+  border-radius: 999px 999px var(--radius-m) var(--radius-m);
+  background:
+    radial-gradient(circle at 50% 35%, var(--haldi), transparent 60%),
+    var(--grad-fire);
+  box-shadow: 10px 10px 0 var(--ink);
+  overflow: hidden;
+}
+
+.caption {
+  font-size: 0.85rem;
+  opacity: 0.65;
+  text-align: center;
+}
+
+.sheet {
+  display: grid;
+  gap: 24px;
+}
+
+.panel {
+  padding: 26px;
+  border: var(--border);
+  border-radius: var(--radius-l);
+  background: var(--paper);
+  box-shadow: var(--shadow-hard);
+}
+
+.panelTitle {
+  margin-bottom: 16px;
+  font-size: 1.5rem;
+}
+
+.look {
+  margin: 0;
+  display: grid;
+  gap: 0;
+}
+
+.look div {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 16px;
+  padding: 12px 0;
+  border-top: 2px dashed rgba(20, 12, 8, 0.18);
+}
+
+.look dt {
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  color: var(--clay);
+}
+
+.look dd {
+  margin: 0;
+}
+
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.split ul {
+  margin: 0;
+  padding-left: 1.1em;
+  display: grid;
+  gap: 10px;
+}
+
+.does {
+  background: var(--marigold);
+}
+
+.doesNot {
+  background: var(--bark);
+  color: var(--cream);
+}
+
+/* Looks like a page torn out of a notebook */
+.unfinished {
+  background:
+    repeating-linear-gradient(transparent 0 30px, rgba(196, 39, 27, 0.15) 30px 32px),
+    var(--cream);
+  border-style: dashed;
+  rotate: -1deg;
+}
+
+.todo {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.todo li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+}
+
+.todo li::before {
+  content: '';
+  width: 20px;
+  height: 20px;
+  flex: none;
+  border: 3px solid var(--ink);
+  border-radius: 6px;
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+  .portraitCol {
+    position: static;
+    max-width: 420px;
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 560px) {
+  .split {
+    grid-template-columns: 1fr;
+  }
+  .look div {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+}

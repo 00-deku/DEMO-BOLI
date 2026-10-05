@@ -1,0 +1,64 @@
+.marquee {
+  overflow: hidden;
+  border-top: var(--border);
+  border-bottom: var(--border);
+  padding: 18px 0;
+}
+
+.fire {
+  background: var(--saffron);
+  color: var(--ink);
+  transform: rotate(-1.5deg) scale(1.02);
+  margin: -14px 0;
+  position: relative;
+  z-index: 4;
+}
+
+.ink {
+  background: var(--ink);
+  color: var(--cream);
+}
+
+.track {
+  display: flex;
+  width: max-content;
+  animation: slide 40s linear infinite;
+}
+
+.reverse {
+  animation-direction: reverse;
+}
+
+.marquee:hover .track {
+  animation-play-state: paused;
+}
+
+.item {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  padding-right: 28px;
+  font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+  white-space: nowrap;
+}
+
+.roman {
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+.star {
+  color: var(--sindoor);
+  font-size: 0.8em;
+}
+
+.ink .star {
+  color: var(--marigold);
+}
+
+@keyframes slide {
+  to {
+    transform: translateX(-50%);
+  }
+}

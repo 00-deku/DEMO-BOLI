@@ -1,0 +1,96 @@
+.card {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  height: 100%;
+  border: var(--border);
+  border-radius: var(--radius-l);
+  overflow: hidden;
+  background: var(--paper);
+  box-shadow: var(--shadow-hard);
+  transition:
+    transform 0.4s var(--ease-bounce),
+    box-shadow 0.4s;
+}
+
+.card:hover {
+  transform: translateY(-8px) rotate(calc((var(--i) - 1.5) * 1deg));
+  box-shadow: 10px 12px 0 var(--ink);
+}
+
+.poster {
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 4 / 3;
+  border-bottom: var(--border);
+  overflow: hidden;
+}
+
+.motif {
+  position: absolute;
+  opacity: 0.35;
+  transform: scale(1.8);
+  transition: transform 1.2s var(--ease-out);
+}
+
+.card:hover .motif {
+  transform: scale(2.1) rotate(30deg);
+}
+
+.deva {
+  position: relative;
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  text-shadow: 3px 3px 0 rgba(20, 12, 8, 0.35);
+}
+
+.saffron .poster {
+  background: var(--grad-fire);
+  color: var(--paper);
+}
+
+.marigold .poster {
+  background: linear-gradient(160deg, var(--haldi), var(--marigold));
+  color: var(--ink);
+}
+
+.umber .poster {
+  background: var(--grad-earth);
+  color: var(--marigold);
+}
+
+.sindoor .poster {
+  background: var(--grad-geru);
+  color: var(--cream);
+}
+
+.text {
+  display: grid;
+  align-content: start;
+  gap: 10px;
+  padding: 22px 22px 26px;
+}
+
+.kind {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--clay);
+}
+
+.title {
+  font-size: 1.7rem;
+}
+
+.excerpt {
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.read {
+  margin-top: 6px;
+  font-weight: 800;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}

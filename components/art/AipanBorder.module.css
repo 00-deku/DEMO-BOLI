@@ -1,0 +1,26 @@
+.border {
+  height: 48px;
+  width: 100%;
+  border-top: var(--border);
+  border-bottom: var(--border);
+}
+
+.border svg {
+  width: 100%;
+  height: 100%;
+}
+
+.geru {
+  background: var(--clay);
+  color: var(--cream);
+}
+
+.ink {
+  background: var(--ink);
+  color: var(--marigold);
+}
+
+.fire {
+  background: var(--saffron);
+  color: var(--ink);
+}

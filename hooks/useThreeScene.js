@@ -61,6 +61,9 @@ export default function useThreeScene(setup) {
       ctx.pointer.y += (ctx.pointerTarget.y - ctx.pointer.y) * 0.05;
       if (api.update) api.update(time, ctx);
       renderer.render(scene, camera);
+      // Lets other code wait until the scene is actually on screen
+      // (the start screen's page hand-off does).
+      if (!mount.dataset.drawn) mount.dataset.drawn = 'true';
     };
 
     const resize = () => {
@@ -92,6 +95,10 @@ export default function useThreeScene(setup) {
     const ro = new ResizeObserver(resize);
     ro.observe(mount);
     resize();
+    // Draw the first frame right away instead of waiting for the next
+    // animation frame, so a freshly mounted scene is never blank (the start
+    // screen's page hand-off relies on this).
+    if (!reduceMotion) render(0);
 
     window.addEventListener('pointermove', onPointer, { passive: true });
     window.addEventListener('scroll', onScroll, { passive: true });

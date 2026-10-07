@@ -10,16 +10,38 @@ import navStyles from '@/components/layout/Navbar.module.css';
 import styles from './StartScreen.module.css';
 
 // The first screen of the site. Two Aipan wheels roll in from the left and
-// right edges (only half of each is on screen), then the BOLI wordmark and
-// the buttons appear between them. The footer from the layout follows below.
+// right edges, then the BOLI wordmark and the buttons appear between them.
+// The footer from the layout follows below.
 //
-// "Continue without login" plays a hand-off into the home page: the two half
-// wheels slide together into one mandala in the centre (the home page opens
-// on a centred mandala), and the wordmark flies up into the exact spot where
-// the navbar logo sits on /home, so the page swap is seamless.
+// "Continue without login" hands the screen over to /home so smoothly that
+// the page change can't be seen:
+//   1. All the text except BOLI fades away.
+//   2. The two wheels slide together. They are already exactly the size of
+//      the home page's mandala, so they only move, never scale; the right
+//      one fades out as they meet, leaving one mandala in the centre, which
+//      is exactly where the home page draws its own.
+//   3. The home opening's shading fades in over it.
+//   4. BOLI flies into the exact box of the navbar logo on /home.
+//   5. The browser freezes that final frame (View Transitions API) while
+//      /home mounts and draws its mandala, then cross-fades to it. Both
+//      mandalas run on the wall clock, so their rings are at the same angles.
 //
 // "I already have an account" opens the learner dashboard for now: there are
 // no accounts yet, progress is saved in this browser.
+
+// Resolves once the home page's mandala has drawn its first frame.
+// Polls with setTimeout: animation frames are paused during a view transition.
+function homeMandalaDrawn(timeout = 3000) {
+  return new Promise((resolve) => {
+    const start = Date.now();
+    const check = () => {
+      if (document.querySelector('[data-opening-mandala] [data-drawn]') || Date.now() - start > timeout) resolve();
+      else setTimeout(check, 16);
+    };
+    check();
+  });
+}
+
 export default function StartScreen() {
   const root = useRef(null);
   const target = useRef(null);
@@ -31,12 +53,23 @@ export default function StartScreen() {
     router.prefetch('/home');
   }, [router]);
 
+  const goHome = () => {
+    getLenis()?.start();
+    if (!document.startViewTransition) {
+      router.push('/home');
+      return;
+    }
+    document.startViewTransition(async () => {
+      router.push('/home');
+      await homeMandalaDrawn();
+    });
+  };
+
   const continueWithoutLogin = () => {
     if (leaving) return;
     setLeaving(true);
 
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduceMotion) {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       router.push('/home');
       return;
     }
@@ -44,8 +77,11 @@ export default function StartScreen() {
     const scope = root.current;
     const left = scope.querySelector('[data-wheel="left"]');
     const right = scope.querySelector('[data-wheel="right"]');
-    const word = scope.querySelector('[data-start="word"] [role="img"]');
+    const heading = scope.querySelector('[data-start="word"]');
+    const word = heading.querySelector('[role="img"]');
     const fading = scope.querySelectorAll('[data-start="fade"]');
+    const glow = scope.querySelector('[data-start="glow"]');
+    const handoff = scope.querySelector('[data-start="handoff"]');
     const landing = target.current.querySelector('[role="img"]');
 
     getLenis()?.stop();
@@ -53,10 +89,11 @@ export default function StartScreen() {
 
     // CSS entrance animations keep control of `transform`; switch them off
     // (they have already finished, so nothing visibly changes).
-    gsap.set([left, right, word.closest('[data-start="word"]'), ...fading], { animation: 'none' });
+    gsap.set([left, right, heading, ...fading], { animation: 'none' });
 
-    // Where each wheel's centre must travel to reach the middle of the screen.
-    const cx = window.innerWidth / 2;
+    // Each wheel's centre travels to the centre of the screen, which is
+    // where the home page centres its mandala.
+    const cx = document.documentElement.clientWidth / 2;
     const cy = window.innerHeight / 2;
     const toCentre = (el) => {
       const r = el.getBoundingClientRect();
@@ -65,40 +102,38 @@ export default function StartScreen() {
     const l = toCentre(left);
     const r = toCentre(right);
 
-    // FLIP the wordmark onto the navbar logo's exact box. First pin it where
-    // it is (position: fixed), so nothing can shift it mid-flight, e.g. the
-    // window resizing while it is centred. Keep its heading's height so the
-    // layout around it doesn't jump.
-    const heading = word.closest('[data-start="word"]');
+    // Pin the wordmark where it is (so nothing can shift it mid-flight),
+    // keep its heading's height so nothing around it jumps, then FLIP it
+    // onto the navbar logo's exact box.
     const from = word.getBoundingClientRect();
     gsap.set(heading, { height: heading.offsetHeight });
     gsap.set(word, { position: 'fixed', left: from.left, top: from.top, margin: 0, zIndex: 5 });
     const to = landing.getBoundingClientRect();
-    const scale = to.width / from.width;
 
-    const tl = gsap.timeline({
-      defaults: { ease: 'power3.inOut' },
-      onComplete: () => {
-        getLenis()?.start();
-        router.push('/home');
-      },
-    });
-
-    tl.to(fading, { opacity: 0, y: 24, duration: 0.4, ease: 'power2.in', stagger: 0.05 }, 0)
-      .to(left, { x: l.x, y: l.y, rotate: 140, scale: 1.12, duration: 1.25 }, 0.1)
-      .to(right, { x: r.x, y: r.y, rotate: -140, scale: 1.12, duration: 1.25 }, 0.1)
+    gsap
+      .timeline({ defaults: { ease: 'power3.inOut' }, onComplete: goHome })
+      // 1. every other text simply disappears
+      .to(fading, { opacity: 0, y: 12, duration: 0.45, ease: 'power2.out', stagger: 0.04 }, 0)
+      // 2. the wheels slide together; the right one dissolves as they meet
+      .to(left, { x: l.x, y: l.y, duration: 1.5 }, 0)
+      .to(right, { x: r.x, y: r.y, duration: 1.5 }, 0)
+      .to(right, { opacity: 0, duration: 0.8, ease: 'power1.inOut' }, 0.7)
+      // 3. swap this screen's glow for the home opening's shading
+      .to(glow, { opacity: 0, duration: 1.1, ease: 'power1.inOut' }, 0.4)
+      .to(handoff, { opacity: 1, duration: 1.1, ease: 'power1.inOut' }, 0.4)
+      // 4. BOLI flies into the navbar, its outline thinning away
       .to(
         word,
         {
           transformOrigin: '0 0',
           x: to.left - from.left,
           y: to.top - from.top,
-          scale,
+          scale: to.width / from.width,
           '--wm-stroke': '0em',
           '--wm-shadow': '0em',
-          duration: 1.15,
+          duration: 1.3,
         },
-        0.2,
+        0.15,
       );
   };
 
@@ -110,6 +145,8 @@ export default function StartScreen() {
       <div className={`${styles.wheel} ${styles.right}`} data-wheel="right" aria-hidden="true">
         <AipanCanvas fit />
       </div>
+      <div className={styles.handoff} data-start="handoff" aria-hidden="true" />
+      <div className={styles.glow} data-start="glow" aria-hidden="true" />
 
       <div className={styles.center}>
         <h1 className={styles.logo} data-start="word">

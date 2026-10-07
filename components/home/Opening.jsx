@@ -8,7 +8,9 @@ import styles from './Opening.module.css';
 export default function Opening() {
   return (
     <section className={styles.section}>
-      <AipanCanvas />
+      <div className={styles.mandala} data-opening-mandala>
+        <AipanCanvas />
+      </div>
       <Parallax speed={-0.15} className={styles.layer}>
         <div className={`container ${styles.content}`}>
           <p className={`deva ${styles.word}`}>पैलाग</p>

@@ -88,6 +88,7 @@ Fonts load through `next/font/google`, which downloads them at build time and se
 | --- | --- | --- |
 | Whole site | Smooth, gliding scroll | Lenis (`components/motion/SmoothScroll.jsx`) |
 | Start screen | Two half Aipan wheels roll in from the edges, wordmark pops in, buttons rise | CSS keyframes + three.js (`AipanCanvas fit`) |
+| Start → home hand-off ("Continue without login") | Text fades; the two wheels (already sized to the home mandala) slide together and the right one dissolves, leaving the home mandala in place; the opening's shading fades in; BOLI flies into the navbar logo's box; the browser holds that frame (View Transitions API) until /home has drawn, then cross-fades | GSAP timeline + `document.startViewTransition` |
 | Hero title | BOLI on a cream rising-sun disc ringed with slowly turning Aipan dots; hero ground fades into the manifesto's orange | CSS pseudo-elements |
 | Opening | Rotating white Aipan mandala on geru that tilts toward the pointer; text rises slightly faster than the page | three.js (`lib/three/aipan.js`) + `Parallax` |
 | Hero | Layered parallax: title lifts, village layers sink at three depths | GSAP ScrollTrigger (`components/home/Hero.jsx`) |

@@ -2,7 +2,10 @@
    bottom into the hero's dusk sky so the two sections flow together. */
 .section {
   position: relative;
-  min-height: 100svh;
+  /* exactly one screen, so the mandala's size and centre are predictable
+     (the start screen's wheels are sized to land on it) */
+  height: 100svh;
+  min-height: var(--screen-min);
   display: grid;
   place-items: center;
   overflow: hidden;
@@ -19,17 +22,17 @@
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  background:
-    linear-gradient(
-      180deg,
-      transparent 0%,
-      transparent 58%,
-      rgba(196, 39, 27, 0.55) 70%,
-      rgba(240, 122, 38, 0.85) 82%,
-      #f9d9ac 94%,
-      #fbeedb 100%
-    ),
-    radial-gradient(ellipse 55% 45% at 50% 45%, rgba(79, 23, 10, 0.75) 0%, rgba(79, 23, 10, 0.35) 55%, transparent 80%);
+  background: var(--opening-shade);
+}
+
+/* The mandala canvas always covers exactly the screen, even when the
+   section is taller (very short windows). */
+.mandala {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100svh;
 }
 
 .layer {
@@ -44,9 +47,9 @@
   z-index: 1;
   display: grid;
   justify-items: center;
-  gap: 22px;
-  padding-top: calc(var(--nav-h) + 24px);
-  padding-bottom: 22vh;
+  gap: clamp(12px, 2.6vh, 22px);
+  padding-top: var(--nav-h);
+  padding-bottom: 16vh;
   text-align: center;
   pointer-events: none;
 }
@@ -63,7 +66,8 @@
 }
 
 .title {
-  font-size: clamp(3.4rem, 11vw, 9rem);
+  /* sized by width and height, so the whole block fits one screen */
+  font-size: clamp(2.6rem, min(11vw, 13vh), 9rem);
   text-shadow: 6px 6px 0 var(--ink);
   animation: rise 1s var(--ease-out) 0.1s both;
 }

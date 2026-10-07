@@ -32,6 +32,24 @@
   --grad-geru: radial-gradient(circle at 50% 45%, #b13d1e 0%, #8a2b14 55%, #4f170a 100%);
   --grad-earth: linear-gradient(180deg, var(--umber) 0%, var(--ink) 100%);
 
+  /* Shading over the home opening's mandala: dark glow behind the text,
+     then a fade at the bottom into the hero's sky. The start screen fades
+     the very same shading in during its hand-off, so it is defined once. */
+  --opening-shade:
+    linear-gradient(
+      180deg,
+      transparent 0%,
+      transparent 58%,
+      rgba(196, 39, 27, 0.55) 70%,
+      rgba(240, 122, 38, 0.85) 82%,
+      #f9d9ac 94%,
+      #fbeedb 100%
+    ),
+    radial-gradient(ellipse 55% 45% at 50% 45%, rgba(79, 23, 10, 0.75) 0%, rgba(79, 23, 10, 0.35) 55%, transparent 80%);
+  /* The opening (and the start screen) are exactly one screen tall,
+     but never shorter than this */
+  --screen-min: 560px;
+
   /* Type */
   --font-body: var(--font-display), system-ui, sans-serif;
   --font-head: var(--font-display), system-ui, sans-serif;

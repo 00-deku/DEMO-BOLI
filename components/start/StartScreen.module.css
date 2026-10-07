@@ -1,18 +1,21 @@
 .screen {
-  --wheel: min(96svh, 78vw);
   position: relative;
-  min-height: 100svh;
+  /* exactly one screen tall, like the home opening it hands over to */
+  height: 100svh;
+  min-height: var(--screen-min);
   display: grid;
   place-items: center;
   overflow: hidden;
   background: var(--grad-geru);
   color: var(--cream);
   isolation: isolate;
+  /* lets the wheels size themselves from the screen's width (cqw) */
+  container-type: inline-size;
 }
 
-/* Dark glow in the middle so the wordmark and buttons sit calmly between the wheels */
-.screen::after {
-  content: '';
+/* Dark glow in the middle so the wordmark and buttons sit calmly between
+   the wheels. Fades out during the hand-off. */
+.glow {
   position: absolute;
   inset: 0;
   z-index: 1;
@@ -20,23 +23,45 @@
   background: radial-gradient(ellipse 38% 46% at 50% 50%, rgba(79, 23, 10, 0.7) 0%, rgba(79, 23, 10, 0) 75%);
 }
 
-/* ---- Half wheels: each mandala's centre sits on the screen edge ---- */
+/* The home opening's own shading, invisible until the hand-off fades it in,
+   so the moment the page swaps nothing changes on screen. */
+.handoff {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: max(100svh, var(--screen-min));
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0;
+  background: var(--opening-shade);
+}
+
+/* ---- Wheels ----
+   Each wheel is a fitted mandala sized to be EXACTLY as big as the home
+   opening's mandala: 1.345 x the smaller of screen width and height
+   (7.8 / (14 x tan 22.5deg), from the two cameras in lib/three/aipan.js).
+   So during the hand-off the wheels only slide, never scale, and the one
+   that ends in the centre is pixel-for-pixel the home mandala.
+   About 40% of each wheel shows at the sides to begin with. */
 .wheel {
+  --wheel: calc(1.345 * min(100cqw, 100svh));
   position: absolute;
   top: 50%;
   z-index: 0;
   width: var(--wheel);
   height: var(--wheel);
   margin-top: calc(var(--wheel) / -2);
+  will-change: transform, opacity;
 }
 
 .left {
-  left: calc(var(--wheel) / -2);
+  left: calc(var(--wheel) * -0.6);
   animation: roll-left 1.6s var(--ease-out) both;
 }
 
 .right {
-  right: calc(var(--wheel) / -2);
+  right: calc(var(--wheel) * -0.6);
   animation: roll-right 1.6s var(--ease-out) both;
 }
 
@@ -44,14 +69,14 @@
 @keyframes roll-left {
   from {
     opacity: 0;
-    transform: translateX(-45%) rotate(-160deg) scale(0.85);
+    transform: translateX(-45%) rotate(-160deg);
   }
 }
 
 @keyframes roll-right {
   from {
     opacity: 0;
-    transform: translateX(45%) rotate(160deg) scale(0.85);
+    transform: translateX(45%) rotate(160deg);
   }
 }
 
@@ -136,14 +161,19 @@
 
 /* Phones: wheels sit higher and lower so the middle stays clear */
 @media (max-width: 640px) {
-  .screen {
-    --wheel: 92vw;
+  .left,
+  .right {
+    left: 50%;
+    right: auto;
+    margin-left: calc(var(--wheel) / -2);
+    margin-top: 0;
   }
   .left {
-    top: 18%;
+    top: calc(var(--wheel) * -0.62);
   }
   .right {
-    top: 82%;
+    top: auto;
+    bottom: calc(var(--wheel) * -0.62);
   }
   .actions {
     flex-direction: column;

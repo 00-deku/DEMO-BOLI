@@ -33,12 +33,16 @@
 
 /* Hero version: ink outline around every letter and the lamp,
    plus a hard offset shadow under the whole word. */
+/* The sizes are CSS variables so an animation can thin them away
+   (the start screen does this as the wordmark flies into the navbar). */
 .outlined {
-  -webkit-text-stroke: 0.025em var(--ink);
-  filter: drop-shadow(0.04em 0.04em 0 var(--ink));
+  --wm-stroke: 0.025em;
+  --wm-shadow: 0.04em;
+  -webkit-text-stroke: var(--wm-stroke) var(--ink);
+  filter: drop-shadow(var(--wm-shadow) var(--wm-shadow) 0 var(--ink));
 }
 
 .outlined .diyaWrap {
-  filter: drop-shadow(0.02em 0 0 var(--ink)) drop-shadow(-0.02em 0 0 var(--ink)) drop-shadow(0 0.02em 0 var(--ink))
-    drop-shadow(0 -0.02em 0 var(--ink));
+  filter: drop-shadow(var(--wm-stroke) 0 0 var(--ink)) drop-shadow(calc(-1 * var(--wm-stroke)) 0 0 var(--ink))
+    drop-shadow(0 var(--wm-stroke) 0 var(--ink)) drop-shadow(0 calc(-1 * var(--wm-stroke)) 0 var(--ink));
 }

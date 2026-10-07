@@ -81,6 +81,45 @@
   animation: rise 0.9s var(--ease-out) 1.35s both;
 }
 
+/* "Continue without login": a quiet text button under the two main ones */
+.guest {
+  padding: 6px 4px;
+  border: 0;
+  background: none;
+  color: var(--cream);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
+  opacity: 0.85;
+  transition:
+    opacity 0.2s,
+    color 0.2s,
+    text-underline-offset 0.2s;
+  animation: rise 0.9s var(--ease-out) 1.5s both;
+  margin-top: calc(-1 * clamp(12px, 3vh, 28px));
+}
+
+.guest:hover {
+  opacity: 1;
+  color: var(--marigold);
+  text-underline-offset: 9px;
+}
+
+/* While the hand-off animation plays, nothing else can be clicked */
+.leaving {
+  pointer-events: none;
+}
+
+/* Invisible copy of the navbar logo, only measured as the landing spot */
+.landing {
+  visibility: hidden;
+  pointer-events: none;
+}
+
 @keyframes pop {
   from {
     opacity: 0;

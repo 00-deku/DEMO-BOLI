@@ -19,7 +19,7 @@ Three visual sources:
 **Logo:** "B·L·I" in chunky, hand-drawn letters, with a **diya** (oil lamp) standing in for the O, a flame for light, and three leaves on the bowl for growth.
 
 - Source artwork: `public/brand/boli-logo.png` (full wordmark) and `public/brand/diya.png` (lamp only), both transparent PNGs.
-- `components/art/BoliLogo.jsx` uses them as a **CSS mask**, so the logo takes any `fill`: ink in the navbar, the fire gradient in the hero and footer.
+- `components/art/BoliLogo.jsx` uses them as a **CSS mask**, so the logo takes any `fill`. It is shown in its original black in the navbar (no background) and the hero, and in cream on the dark footer.
 - Favicons (`public/brand/favicon.png`, `apple-touch-icon.png`) are the diya in sindoor red on a cream tile.
 
 **Icons** (`components/art/Motif.jsx`) follow the logo: **solid filled shapes with cut-out details**, like the leaves in the diya's bowl. Each icon is one SVG path with `fill-rule="evenodd"`, so inner shapes become holes.

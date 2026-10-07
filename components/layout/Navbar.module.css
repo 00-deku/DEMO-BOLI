@@ -1,16 +1,11 @@
-/* ---- Logo, pinned top-left on a paper tab ---- */
+/* ---- Logo, pinned top-left, no background ---- */
 .logo {
   position: fixed;
-  top: 14px;
+  top: 18px;
   left: var(--gutter);
   z-index: 50;
   display: inline-flex;
   align-items: center;
-  padding: 9px 16px;
-  border: 2px solid var(--ink);
-  border-radius: 16px;
-  background: var(--paper);
-  box-shadow: 3px 3px 0 var(--ink);
   transition: transform 0.4s var(--ease-out);
 }
 
@@ -23,7 +18,7 @@
 }
 
 .logoArt {
-  width: 92px;
+  width: 110px;
 }
 
 /* ---- Slim vertical rail, right edge, centred ---- */
@@ -89,11 +84,8 @@
 
 /* Small screens: icons only (labels still read by screen readers). */
 @media (max-width: 640px) {
-  .logo {
-    padding: 7px 12px;
-  }
   .logoArt {
-    width: 72px;
+    width: 84px;
   }
   .rail {
     right: 10px;

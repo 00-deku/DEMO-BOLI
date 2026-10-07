@@ -48,13 +48,13 @@ export default function Hero() {
           </p>
           <h2 className={styles.title}>
             <span className={styles.word}>
-              <BoliLogo fill="var(--grad-fire)" className={styles.logoArt} />
+              <BoliLogo className={styles.logoArt} />
             </span>
           </h2>
         </div>
         <div data-hero-layer="copy" className={styles.copyBlock}>
           <p className={styles.lede}>
-            Learn <strong>Kumaoni</strong>{' '}
+            Learn <strong>BOLI</strong>{' '}
             <span className="serif">the way it was always taught:</span> one word at a time, with a story and a
             grandfather who never runs out of either.
           </p>

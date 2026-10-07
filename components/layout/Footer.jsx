@@ -22,7 +22,7 @@ export default function Footer() {
           ))}
         </nav>
 
-        <BoliLogo fill="var(--grad-fire)" className={styles.wordmark} />
+        <BoliLogo fill="var(--cream)" className={styles.wordmark} />
 
         <div className={styles.meta}>
           <span>Pilot: {site.pilotLanguage} · {site.region}</span>

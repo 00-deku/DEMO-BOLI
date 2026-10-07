@@ -4,7 +4,7 @@
   "private": true,
   "description": "Boli — a gamified learning platform for India's endangered mother tongues. Frontend (Next.js + React + three.js).",
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"

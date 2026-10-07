@@ -50,7 +50,7 @@
   --gutter: clamp(16px, 4vw, 48px);
   --max: 1280px;
   --nav-h: 76px;
-  --rail-space: 112px;
+  --rail-space: 96px;
 
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -202,7 +202,7 @@ canvas {
 
 @media (max-width: 640px) {
   :root {
-    --rail-space: 72px;
+    --rail-space: 64px;
   }
   /* phones: only the right side needs room for the rail */
   .container {

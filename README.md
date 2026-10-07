@@ -25,7 +25,7 @@ This repository holds the **frontend prototype**: a Next.js + React website with
 
 | Page | Route | What it does |
 | --- | --- | --- |
-| Home | `/` | Every section shares the hero's **dusk-sky theme**. Opens on **"Start with one word."** over a turning **three.js Aipan mandala**, then the **layered parallax hero**: a static three.js Himalayan backdrop with an SVG Kumaoni village whose layers sink at different speeds. Then a manifesto that lights up word by word, feature cards, Baujyu intro, the lesson trail, badges and stories. |
+| Home | `/` | Every section shares the hero's **dusk-sky theme**. Opens on **"Start with one word."** over a turning **three.js Aipan mandala** on red ochre that fades into the hero, then the **layered parallax hero**: a static three.js Himalayan backdrop with an SVG Kumaoni village whose layers sink at different speeds. Then a manifesto that lights up word by word, feature cards, Baujyu intro, the lesson trail, badges and stories. |
 | Learn | `/learn` | Progress panel (XP, streak, badges) and all units and lessons. |
 | Lesson | `/learn/[lessonId]` | A short lesson: intro → 3D flip word cards → multiple-choice quiz → celebration. XP and streak are saved in the browser. |
 | Stories | `/stories` | Festivals and folklore as poster cards. |
@@ -117,7 +117,7 @@ DEMO-BOLI/
 │   ├── progress.js           # XP / streak / badge logic (pure functions)
 │   └── three/                # The three.js scenes themselves
 ├── docs/                     # Longer write-ups (architecture, design, content, resources)
-└── public/                   # Static files (favicon)
+└── public/brand/             # Logo artwork (wordmark + diya) and favicons
 ```
 
 Each main folder has its own short `README.md` explaining what lives there.
@@ -147,6 +147,8 @@ The brief asked for something that **feels like art, not a template**, in shades
 
 - **Palette:** sindoor red, saffron, marigold, haldi, geru (red ochre), umber, bark, soot and ink, on cream paper.
 - **Visual sources:** Aipan (white rice-paste patterns on geru), Madhubani line work, and Himalayan ridgelines.
+- **Logo:** "B·L·I" with a diya (oil lamp) as the O. The artwork in `public/brand/` is used as a CSS mask by `components/art/BoliLogo.jsx`, so it can be painted with any colour or gradient.
+- **Icons:** solid, chunky glyphs with cut-out details, drawn to match the diya in the logo (`components/art/Motif.jsx`).
 - **Type:** Rubik (chunky display), Fraunces italic (warm accent), Tiro Devanagari Hindi (Kumaoni script).
 - **Texture:** thick ink outlines, hard offset shadows, slight tilts and a paper-grain overlay, so it looks printed rather than digital.
 - **Motion:** Lenis smooth scroll, GSAP layered parallax (hero village, floating cards), a static three.js mountain backdrop with drifting clouds and petals, drifting marigold petals, word-by-word scroll reveal, flip cards, a blinking and nodding Baujyu. Everything respects `prefers-reduced-motion`.

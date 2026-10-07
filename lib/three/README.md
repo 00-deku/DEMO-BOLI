@@ -19,7 +19,7 @@ export function buildSomething(ctx) {
 | File | Scene |
 | --- | --- |
 | `hills.js` | Six layered Himalayan ridges (far, snow-capped peaks to near, dark foothills), a sun with halo rings, drifting clouds, falling marigold petals. The mountains are a static backdrop; only the sky moves. |
-| `aipan.js` | An Aipan mandala: rings of dots and lotus petals in red ochre and saffron, drawn on the hero's dusk sky. Rings counter-rotate, the mandala breathes and tilts toward the pointer. |
+| `aipan.js` | An Aipan mandala: rings of white dots and lotus petals on red ochre. Rings counter-rotate, the mandala breathes and tilts toward the pointer. |
 | `helpers.js` | `seededRandom` (same mountains every load), `makeDotTexture` (round sprite via 2D canvas), `lerp` |
 
 ## Adding a new scene

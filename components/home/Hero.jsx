@@ -3,6 +3,7 @@
 import { useRef } from 'react';
 import HillsCanvas from '@/components/three/HillsCanvas';
 import VillageScene from '@/components/art/VillageScene';
+import BoliLogo from '@/components/art/BoliLogo';
 import Button from '@/components/ui/Button';
 import { gsap, MOTION_OK, useGSAP } from '@/lib/motion';
 import styles from './Hero.module.css';
@@ -46,7 +47,9 @@ export default function Hero() {
             Welcome to
           </p>
           <h2 className={styles.title}>
-            <span className={styles.word}>Boli</span>
+            <span className={styles.word}>
+              <BoliLogo fill="var(--grad-fire)" className={styles.logoArt} />
+            </span>
           </h2>
         </div>
         <div data-hero-layer="copy" className={styles.copyBlock}>

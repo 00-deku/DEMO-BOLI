@@ -1,120 +1,110 @@
-// Hand-built SVG motifs used for feature cards and badges.
-// All strokes use currentColor, so the parent decides the colour.
+// Solid, chunky folk-art glyphs drawn to match the Boli logo: filled
+// shapes with cut-out details (like the leaves in the logo's diya).
+// Each glyph is ONE path with fill-rule "evenodd", so inner shapes become
+// holes. Everything uses currentColor, so the parent decides the colour.
 //
-// motif: 'aipan' | 'chowki' | 'madhubani' | 'himalaya' | 'topi' | 'diyo'
+// motif: 'diyo' | 'home' | 'book' | 'aipan' | 'chowki' | 'madhubani' | 'himalaya' | 'topi'
 
-const ring = (count, radius, cx = 50, cy = 50) =>
-  Array.from({ length: count }, (_, i) => {
-    const a = (i / count) * Math.PI * 2;
-    return [cx + Math.cos(a) * radius, cy + Math.sin(a) * radius, a];
-  });
+const n = (v) => Math.round(v * 100) / 100;
 
-function Aipan() {
-  return (
-    <g>
-      <circle cx="50" cy="50" r="7" fill="currentColor" />
-      {ring(8, 0).map(([, , a], i) => {
-        const tipX = 50 + Math.cos(a) * 30;
-        const tipY = 50 + Math.sin(a) * 30;
-        const l = a - 0.38;
-        const r = a + 0.38;
-        return (
-          <path
-            key={i}
-            d={`M${50 + Math.cos(l) * 11} ${50 + Math.sin(l) * 11} Q${50 + Math.cos(l) * 27} ${50 + Math.sin(l) * 27} ${tipX} ${tipY} Q${50 + Math.cos(r) * 27} ${50 + Math.sin(r) * 27} ${50 + Math.cos(r) * 11} ${50 + Math.sin(r) * 11}`}
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="3"
-            strokeLinejoin="round"
-          />
-        );
-      })}
-      {ring(24, 40).map(([x, y], i) => (
-        <circle key={i} cx={x} cy={y} r="2.2" fill="currentColor" />
-      ))}
-    </g>
-  );
-}
+const circle = (cx, cy, r) => `M${n(cx - r)} ${n(cy)}a${r} ${r} 0 1 0 ${n(2 * r)} 0a${r} ${r} 0 1 0 ${n(-2 * r)} 0Z`;
 
-function Chowki() {
-  return (
-    <g fill="none" stroke="currentColor" strokeWidth="3" strokeLinejoin="round">
-      <rect x="14" y="14" width="72" height="72" />
-      <rect x="28" y="28" width="44" height="44" transform="rotate(45 50 50)" />
-      <rect x="38" y="38" width="24" height="24" />
-      {[
-        [14, 14],
-        [86, 14],
-        [14, 86],
-        [86, 86],
-      ].map(([x, y], i) => (
-        <circle key={i} cx={x} cy={y} r="5" fill="currentColor" />
-      ))}
-      {ring(12, 6).map(([x, y], i) => (
-        <circle key={`d${i}`} cx={x} cy={y} r="1.5" fill="currentColor" stroke="none" />
-      ))}
-    </g>
-  );
-}
+// A pointed leaf / petal from (x, y), `length` long, pointing at `angle` degrees.
+const leaf = (x, y, length, width, angle) => {
+  const a = (angle * Math.PI) / 180;
+  const tx = x + Math.cos(a) * length;
+  const ty = y + Math.sin(a) * length;
+  const mx = (x + tx) / 2;
+  const my = (y + ty) / 2;
+  const nx = -Math.sin(a) * width;
+  const ny = Math.cos(a) * width;
+  return `M${n(x)} ${n(y)}Q${n(mx + nx)} ${n(my + ny)} ${n(tx)} ${n(ty)}Q${n(mx - nx)} ${n(my - ny)} ${n(x)} ${n(y)}Z`;
+};
 
-function Madhubani() {
-  return (
-    <g fill="none" stroke="currentColor" strokeWidth="3" strokeLinejoin="round" strokeLinecap="round">
-      <path d="M12 50 C28 24 58 22 74 50 C58 78 28 76 12 50 Z" />
-      <path d="M74 50 L92 34 L88 50 L92 66 Z" />
-      <circle cx="26" cy="46" r="4" fill="currentColor" />
-      <path d="M36 32 C40 44 40 56 36 68" />
-      {[44, 52, 60].map((x) => (
-        <path key={x} d={`M${x} 34 l4 6 l-4 6 l4 6 l-4 6 l4 6 l-4 6`} strokeWidth="2" />
-      ))}
-    </g>
-  );
-}
+const bar = (x, y, w, h) => {
+  const r = h / 2;
+  return `M${x + r} ${y}H${x + w - r}a${r} ${r} 0 0 1 0 ${h}H${x + r}a${r} ${r} 0 0 1 0 ${-h}Z`;
+};
 
-function Himalaya() {
-  return (
-    <g strokeLinejoin="round">
-      <circle cx="72" cy="28" r="9" fill="none" stroke="currentColor" strokeWidth="3" />
-      <path d="M6 82 L34 38 L48 58 L62 30 L94 82 Z" fill="none" stroke="currentColor" strokeWidth="3" />
-      <path d="M28 47 L34 38 L40 47 L35 45 Z M55 41 L62 30 L69 41 L62 38 Z" fill="currentColor" />
-      <path d="M10 90 H90" stroke="currentColor" strokeWidth="3" strokeDasharray="2 6" strokeLinecap="round" />
-    </g>
-  );
-}
+const ring = (count, radius, fn) =>
+  Array.from({ length: count }, (_, i) => fn((i / count) * 360 - 90, radius)).join('');
 
-function Topi() {
-  return (
-    <g fill="none" stroke="currentColor" strokeWidth="3" strokeLinejoin="round" strokeLinecap="round">
-      <path d="M12 66 C18 34 82 34 88 66 C70 60 30 60 12 66 Z" />
-      <path d="M50 38 C48 48 48 56 50 62" />
-      <path d="M16 70 C34 64 66 64 84 70" strokeDasharray="1 6" />
-    </g>
-  );
-}
-
-function Diyo() {
-  return (
-    <g fill="none" stroke="currentColor" strokeWidth="3" strokeLinejoin="round" strokeLinecap="round">
-      <path d="M14 62 C22 82 78 82 86 62 C70 66 30 66 14 62 Z" />
-      <path d="M50 58 C38 46 44 30 50 18 C56 30 62 46 50 58 Z" fill="currentColor" />
-      {ring(5, 0).map((_, i) => (
-        <circle key={i} cx={26 + i * 12} cy="72" r="1.6" fill="currentColor" stroke="none" />
-      ))}
-    </g>
-  );
-}
-
-const MOTIFS = {
-  aipan: Aipan,
-  chowki: Chowki,
-  madhubani: Madhubani,
-  himalaya: Himalaya,
-  topi: Topi,
-  diyo: Diyo,
+const GLYPHS = {
+  // The lamp from the logo: flame with an inner flame, rim, bowl with three leaves
+  diyo: [
+    'M50 6C63 20 71 34 65 47C61 55 39 55 35 47C29 34 37 20 50 6Z',
+    leaf(50, 52, 20, 11, -90),
+    'M6 59Q30 51 50 61Q70 51 94 59Q50 71 6 59Z',
+    'M13 67Q50 78 87 67C85 84 70 95 50 95C30 95 15 84 13 67Z',
+    leaf(50, 91, 14, 9, -90),
+    leaf(43, 91, 12, 8, -140),
+    leaf(57, 91, 12, 8, -40),
+  ],
+  // A Kumaoni house with an arched door and a round window
+  home: [
+    'M10 48L50 12L90 48L80 48L80 90L20 90L20 48Z',
+    'M42 84V70a8 8 0 0 1 16 0V84Z',
+    circle(50, 42, 6),
+  ],
+  // An open book with lines cut out
+  book: [
+    'M47 30C38 22 24 21 10 25V80C24 76 38 77 47 85Z',
+    'M53 30C62 22 76 21 90 25V80C76 76 62 77 53 85Z',
+    bar(17, 38, 22, 5),
+    bar(17, 50, 22, 5),
+    bar(17, 62, 16, 5),
+    bar(61, 38, 22, 5),
+    bar(61, 50, 22, 5),
+    bar(67, 62, 16, 5),
+  ],
+  // Lotus flower: eight petals, each with a leaf cut out, and a centre bindu
+  aipan: [
+    ring(8, 12, (deg, r) => {
+      const a = (deg * Math.PI) / 180;
+      return leaf(50 + Math.cos(a) * r, 50 + Math.sin(a) * r, 34, 22, deg);
+    }),
+    ring(8, 22, (deg, r) => {
+      const a = (deg * Math.PI) / 180;
+      return leaf(50 + Math.cos(a) * r, 50 + Math.sin(a) * r, 15, 7, deg);
+    }),
+    circle(50, 50, 8),
+    circle(50, 50, 3),
+  ],
+  // Chowki: a ritual square with a diamond, a bindu and corner dots
+  chowki: [
+    'M22 10H78Q90 10 90 22V78Q90 90 78 90H22Q10 90 10 78V22Q10 10 22 10Z',
+    'M50 22L78 50L50 78L22 50Z',
+    circle(50, 50, 9),
+    circle(23, 23, 5),
+    circle(77, 23, 5),
+    circle(23, 77, 5),
+    circle(77, 77, 5),
+  ],
+  // Madhubani fish with an eye and curved scale cut-outs
+  madhubani: [
+    'M6 50C22 25 54 23 70 50C54 77 22 75 6 50Z',
+    'M74 50L94 31C89 44 89 56 94 69Z',
+    circle(22, 47, 4.5),
+    leaf(38, 66, 30, 8, -90),
+    leaf(53, 63, 26, 8, -90),
+  ],
+  // Two peaks with snow caps cut out, and the sun
+  himalaya: [
+    'M4 88L34 40L46 58L62 28L96 88Z',
+    'M62 37L70 50L65 48L62 53L58 48L54 50Z',
+    'M34 48L40 58L36 56L33 60L30 56L28 58Z',
+    circle(82, 18, 9),
+  ],
+  // Pahadi topi with a crease and a band cut out
+  topi: [
+    'M8 76C10 18 90 18 92 76C72 68 28 68 8 76Z',
+    'M15 66C35 55 65 55 85 66C65 62 35 62 15 66Z',
+    leaf(50, 56, 20, 9, -90),
+  ],
 };
 
 export default function Motif({ motif = 'aipan', size = 64, className = '', title }) {
-  const Shape = MOTIFS[motif] || Aipan;
+  const d = (GLYPHS[motif] || GLYPHS.aipan).join('');
   return (
     <svg
       viewBox="0 0 100 100"
@@ -125,7 +115,7 @@ export default function Motif({ motif = 'aipan', size = 64, className = '', titl
       aria-hidden={title ? undefined : true}
     >
       {title && <title>{title}</title>}
-      <Shape />
+      <path d={d} fill="currentColor" fillRule="evenodd" />
     </svg>
   );
 }

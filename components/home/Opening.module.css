@@ -1,23 +1,35 @@
-/* Same dusk sky as the hero, so the page reads as one landscape. */
+/* Red-ochre Aipan ground (geru) with the white mandala, fading at the
+   bottom into the hero's dusk sky so the two sections flow together. */
 .section {
   position: relative;
   min-height: 100svh;
   display: grid;
   place-items: center;
   overflow: hidden;
-  background: var(--grad-dusk);
-  color: var(--ink);
+  background: var(--grad-geru);
+  color: var(--cream);
   isolation: isolate;
 }
 
-/* Soft warm glow behind the text so the mandala lines don't fight the copy */
+/* Sits above the mandala: a dark glow behind the text, then the
+   gradient toward the end that melts into the hero below. */
 .section::after {
   content: '';
   position: absolute;
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  background: radial-gradient(ellipse 50% 42% at 50% 50%, rgba(251, 238, 219, 0.9) 0%, rgba(251, 238, 219, 0.5) 55%, transparent 80%);
+  background:
+    linear-gradient(
+      180deg,
+      transparent 0%,
+      transparent 58%,
+      rgba(196, 39, 27, 0.55) 70%,
+      rgba(240, 122, 38, 0.85) 82%,
+      #f9d9ac 94%,
+      #fbeedb 100%
+    ),
+    radial-gradient(ellipse 55% 45% at 50% 45%, rgba(79, 23, 10, 0.75) 0%, rgba(79, 23, 10, 0.35) 55%, transparent 80%);
 }
 
 .layer {
@@ -34,7 +46,7 @@
   justify-items: center;
   gap: 22px;
   padding-top: calc(var(--nav-h) + 24px);
-  padding-bottom: 140px;
+  padding-bottom: 22vh;
   text-align: center;
   pointer-events: none;
 }
@@ -46,20 +58,20 @@
 
 .word {
   font-size: clamp(1.8rem, 4vw, 2.8rem);
-  color: var(--sindoor);
+  color: var(--marigold);
   animation: rise 0.9s var(--ease-out) both;
 }
 
 .title {
   font-size: clamp(3.4rem, 11vw, 9rem);
-  color: var(--ink);
-  text-shadow: 6px 6px 0 var(--marigold);
+  text-shadow: 6px 6px 0 var(--ink);
   animation: rise 1s var(--ease-out) 0.1s both;
 }
 
 .lede {
   max-width: 36ch;
   font-size: 1.15rem;
+  text-shadow: 0 1px 8px rgba(20, 12, 8, 0.6);
   animation: rise 1s var(--ease-out) 0.25s both;
 }
 

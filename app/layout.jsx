@@ -33,7 +33,7 @@ export const metadata = {
     template: '%s · Boli',
   },
   description: site.tagline,
-  icons: { icon: '/favicon.svg' },
+  icons: { icon: '/brand/favicon.png', apple: '/brand/apple-touch-icon.png' },
 };
 
 export const viewport = {

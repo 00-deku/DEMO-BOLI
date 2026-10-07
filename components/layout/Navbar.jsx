@@ -3,17 +3,18 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import BoliLogo from '@/components/art/BoliLogo';
 import Motif from '@/components/art/Motif';
 import { navLinks } from '@/data/site';
 import styles from './Navbar.module.css';
 
 // Navigation in two parts:
-//  - a small sticker logo pinned top-left,
-//  - a vertical rail on the right edge, one folk-art icon per page.
+//  - the Boli logo pinned top-left,
+//  - a slim vertical rail on the right edge, one icon per page.
 // Both slide away while you scroll down and return when you scroll up.
 // The rail hides inside a lesson, which has its own close button.
 
-const ICONS = { '/': 'aipan', '/learn': 'chowki', '/stories': 'himalaya', '/baujyu': 'topi' };
+const ICONS = { '/': 'home', '/learn': 'book', '/stories': 'himalaya', '/baujyu': 'topi' };
 
 const isActive = (pathname, href) => (href === '/' ? pathname === '/' : pathname.startsWith(href));
 
@@ -40,8 +41,7 @@ export default function Navbar() {
   return (
     <>
       <Link href="/" className={`${styles.logo} ${hidden ? styles.logoHidden : ''}`} aria-label="Boli home">
-        <span className={`deva ${styles.logoMark}`}>बो</span>
-        <span className={styles.logoWord}>Boli</span>
+        <BoliLogo className={styles.logoArt} />
       </Link>
 
       {!inLesson && (
@@ -55,7 +55,7 @@ export default function Navbar() {
                 className={`${styles.item} ${active ? styles.active : ''}`}
                 aria-current={active ? 'page' : undefined}
               >
-                <Motif motif={ICONS[link.href]} size={24} />
+                <Motif motif={ICONS[link.href]} size={20} />
                 <span className={styles.label}>{link.label}</span>
               </Link>
             );

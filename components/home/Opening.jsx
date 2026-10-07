@@ -1,11 +1,10 @@
 import AipanCanvas from '@/components/three/AipanCanvas';
-import Ridges from '@/components/art/Ridges';
 import Button from '@/components/ui/Button';
 import Parallax from '@/components/motion/Parallax';
 import styles from './Opening.module.css';
 
-// The first thing on the home page: one word, one button, a turning Aipan
-// on the same dusk sky as the hero below it.
+// The first thing on the home page: one word, one button, a turning Aipan.
+// Its red-ochre ground fades at the bottom into the hero's sky.
 export default function Opening() {
   return (
     <section className={styles.section}>
@@ -20,13 +19,12 @@ export default function Opening() {
           </h1>
           <p className={styles.lede}>Learn Kumaoni in three-minute lessons. No sign-up for the demo.</p>
           <div className={styles.cta}>
-            <Button href="/learn/greet-elders" size="l">
+            <Button href="/learn/greet-elders" variant="paper" size="l">
               Take the first lesson
             </Button>
           </div>
         </div>
       </Parallax>
-      <Ridges to="#fbeedb" />
     </section>
   );
 }

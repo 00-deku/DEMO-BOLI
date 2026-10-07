@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import AipanBorder from '@/components/art/AipanBorder';
+import BoliLogo from '@/components/art/BoliLogo';
 import { navLinks, site } from '@/data/site';
 import styles from './Footer.module.css';
 
@@ -21,9 +22,7 @@ export default function Footer() {
           ))}
         </nav>
 
-        <p className={styles.wordmark} aria-hidden="true">
-          Boli
-        </p>
+        <BoliLogo fill="var(--grad-fire)" className={styles.wordmark} />
 
         <div className={styles.meta}>
           <span>Pilot: {site.pilotLanguage} · {site.region}</span>

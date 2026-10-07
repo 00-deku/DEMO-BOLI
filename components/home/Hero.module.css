@@ -25,6 +25,14 @@
   justify-items: start;
 }
 
+.titleBlock,
+.copyBlock {
+  display: grid;
+  gap: 22px;
+  justify-items: start;
+  will-change: transform;
+}
+
 .eyebrow {
   display: inline-flex;
   align-items: center;

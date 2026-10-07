@@ -79,15 +79,31 @@ If WebGL is unavailable the hook quietly does nothing, and the CSS background be
 
 **Scene files** (`lib/three/*.js`) are plain functions with no React in them, so they can be tested in a bare HTML page.
 
-## 5. Styling
+## 5. Smooth scroll and parallax
+
+```
+app/layout.jsx ──► components/motion/SmoothScroll ──► Lenis ◄── gsap.ticker
+                                                        │
+                                                        └─► ScrollTrigger.update()
+Hero / Parallax / GiantWord / Manifesto ──► useGSAP() ──► ScrollTrigger (scrub)
+```
+
+- **`lib/motion.js`** registers the GSAP plugins once and holds the Lenis instance (`getLenis()`), so the navbar can pause scrolling while the menu is open.
+- **`SmoothScroll`** creates Lenis, feeds it from `gsap.ticker` and forwards Lenis scroll events to `ScrollTrigger.update`. On route change it jumps to the top and calls `ScrollTrigger.refresh()`.
+- **`Parallax`** is a reusable wrapper: `<Parallax speed={0.2}>` moves its children between `-20%` and `+20%` of their own height as they cross the viewport. Positive = slower than the page (further away), negative = faster (closer). `axis="x"` slides sideways.
+- **`GiantWord`** is a huge outlined Devanagari word behind a section, sliding sideways with `Parallax axis="x"`.
+- **Hero** animates its own layers: the title and copy lift and fade, and each `<g data-depth>` group in `VillageScene` sinks by `depth × 260px` over the hero's height.
+- Everything sits inside `gsap.matchMedia('(prefers-reduced-motion: no-preference)')` and `useGSAP`, so it switches off for reduced motion and cleans up on unmount.
+
+## 6. Styling
 
 - `app/globals.css` holds **design tokens** (CSS custom properties), resets, the paper-grain overlay and a few utilities (`.container`, `.deva`, `.serif`, `.reveal`).
 - Every component has its own **CSS Module** (`Component.module.css`). Class names are scoped automatically, so `.card` in one file never clashes with `.card` in another.
 - To style a global class from inside a module, wrap it: `.lede :global(.serif) { … }`.
 
-## 6. Accessibility notes
+## 7. Accessibility notes
 
 - All decorative canvases and SVGs are `aria-hidden`; meaningful SVGs (Baujyu, badges) have `<title>`.
 - The menu closes with <kbd>Esc</kbd>, and its links are removed from the tab order while closed.
 - Quiz options use `role="radio"`; feedback uses `role="status"` so screen readers announce it.
-- `prefers-reduced-motion` turns off CSS animation and stops the three.js loops.
+- `prefers-reduced-motion` turns off CSS animation, Lenis and all parallax, and stops the three.js loops.

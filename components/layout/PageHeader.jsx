@@ -1,4 +1,5 @@
 import Motif from '@/components/art/Motif';
+import Parallax from '@/components/motion/Parallax';
 import SectionTag from '@/components/ui/SectionTag';
 import styles from './PageHeader.module.css';
 
@@ -8,6 +9,7 @@ export default function PageHeader({ tag, deva, title, lede, tone = 'fire', moti
   return (
     <header className={`${styles.header} ${styles[tone]}`}>
       <Motif motif={motif} size={520} className={styles.motif} />
+      <Parallax speed={-0.12}>
       <div className={`container ${styles.inner}`}>
         <SectionTag deva={deva} tone="paper">
           {tag}
@@ -16,6 +18,7 @@ export default function PageHeader({ tag, deva, title, lede, tone = 'fire', moti
         {lede && <p className={styles.lede}>{lede}</p>}
         {children}
       </div>
+      </Parallax>
     </header>
   );
 }

@@ -1,6 +1,13 @@
 .section {
+  position: relative;
+  overflow: hidden;
   padding: clamp(80px, 14vh, 160px) 0;
   background: var(--paper);
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
 }
 
 .header {

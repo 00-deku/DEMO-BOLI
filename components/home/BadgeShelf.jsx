@@ -1,4 +1,6 @@
 import BadgeMedal from '@/components/art/BadgeMedal';
+import GiantWord from '@/components/motion/GiantWord';
+import Parallax from '@/components/motion/Parallax';
 import Reveal from '@/components/ui/Reveal';
 import SectionTag from '@/components/ui/SectionTag';
 import { badges } from '@/data/badges';
@@ -7,7 +9,10 @@ import styles from './BadgeShelf.module.css';
 export default function BadgeShelf() {
   return (
     <section className={styles.section}>
-      <div className="container">
+      <GiantWord tone="ink" top="10%">
+        खेल
+      </GiantWord>
+      <div className={`container ${styles.inner}`}>
         <header className={styles.header}>
           <SectionTag number="05" deva="खेल">
             Play
@@ -22,7 +27,9 @@ export default function BadgeShelf() {
         <div className={styles.shelf}>
           {badges.map((badge, i) => (
             <Reveal key={badge.id} delay={i * 90}>
-              <BadgeMedal badge={badge} />
+              <Parallax speed={i % 2 ? 0.35 : 0.1}>
+                <BadgeMedal badge={badge} />
+              </Parallax>
             </Reveal>
           ))}
         </div>

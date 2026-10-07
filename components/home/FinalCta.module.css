@@ -9,6 +9,13 @@
   isolation: isolate;
 }
 
+.layer {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  pointer-events: none;
+}
+
 .content {
   position: relative;
   z-index: 1;

@@ -63,9 +63,12 @@ Fonts load through `next/font/google`, which downloads them at build time and se
 
 | Where | What | How |
 | --- | --- | --- |
+| Whole site | Smooth, gliding scroll | Lenis (`components/motion/SmoothScroll.jsx`) |
+| Hero | Layered parallax: title lifts, village layers sink at three depths, scroll cue fades | GSAP ScrollTrigger (`components/home/Hero.jsx`) |
 | Hero | Parallax ridges, drifting clouds, falling marigold petals, a rotating sun halo | three.js (`lib/three/hills.js`) |
+| Sections | Giant outlined Devanagari words (बोलि, पाठ, खेल, कथा) sliding sideways; cards and medals floating at different speeds | GSAP `Parallax` / `GiantWord` |
 | Hero foreground | Birds, chimney smoke, swaying toran | CSS keyframes on SVG |
-| Manifesto | Words light up as you scroll | Scroll listener + `data-lit` attributes |
+| Manifesto | Words light up as you scroll | ScrollTrigger progress + `data-lit` attributes |
 | Sections | Fade and rise on enter | `Reveal` + IntersectionObserver |
 | Final CTA | Rotating Aipan mandala that tilts toward the pointer | three.js (`lib/three/aipan.js`) |
 | Menu | Circular wipe from the menu button | `clip-path: circle()` transition |

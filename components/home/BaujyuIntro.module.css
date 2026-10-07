@@ -40,10 +40,20 @@
   pointer-events: none;
 }
 
-.bubble {
+.portraitLayer {
+  width: 100%;
+}
+
+/* The parallax wrapper is what's positioned; the bubble bobs inside it. */
+.bubbleLayer {
   position: absolute;
   right: -18px;
   top: 8%;
+  z-index: 2;
+}
+
+.bubble {
+  position: relative;
   max-width: 230px;
   display: grid;
   gap: 4px;
@@ -154,7 +164,7 @@
     width: 100%;
     margin: 0 auto;
   }
-  .bubble {
+  .bubbleLayer {
     right: -6px;
   }
 }

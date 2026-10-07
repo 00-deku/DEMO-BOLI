@@ -14,6 +14,7 @@ Everything used to build Boli, with places to learn more. Grouped from "start he
 | [Dynamic routes](https://nextjs.org/docs/app/building-your-application/routing/dynamic-routes) | `[lessonId]` and `[slug]` folders |
 | [`generateStaticParams`](https://nextjs.org/docs/app/api-reference/functions/generate-static-params) | Pre-rendering every lesson and story at build time |
 | [Server and Client Components](https://nextjs.org/docs/app/building-your-application/rendering) | When to write `'use client'` |
+| [Upgrading to Next.js 15](https://nextjs.org/docs/app/guides/upgrading/version-15) | Why route `params` are now awaited |
 | [Metadata](https://nextjs.org/docs/app/building-your-application/optimizing/metadata) | Page titles and descriptions |
 | [Font optimisation (`next/font`)](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) | How Rubik, Fraunces and Tiro Devanagari are loaded |
 | [CSS Modules in Next.js](https://nextjs.org/docs/app/building-your-application/styling/css) | Scoped `*.module.css` files |
@@ -30,6 +31,16 @@ Everything used to build Boli, with places to learn more. Grouped from "start he
 | [`useId`](https://react.dev/reference/react/useId) | Unique SVG ids in the Baujyu portrait |
 | [Reusing logic with custom hooks](https://react.dev/learn/reusing-logic-with-custom-hooks) | The pattern behind `useThreeScene`, `useProgress`, `useReveal` |
 | [Synchronizing with Effects](https://react.dev/learn/synchronizing-with-effects) | Why every effect cleans up after itself |
+
+## Smooth scroll and parallax
+
+| Resource | Why read it |
+| --- | --- |
+| [GSAP docs](https://gsap.com/docs/v3/) | Tweens, timelines, easing |
+| [ScrollTrigger](https://gsap.com/docs/v3/Plugins/ScrollTrigger/) | `scrub`, `start` / `end`: the engine behind every parallax |
+| [GSAP + React (`useGSAP`)](https://gsap.com/resources/React/) | Scoping and automatic cleanup in components |
+| [gsap.matchMedia()](https://gsap.com/docs/v3/GSAP/gsap.matchMedia()) | Turning animation off for `prefers-reduced-motion` |
+| [Lenis](https://github.com/darkroomengineering/lenis) | Smooth scroll, and how to sync it with GSAP |
 
 ## three.js
 

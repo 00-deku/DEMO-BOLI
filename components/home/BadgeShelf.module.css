@@ -1,8 +1,15 @@
 .section {
+  position: relative;
+  overflow: hidden;
   padding: clamp(80px, 14vh, 160px) 0;
   background:
     radial-gradient(circle at 85% 20%, rgba(196, 39, 27, 0.18), transparent 40%),
     var(--paper);
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
 }
 
 .header {

@@ -1,11 +1,13 @@
 import AipanCanvas from '@/components/three/AipanCanvas';
 import Button from '@/components/ui/Button';
+import Parallax from '@/components/motion/Parallax';
 import styles from './FinalCta.module.css';
 
 export default function FinalCta() {
   return (
     <section className={styles.section}>
       <AipanCanvas />
+      <Parallax speed={-0.15} className={styles.layer}>
       <div className={`container ${styles.content}`}>
         <p className={`deva ${styles.deva}`}>पैलाग</p>
         <h2 className={styles.title}>
@@ -18,6 +20,7 @@ export default function FinalCta() {
           Take the first lesson
         </Button>
       </div>
+      </Parallax>
     </section>
   );
 }

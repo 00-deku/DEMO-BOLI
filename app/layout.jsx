@@ -1,6 +1,7 @@
 import { Fraunces, Rubik, Tiro_Devanagari_Hindi } from 'next/font/google';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
+import SmoothScroll from '@/components/motion/SmoothScroll';
 import { site } from '@/data/site';
 import './globals.css';
 
@@ -43,6 +44,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${display.variable} ${serif.variable} ${deva.variable}`}>
       <body>
+        <SmoothScroll />
         <Navbar />
         <main>{children}</main>
         <Footer />

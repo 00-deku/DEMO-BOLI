@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { navLinks } from '@/data/site';
 import useProgress from '@/hooks/useProgress';
+import { getLenis } from '@/lib/motion';
 import styles from './Navbar.module.css';
 
 export default function Navbar() {
@@ -25,6 +26,9 @@ export default function Navbar() {
 
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : '';
+    const lenis = getLenis();
+    if (lenis && open) lenis.stop();
+    else if (lenis) lenis.start();
     const onKey = (event) => event.key === 'Escape' && setOpen(false);
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);

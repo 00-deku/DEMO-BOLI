@@ -1,4 +1,6 @@
 import Button from '@/components/ui/Button';
+import GiantWord from '@/components/motion/GiantWord';
+import Parallax from '@/components/motion/Parallax';
 import Reveal from '@/components/ui/Reveal';
 import SectionTag from '@/components/ui/SectionTag';
 import StoryCard from '@/components/stories/StoryCard';
@@ -8,7 +10,10 @@ import styles from './StoriesStrip.module.css';
 export default function StoriesStrip() {
   return (
     <section className={styles.section}>
-      <div className="container">
+      <GiantWord tone="fire" top="30%" speed={-0.3}>
+        कथा
+      </GiantWord>
+      <div className={`container ${styles.inner}`}>
         <header className={styles.header}>
           <div className={styles.headText}>
             <SectionTag number="06" deva="कथा">
@@ -26,7 +31,9 @@ export default function StoriesStrip() {
         <div className={styles.grid}>
           {stories.slice(0, 3).map((story, i) => (
             <Reveal key={story.slug} delay={i * 120}>
-              <StoryCard story={story} index={i} />
+              <Parallax speed={[0.05, 0.14, 0.08][i]}>
+                <StoryCard story={story} index={i} />
+              </Parallax>
             </Reveal>
           ))}
         </div>

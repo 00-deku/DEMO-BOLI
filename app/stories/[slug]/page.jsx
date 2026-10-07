@@ -10,15 +10,18 @@ export function generateStaticParams() {
   return stories.map((story) => ({ slug: story.slug }));
 }
 
-export function generateMetadata({ params }) {
-  const story = getStory(params.slug);
+// Next.js 15: route params arrive as a Promise.
+export async function generateMetadata({ params }) {
+  const { slug } = await params;
+  const story = getStory(slug);
   return story ? { title: story.title, description: story.excerpt } : { title: 'Story not found' };
 }
 
 const TONE_FOR = { saffron: 'fire', marigold: 'fire', umber: 'earth', sindoor: 'geru' };
 
-export default function StoryPage({ params }) {
-  const story = getStory(params.slug);
+export default async function StoryPage({ params }) {
+  const { slug } = await params;
+  const story = getStory(slug);
   if (!story) notFound();
   const others = stories.filter((s) => s.slug !== story.slug).slice(0, 3);
 

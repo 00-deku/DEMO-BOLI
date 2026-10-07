@@ -1,47 +1,39 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
+import { ScrollTrigger, useGSAP } from '@/lib/motion';
 import { manifesto } from '@/data/site';
 import SectionTag from '@/components/ui/SectionTag';
 import styles from './Manifesto.module.css';
 
 // Words light up one by one as the section scrolls past.
-// We toggle a data attribute directly on each word instead of using React
-// state, so scrolling never triggers a re-render.
+// A GSAP ScrollTrigger reports progress; we toggle a data attribute on each
+// word directly instead of using React state, so scrolling never re-renders.
 export default function Manifesto() {
   const sectionRef = useRef(null);
   const wordsRef = useRef([]);
   const words = manifesto.split(' ');
 
-  useEffect(() => {
-    const section = sectionRef.current;
-    if (!section) return undefined;
-    let frame = 0;
-
-    const update = () => {
-      frame = 0;
-      const rect = section.getBoundingClientRect();
-      const view = window.innerHeight;
-      // 0 when the section top hits 80% of the viewport, 1 near its end.
-      const progress = Math.min(1, Math.max(0, (view * 0.8 - rect.top) / (rect.height * 0.75)));
-      const lit = Math.round(progress * wordsRef.current.length);
-      wordsRef.current.forEach((node, i) => {
-        if (node) node.dataset.lit = i < lit ? 'true' : 'false';
+  useGSAP(
+    () => {
+      const light = (progress) => {
+        const lit = Math.round(progress * wordsRef.current.length);
+        wordsRef.current.forEach((node, i) => {
+          if (node) node.dataset.lit = i < lit ? 'true' : 'false';
+        });
+      };
+      // Progress runs from the section top at 80% of the viewport
+      // to three quarters of the way through the section.
+      ScrollTrigger.create({
+        trigger: sectionRef.current,
+        start: 'top 80%',
+        end: '75% bottom',
+        onUpdate: (self) => light(self.progress),
+        onRefresh: (self) => light(self.progress),
       });
-    };
-    const onScroll = () => {
-      if (!frame) frame = requestAnimationFrame(update);
-    };
-
-    update();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', onScroll);
-    return () => {
-      cancelAnimationFrame(frame);
-      window.removeEventListener('scroll', onScroll);
-      window.removeEventListener('resize', onScroll);
-    };
-  }, []);
+    },
+    { scope: sectionRef },
+  );
 
   return (
     <section id="manifesto" ref={sectionRef} className={styles.section}>

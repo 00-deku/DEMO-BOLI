@@ -9,6 +9,7 @@ Every component is a `.jsx` file with a matching `.module.css` file next to it.
 | `learn/` | `LearnDashboard`, `LessonPlayer` (the step machine), `Flashcard` (3D flip), `QuizCard`, `Celebration` (petal shower) |
 | `stories/` | `StoryCard` |
 | `baujyu/` | `ChatPreview` (static mock-up, no AI) |
+| `motion/` | `SmoothScroll` (Lenis, mounted once in the layout), `Parallax` (wrap anything to give it scroll depth), `GiantWord` (huge drifting background word) |
 | `three/` | `HillsCanvas`, `AipanCanvas`: tiny React wrappers around the scenes in `lib/three/` |
 | `art/` | Hand-written SVG illustrations: `BaujyuPortrait`, `VillageScene`, `Motif` (aipan, chowki, madhubani, himalaya, topi, diyo), `AipanBorder`, `BadgeMedal` |
 | `ui/` | Small building blocks: `Button`, `Reveal` (scroll-in animation), `SectionTag` |

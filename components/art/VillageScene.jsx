@@ -40,13 +40,18 @@ export default function VillageScene({ className = '' }) {
       preserveAspectRatio="xMidYMax slice"
       aria-hidden="true"
     >
+      {/* Each data-depth group is moved by the hero parallax (components/home/Hero.jsx).
+          Bigger depth = further away = drifts more against the scroll. */}
+      <g data-depth="0.9">
       {/* Birds */}
       <g className={styles.birds} fill="none" stroke="#26110a" strokeWidth="3" strokeLinecap="round">
         <path d="M560 70 q10 -10 20 0 q10 -10 20 0" />
         <path d="M610 50 q7 -7 14 0 q7 -7 14 0" />
         <path d="M530 96 q6 -6 12 0 q6 -6 12 0" />
       </g>
+      </g>
 
+      <g data-depth="0.35">
       {/* Ground */}
       <path d="M0 420 L0 318 C180 284 380 300 560 310 C760 320 960 270 1200 290 L1200 420 Z" fill="#140c08" />
 
@@ -64,6 +69,9 @@ export default function VillageScene({ className = '' }) {
         <rect x="92" y="110" width="36" height="80" rx="18" fill="#140c08" />
       </g>
 
+      </g>
+
+      <g data-depth="0.12">
       {/* Main house */}
       <g className={styles.house}>
         {/* Chimney smoke */}
@@ -118,6 +126,7 @@ export default function VillageScene({ className = '' }) {
 
       {/* Front slope */}
       <path d="M0 420 L0 380 C260 360 520 392 800 382 C980 376 1100 386 1200 378 L1200 420 Z" fill="#26110a" />
+      </g>
     </svg>
   );
 }

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import GiantWord from '@/components/motion/GiantWord';
 import Reveal from '@/components/ui/Reveal';
 import SectionTag from '@/components/ui/SectionTag';
 import { units } from '@/data/lessons';
@@ -8,7 +9,10 @@ import styles from './LessonTrail.module.css';
 export default function LessonTrail() {
   return (
     <section className={styles.section}>
-      <div className="container">
+      <GiantWord tone="cream" top="2%" speed={-0.25}>
+        पाठ
+      </GiantWord>
+      <div className={`container ${styles.inner}`}>
         <header className={styles.header}>
           <SectionTag number="04" deva="पाठ" tone="paper">
             The trail

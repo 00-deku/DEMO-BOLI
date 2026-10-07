@@ -25,7 +25,7 @@ This repository holds the **frontend prototype**: a Next.js + React website with
 
 | Page | Route | What it does |
 | --- | --- | --- |
-| Home | `/` | Hero with a **three.js Himalayan ridge scene** behind an SVG Kumaoni village, a scrolling word marquee, a manifesto that lights up word by word as you scroll, feature cards, Baujyu intro, the lesson trail, badges, stories, and a **three.js Aipan mandala** call to action. |
+| Home | `/` | **Layered parallax hero**: a three.js Himalayan ridge scene behind an SVG Kumaoni village whose layers sink at different speeds, a scrolling word marquee, a manifesto that lights up word by word as you scroll, feature cards, Baujyu intro, the lesson trail, badges, stories, and a **three.js Aipan mandala** call to action. |
 | Learn | `/learn` | Progress panel (XP, streak, badges) and all units and lessons. |
 | Lesson | `/learn/[lessonId]` | A short lesson: intro → 3D flip word cards → multiple-choice quiz → celebration. XP and streak are saved in the browser. |
 | Stories | `/stories` | Festivals and folklore as poster cards. |
@@ -46,18 +46,30 @@ Progress is stored in `localStorage` under `boli.progress.v1`. Clear it with the
 
 | Tool | Version | Used for |
 | --- | --- | --- |
-| [Next.js](https://nextjs.org/) (App Router) | 14.2 | Routing, static pre-rendering, font loading |
-| [React](https://react.dev/) | 18.3 | Components and state |
+| [Next.js](https://nextjs.org/) (App Router) | 15 | Routing, static pre-rendering, font loading |
+| [React](https://react.dev/) | 19 | Components and state |
 | [three.js](https://threejs.org/) | 0.169 | The two WebGL scenes (mountains, Aipan mandala) |
+| [GSAP](https://gsap.com/) + [ScrollTrigger](https://gsap.com/docs/v3/Plugins/ScrollTrigger/) | 3 | Every scroll-linked animation: layered parallax, giant drifting words, the manifesto |
+| [`@gsap/react`](https://gsap.com/resources/React/) | 2 | `useGSAP()` hook: GSAP animations that clean themselves up in React |
+| [Lenis](https://github.com/darkroomengineering/lenis) | 1 | Smooth, inertia-style scrolling that keeps the real browser scroll |
 | HTML + CSS | n/a | CSS Modules for each component, one global stylesheet for design tokens |
 
-**Deliberately not used:** TypeScript, Tailwind, UI kits, animation libraries (GSAP, Framer Motion), react-three-fiber, or GLSL shaders. Every animation is plain CSS, a little React state, or three.js's built-in materials. That keeps the project easy to read for anyone who knows HTML, CSS and JavaScript.
+**Why this stack is smooth**
+
+- **Lenis** interpolates wheel and trackpad scrolling so the page glides instead of jumping in steps. It keeps the native scroll position, so `position: sticky`, anchors, IntersectionObserver and the three.js scenes keep working.
+- **GSAP's ticker drives Lenis**, so smooth scroll and every ScrollTrigger update happen on the same animation frame, with no jitter between them.
+- **ScrollTrigger `scrub`** ties parallax directly to the scroll position and animates only `transform` and `opacity` (GPU-friendly, no layout work).
+- **three.js loops pause off-screen**, and everything respects `prefers-reduced-motion` (Lenis and all parallax switch off).
+
+**Deliberately not used:** TypeScript, Tailwind, UI kits, react-three-fiber (plain three.js is lighter here and already works), Framer Motion (GSAP covers it) and GLSL shaders.
 
 ---
 
 ## Run it locally
 
-You need **Node.js 18.17 or newer** ([download](https://nodejs.org/)).
+You need **Node.js 18.18 or newer** ([download](https://nodejs.org/)).
+
+> **Windows PowerShell tip:** run the commands one by one (PowerShell 5 doesn't support `&&`). If you see *"running scripts is disabled on this system"*, run `Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned` once, or use `npm.cmd` instead of `npm`.
 
 ```bash
 git clone https://github.com/00-deku/DEMO-BOLI.git
@@ -94,12 +106,14 @@ DEMO-BOLI/
 │   ├── learn/                # LessonPlayer, Flashcard, QuizCard, dashboard
 │   ├── stories/              # StoryCard
 │   ├── baujyu/               # Chat mock-up
+│   ├── motion/               # SmoothScroll (Lenis), Parallax, GiantWord
 │   ├── three/                # React wrappers that mount three.js scenes
 │   ├── art/                  # Hand-drawn SVG: Baujyu, village, motifs, badges
 │   └── ui/                   # Button, Reveal (scroll animation), SectionTag
 ├── data/                     # All words, lessons, stories, badges, copy
 ├── hooks/                    # useThreeScene, useProgress, useReveal
 ├── lib/
+│   ├── motion.js             # GSAP + ScrollTrigger + Lenis setup, shared everywhere
 │   ├── progress.js           # XP / streak / badge logic (pure functions)
 │   └── three/                # The three.js scenes themselves
 ├── docs/                     # Longer write-ups (architecture, design, content, resources)
@@ -135,7 +149,7 @@ The brief asked for something that **feels like art, not a template**, in shades
 - **Visual sources:** Aipan (white rice-paste patterns on geru), Madhubani line work, and Himalayan ridgelines.
 - **Type:** Rubik (chunky display), Fraunces italic (warm accent), Tiro Devanagari Hindi (Kumaoni script).
 - **Texture:** thick ink outlines, hard offset shadows, slight tilts and a paper-grain overlay, so it looks printed rather than digital.
-- **Motion:** parallax mountains, drifting marigold petals, word-by-word scroll reveal, flip cards, a blinking and nodding Baujyu. Everything respects `prefers-reduced-motion`.
+- **Motion:** Lenis smooth scroll, GSAP layered parallax (hero village, floating cards, giant drifting Devanagari words), three.js parallax mountains, drifting marigold petals, word-by-word scroll reveal, flip cards, a blinking and nodding Baujyu. Everything respects `prefers-reduced-motion`.
 
 More detail: [docs/DESIGN.md](docs/DESIGN.md).
 
@@ -176,6 +190,11 @@ New to any of this? Start here. A longer, annotated list is in [docs/RESOURCES.m
 - [Server and Client Components](https://nextjs.org/docs/app/building-your-application/rendering)
 - [next/font](https://nextjs.org/docs/app/building-your-application/optimizing/fonts)
 - [React: Quick Start](https://react.dev/learn) and [Thinking in React](https://react.dev/learn/thinking-in-react)
+
+**Smooth scroll and parallax**
+- [GSAP docs](https://gsap.com/docs/v3/) and [ScrollTrigger](https://gsap.com/docs/v3/Plugins/ScrollTrigger/)
+- [GSAP in React (`useGSAP`)](https://gsap.com/resources/React/)
+- [Lenis](https://github.com/darkroomengineering/lenis)
 
 **three.js**
 - [three.js manual](https://threejs.org/manual/) (start with "Fundamentals")

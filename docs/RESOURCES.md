@@ -25,7 +25,7 @@ Everything used to build Boli, with places to learn more. Grouped from "start he
 | --- | --- |
 | [React Quick Start](https://react.dev/learn) | Components, props, state in one page |
 | [Thinking in React](https://react.dev/learn/thinking-in-react) | How to split a UI into components |
-| [`useState`](https://react.dev/reference/react/useState) | Lesson steps, menu open/close |
+| [`useState`](https://react.dev/reference/react/useState) | Lesson steps, hiding the nav dock |
 | [`useEffect`](https://react.dev/reference/react/useEffect) | Mounting three.js, listening to scroll |
 | [`useRef`](https://react.dev/reference/react/useRef) | Holding the canvas container and word nodes |
 | [`useId`](https://react.dev/reference/react/useId) | Unique SVG ids in the Baujyu portrait |
@@ -63,9 +63,8 @@ Everything used to build Boli, with places to learn more. Grouped from "start he
 | --- | --- |
 | [MDN: CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) | Reference for everything in the stylesheets |
 | [MDN: Using CSS custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) | The colour and spacing tokens |
-| [MDN: CSS animations](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animations/Using_CSS_animations) | Birds, smoke, blinking, marquee |
+| [MDN: CSS animations](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animations/Using_CSS_animations) | Birds, smoke, blinking |
 | [MDN: CSS transforms](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_transforms/Using_CSS_transforms) | The 3D flip cards (`perspective`, `backface-visibility`) |
-| [MDN: `clip-path`](https://developer.mozilla.org/en-US/docs/Web/CSS/clip-path) | The circular menu wipe |
 | [MDN: `background-clip: text`](https://developer.mozilla.org/en-US/docs/Web/CSS/background-clip) | The gradient BOLI wordmark |
 | [MDN: CSS Grid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout) | Almost every layout |
 | [MDN: SVG tutorial](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial) | How the hand-drawn art is built |

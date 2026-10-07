@@ -38,7 +38,7 @@ All colours are CSS custom properties in `app/globals.css`.
 
 - `--grad-dusk`: the hero sky, from cream through peach to saffron.
 - `--grad-fire`: marigold → saffron → sindoor. Buttons, the BOLI wordmark.
-- `--grad-geru`: radial red ochre. Aipan surfaces, final CTA, menu.
+- `--grad-geru`: radial red ochre. Aipan surfaces, the opening section.
 - `--grad-earth`: umber → ink. Dark sections.
 
 ## 3. Type
@@ -64,14 +64,14 @@ Fonts load through `next/font/google`, which downloads them at build time and se
 | Where | What | How |
 | --- | --- | --- |
 | Whole site | Smooth, gliding scroll | Lenis (`components/motion/SmoothScroll.jsx`) |
-| Hero | Layered parallax: title lifts, village layers sink at three depths, scroll cue fades | GSAP ScrollTrigger (`components/home/Hero.jsx`) |
-| Hero | Parallax ridges, drifting clouds, falling marigold petals, a rotating sun halo | three.js (`lib/three/hills.js`) |
-| Sections | Giant outlined Devanagari words (बोलि, पाठ, खेल, कथा) sliding sideways; cards and medals floating at different speeds | GSAP `Parallax` / `GiantWord` |
+| Opening | Rotating Aipan mandala that tilts toward the pointer; text rises slightly faster than the page | three.js (`lib/three/aipan.js`) + `Parallax` |
+| Hero | Layered parallax: title lifts, village layers sink at three depths | GSAP ScrollTrigger (`components/home/Hero.jsx`) |
+| Hero backdrop | **Static** mountains; only the sky moves (drifting clouds, falling marigold petals, turning sun halo) | three.js (`lib/three/hills.js`) |
+| Sections | Cards and medals floating at slightly different speeds | GSAP `Parallax` |
+| Navigation | Dock slides away while scrolling down, returns on scroll up | CSS transform transition |
 | Hero foreground | Birds, chimney smoke, swaying toran | CSS keyframes on SVG |
 | Manifesto | Words light up as you scroll | ScrollTrigger progress + `data-lit` attributes |
 | Sections | Fade and rise on enter | `Reveal` + IntersectionObserver |
-| Final CTA | Rotating Aipan mandala that tilts toward the pointer | three.js (`lib/three/aipan.js`) |
-| Menu | Circular wipe from the menu button | `clip-path: circle()` transition |
 | Lesson | 3D flip cards, shaking wrong answers, petal shower | CSS 3D transforms and keyframes |
 | Baujyu | Blinks, nods and twitches his mustache | CSS keyframes on SVG groups |
 

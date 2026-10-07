@@ -4,12 +4,12 @@ Every component is a `.jsx` file with a matching `.module.css` file next to it.
 
 | Folder | What's inside |
 | --- | --- |
-| `layout/` | `Navbar` (sticker logo, pill nav, XP chip, full-screen menu), `Footer`, `PageHeader` (banner for inner pages) |
-| `home/` | One file per home-page section, in page order: `Hero`, `Marquee`, `Manifesto`, `Features`, `BaujyuIntro`, `LessonTrail`, `BadgeShelf`, `StoriesStrip`, `FinalCta` |
+| `layout/` | `Navbar` (sticker logo top-left + floating bottom dock with folk-art icons and XP/streak), `Footer`, `PageHeader` (banner for inner pages) |
+| `home/` | One file per home-page section, in page order: `Opening`, `Hero`, `Manifesto`, `Features`, `BaujyuIntro`, `LessonTrail`, `BadgeShelf`, `StoriesStrip` |
 | `learn/` | `LearnDashboard`, `LessonPlayer` (the step machine), `Flashcard` (3D flip), `QuizCard`, `Celebration` (petal shower) |
 | `stories/` | `StoryCard` |
 | `baujyu/` | `ChatPreview` (static mock-up, no AI) |
-| `motion/` | `SmoothScroll` (Lenis, mounted once in the layout), `Parallax` (wrap anything to give it scroll depth), `GiantWord` (huge drifting background word) |
+| `motion/` | `SmoothScroll` (Lenis, mounted once in the layout), `Parallax` (wrap anything to give it scroll depth) |
 | `three/` | `HillsCanvas`, `AipanCanvas`: tiny React wrappers around the scenes in `lib/three/` |
 | `art/` | Hand-written SVG illustrations: `BaujyuPortrait`, `VillageScene`, `Motif` (aipan, chowki, madhubani, himalaya, topi, diyo), `AipanBorder`, `BadgeMedal` |
 | `ui/` | Small building blocks: `Button`, `Reveal` (scroll-in animation), `SectionTag` |

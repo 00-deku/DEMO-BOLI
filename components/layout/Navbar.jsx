@@ -3,102 +3,77 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import Motif from '@/components/art/Motif';
 import { navLinks } from '@/data/site';
 import useProgress from '@/hooks/useProgress';
-import { getLenis } from '@/lib/motion';
 import styles from './Navbar.module.css';
+
+// Navigation in two parts:
+//  - a small sticker logo pinned top-left,
+//  - a floating dock at the bottom centre with one folk-art icon per page.
+// The dock tucks away while you scroll down and returns when you scroll up.
+// It hides inside a lesson, which has its own close button.
+
+const ICONS = { '/': 'aipan', '/learn': 'chowki', '/stories': 'himalaya', '/baujyu': 'topi' };
+
+const isActive = (pathname, href) => (href === '/' ? pathname === '/' : pathname.startsWith(href));
 
 export default function Navbar() {
   const pathname = usePathname();
-  const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false);
   const { ready, xp, streak } = useProgress();
-
-  // Close the menu whenever the route changes.
-  useEffect(() => setOpen(false), [pathname]);
+  const inLesson = /^\/learn\/.+/.test(pathname);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    onScroll();
+    let last = window.scrollY;
+    const onScroll = () => {
+      const y = window.scrollY;
+      if (Math.abs(y - last) < 6) return;
+      setHidden(y > last && y > 200);
+      last = y;
+    };
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  useEffect(() => {
-    document.body.style.overflow = open ? 'hidden' : '';
-    const lenis = getLenis();
-    if (lenis && open) lenis.stop();
-    else if (lenis) lenis.start();
-    const onKey = (event) => event.key === 'Escape' && setOpen(false);
-    window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
-  }, [open]);
+  // Always show the dock again on a new page.
+  useEffect(() => setHidden(false), [pathname]);
 
   return (
     <>
-      <header className={`${styles.bar} ${scrolled ? styles.scrolled : ''}`}>
-        <Link href="/" className={styles.logo} aria-label="Boli home">
-          <span className={`deva ${styles.logoMark}`}>बो</span>
-          <span className={styles.logoWord}>Boli</span>
-        </Link>
+      <Link href="/" className={styles.logo} aria-label="Boli home">
+        <span className={`deva ${styles.logoMark}`}>बो</span>
+        <span className={styles.logoWord}>Boli</span>
+      </Link>
 
-        <nav className={styles.links} aria-label="Main">
-          {navLinks.slice(1).map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={`${styles.link} ${pathname.startsWith(link.href) ? styles.active : ''}`}
-            >
-              {link.label}
-            </Link>
-          ))}
-        </nav>
+      {!inLesson && (
+        <nav className={`${styles.dock} ${hidden ? styles.hidden : ''}`} aria-label="Main">
+          {navLinks.map((link) => {
+            const active = isActive(pathname, link.href);
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`${styles.item} ${active ? styles.active : ''}`}
+                aria-current={active ? 'page' : undefined}
+              >
+                <Motif motif={ICONS[link.href]} size={22} />
+                <span className={styles.label}>{link.label}</span>
+              </Link>
+            );
+          })}
 
-        <div className={styles.right}>
           {ready && (
-            <Link href="/learn" className={styles.stats} title="Your XP and streak">
-              <span>{xp} XP</span>
-              <span className={styles.flame} aria-hidden="true">
-                ◆
-              </span>
-              <span>{streak}d</span>
+            <Link href="/learn" className={styles.stats} title={`${xp} XP, ${streak}-day streak`}>
+              <strong>{xp}</strong>
+              <span>XP</span>
+              <span className={styles.dot} aria-hidden="true" />
+              <strong>{streak}</strong>
+              <span>{streak === 1 ? 'day' : 'days'}</span>
             </Link>
           )}
-          <button
-            type="button"
-            className={`${styles.menuButton} ${open ? styles.menuOpen : ''}`}
-            onClick={() => setOpen((v) => !v)}
-            aria-expanded={open}
-            aria-controls="site-menu"
-            aria-label={open ? 'Close menu' : 'Open menu'}
-          >
-            <span />
-            <span />
-            <span />
-          </button>
-        </div>
-      </header>
-
-      <div id="site-menu" className={`${styles.overlay} ${open ? styles.overlayOpen : ''}`} aria-hidden={!open}>
-        <nav className={styles.overlayNav} aria-label="Full menu">
-          {navLinks.map((link, i) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={styles.overlayLink}
-              style={{ '--i': i }}
-              tabIndex={open ? 0 : -1}
-            >
-              <span className={styles.overlayNum}>0{i + 1}</span>
-              <span className={styles.overlayLabel}>{link.label}</span>
-              <span className={`deva ${styles.overlayDeva}`}>{link.kumaoni}</span>
-            </Link>
-          ))}
         </nav>
-        <p className={styles.overlayNote}>
-          Pilot language: <strong>Kumaoni</strong>, from the hills of Uttarakhand.
-        </p>
-      </div>
+      )}
     </>
   );
 }

@@ -38,7 +38,7 @@ export default function Manifesto() {
   return (
     <section id="manifesto" ref={sectionRef} className={styles.section}>
       <div className={`container ${styles.inner}`}>
-        <SectionTag number="01" deva="किलै" tone="paper">
+        <SectionTag deva="किलै" tone="paper">
           Why Boli
         </SectionTag>
         <p className={styles.text}>

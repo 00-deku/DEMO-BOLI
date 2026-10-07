@@ -25,7 +25,7 @@ This repository holds the **frontend prototype**: a Next.js + React website with
 
 | Page | Route | What it does |
 | --- | --- | --- |
-| Home | `/` | **Layered parallax hero**: a three.js Himalayan ridge scene behind an SVG Kumaoni village whose layers sink at different speeds, a scrolling word marquee, a manifesto that lights up word by word as you scroll, feature cards, Baujyu intro, the lesson trail, badges, stories, and a **three.js Aipan mandala** call to action. |
+| Home | `/` | Opens on **"Start with one word."** over a turning **three.js Aipan mandala**, then the **layered parallax hero**: a static three.js Himalayan backdrop with an SVG Kumaoni village whose layers sink at different speeds. Then a manifesto that lights up word by word, feature cards, Baujyu intro, the lesson trail, badges and stories. |
 | Learn | `/learn` | Progress panel (XP, streak, badges) and all units and lessons. |
 | Lesson | `/learn/[lessonId]` | A short lesson: intro → 3D flip word cards → multiple-choice quiz → celebration. XP and streak are saved in the browser. |
 | Stories | `/stories` | Festivals and folklore as poster cards. |
@@ -106,7 +106,7 @@ DEMO-BOLI/
 │   ├── learn/                # LessonPlayer, Flashcard, QuizCard, dashboard
 │   ├── stories/              # StoryCard
 │   ├── baujyu/               # Chat mock-up
-│   ├── motion/               # SmoothScroll (Lenis), Parallax, GiantWord
+│   ├── motion/               # SmoothScroll (Lenis), Parallax
 │   ├── three/                # React wrappers that mount three.js scenes
 │   ├── art/                  # Hand-drawn SVG: Baujyu, village, motifs, badges
 │   └── ui/                   # Button, Reveal (scroll animation), SectionTag
@@ -134,7 +134,7 @@ data/*.js  ──►  pages in app/  ──►  components/  ──►  CSS Modu
 ```
 
 - **Content is data.** Words, lessons, stories and badges live in `data/`. Components only render them.
-- **Server first.** Pages are React Server Components and are pre-rendered at build time. Only parts that need the browser (scroll effects, lessons, three.js, the navbar menu) are marked `'use client'`.
+- **Server first.** Pages are React Server Components and are pre-rendered at build time. Only parts that need the browser (scroll effects, lessons, three.js, the navigation dock) are marked `'use client'`.
 - **three.js scenes are plain functions** in `lib/three/`. They receive `{ THREE, scene, camera, pointer, ... }` and return `update()`. The `useThreeScene` hook owns the renderer, resizing, pausing when off-screen, `prefers-reduced-motion`, and cleanup.
 
 More detail: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
@@ -149,7 +149,7 @@ The brief asked for something that **feels like art, not a template**, in shades
 - **Visual sources:** Aipan (white rice-paste patterns on geru), Madhubani line work, and Himalayan ridgelines.
 - **Type:** Rubik (chunky display), Fraunces italic (warm accent), Tiro Devanagari Hindi (Kumaoni script).
 - **Texture:** thick ink outlines, hard offset shadows, slight tilts and a paper-grain overlay, so it looks printed rather than digital.
-- **Motion:** Lenis smooth scroll, GSAP layered parallax (hero village, floating cards, giant drifting Devanagari words), three.js parallax mountains, drifting marigold petals, word-by-word scroll reveal, flip cards, a blinking and nodding Baujyu. Everything respects `prefers-reduced-motion`.
+- **Motion:** Lenis smooth scroll, GSAP layered parallax (hero village, floating cards), a static three.js mountain backdrop with drifting clouds and petals, drifting marigold petals, word-by-word scroll reveal, flip cards, a blinking and nodding Baujyu. Everything respects `prefers-reduced-motion`.
 
 More detail: [docs/DESIGN.md](docs/DESIGN.md).
 
@@ -163,7 +163,7 @@ More detail: [docs/DESIGN.md](docs/DESIGN.md).
 | Stories | `data/stories.js` |
 | Badges and their unlock rules | `data/badges.js` |
 | Baujyu's character sheet | `data/baujyu.js` |
-| Navigation, marquee words, home-page copy | `data/site.js` |
+| Navigation, home-page copy | `data/site.js` |
 
 > ⚠️ **Language accuracy:** the Kumaoni words and story retellings are **placeholder content** written for the prototype. They must be checked by native speakers before any public release. See [docs/CONTENT.md](docs/CONTENT.md).
 

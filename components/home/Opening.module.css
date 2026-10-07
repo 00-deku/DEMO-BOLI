@@ -1,0 +1,106 @@
+.section {
+  position: relative;
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: var(--grad-geru);
+  color: var(--cream);
+  isolation: isolate;
+}
+
+/* Soft dark glow behind the text so the mandala lines don't fight the copy */
+.section::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse 55% 45% at 50% 50%, rgba(79, 23, 10, 0.75) 0%, rgba(79, 23, 10, 0.35) 55%, transparent 80%);
+}
+
+.layer {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  pointer-events: none;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  justify-items: center;
+  gap: 22px;
+  padding-top: calc(var(--nav-h) + 24px);
+  padding-bottom: 96px;
+  text-align: center;
+  pointer-events: none;
+}
+
+.content a {
+  pointer-events: auto;
+}
+
+.word {
+  display: grid;
+  gap: 4px;
+  justify-items: center;
+  animation: rise 0.9s var(--ease-out) both;
+}
+
+.word :global(.deva) {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  color: var(--marigold);
+}
+
+.gloss {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+
+.title {
+  font-size: clamp(3.4rem, 11vw, 9rem);
+  text-shadow: 6px 6px 0 var(--ink);
+  animation: rise 1s var(--ease-out) 0.1s both;
+}
+
+.lede {
+  max-width: 36ch;
+  font-size: 1.15rem;
+  text-shadow: 0 1px 8px rgba(20, 12, 8, 0.6);
+  animation: rise 1s var(--ease-out) 0.25s both;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  animation: rise 1s var(--ease-out) 0.4s both;
+}
+
+.explore {
+  font-weight: 800;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-bottom: 2px solid currentColor;
+  padding-bottom: 2px;
+  transition: color 0.2s;
+}
+
+.explore:hover {
+  color: var(--marigold);
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+}

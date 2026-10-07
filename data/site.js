@@ -14,18 +14,6 @@ export const navLinks = [
   { href: '/baujyu', label: 'Baujyu', kumaoni: 'बौज्यू' },
 ];
 
-// Words that scroll past in the marquee strip.
-export const marqueeWords = [
-  { deva: 'पैलाग', roman: 'pailaag' },
-  { deva: 'कस छा?', roman: 'kas chha?' },
-  { deva: 'भल छु', roman: 'bhal chhu' },
-  { deva: 'इजा', roman: 'ija' },
-  { deva: 'आमा', roman: 'aama' },
-  { deva: 'भात', roman: 'bhaat' },
-  { deva: 'पाणि', roman: 'paani' },
-  { deva: 'काफल', roman: 'kaafal' },
-];
-
 export const manifesto =
   'Every mother tongue is a way of seeing. Kumaoni carries the mountains, the monsoon, the jokes of grandparents and the songs of Harela. When a language goes quiet, a whole world goes quiet with it. Boli exists so that it does not.';
 

@@ -1,5 +1,4 @@
 import Motif from '@/components/art/Motif';
-import GiantWord from '@/components/motion/GiantWord';
 import Parallax from '@/components/motion/Parallax';
 import Reveal from '@/components/ui/Reveal';
 import SectionTag from '@/components/ui/SectionTag';
@@ -12,12 +11,9 @@ const CARD_SPEEDS = [0.04, 0.16, 0.08, 0.2];
 export default function Features() {
   return (
     <section className={styles.section}>
-      <GiantWord tone="fire" top="4%">
-        बोलि
-      </GiantWord>
       <div className={`container ${styles.inner}`}>
         <header className={styles.header}>
-          <SectionTag number="02">
+          <SectionTag>
             What&apos;s inside
           </SectionTag>
           <h2 className={styles.title}>

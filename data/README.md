@@ -4,7 +4,7 @@ Writers and language experts can edit these files without touching components.
 
 | File | Holds |
 | --- | --- |
-| `site.js` | Site name, navigation, marquee words, manifesto, home-page feature cards |
+| `site.js` | Site name, navigation, manifesto, home-page feature cards |
 | `lessons.js` | Units → lessons → word cards and quiz questions; helpers `getLesson`, `getNextLesson` |
 | `stories.js` | Stories (title, Devanagari title, season, paragraphs, words to keep) |
 | `badges.js` | Badges and the rule (`check`) that unlocks each one |

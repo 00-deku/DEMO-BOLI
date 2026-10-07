@@ -85,13 +85,12 @@ If WebGL is unavailable the hook quietly does nothing, and the CSS background be
 app/layout.jsx ──► components/motion/SmoothScroll ──► Lenis ◄── gsap.ticker
                                                         │
                                                         └─► ScrollTrigger.update()
-Hero / Parallax / GiantWord / Manifesto ──► useGSAP() ──► ScrollTrigger (scrub)
+Hero / Parallax / Manifesto ──► useGSAP() ──► ScrollTrigger (scrub)
 ```
 
-- **`lib/motion.js`** registers the GSAP plugins once and holds the Lenis instance (`getLenis()`), so the navbar can pause scrolling while the menu is open.
+- **`lib/motion.js`** registers the GSAP plugins once and holds the Lenis instance (`getLenis()`) so other components can pause or drive scrolling.
 - **`SmoothScroll`** creates Lenis, feeds it from `gsap.ticker` and forwards Lenis scroll events to `ScrollTrigger.update`. On route change it jumps to the top and calls `ScrollTrigger.refresh()`.
 - **`Parallax`** is a reusable wrapper: `<Parallax speed={0.2}>` moves its children between `-20%` and `+20%` of their own height as they cross the viewport. Positive = slower than the page (further away), negative = faster (closer). `axis="x"` slides sideways.
-- **`GiantWord`** is a huge outlined Devanagari word behind a section, sliding sideways with `Parallax axis="x"`.
 - **Hero** animates its own layers: the title and copy lift and fade, and each `<g data-depth>` group in `VillageScene` sinks by `depth × 260px` over the hero's height.
 - Everything sits inside `gsap.matchMedia('(prefers-reduced-motion: no-preference)')` and `useGSAP`, so it switches off for reduced motion and cleans up on unmount.
 
@@ -104,6 +103,6 @@ Hero / Parallax / GiantWord / Manifesto ──► useGSAP() ──► ScrollTrig
 ## 7. Accessibility notes
 
 - All decorative canvases and SVGs are `aria-hidden`; meaningful SVGs (Baujyu, badges) have `<title>`.
-- The menu closes with <kbd>Esc</kbd>, and its links are removed from the tab order while closed.
+- The nav dock marks the current page with `aria-current="page"`; on small screens its labels are visually hidden but still read by screen readers.
 - Quiz options use `role="radio"`; feedback uses `role="status"` so screen readers announce it.
 - `prefers-reduced-motion` turns off CSS animation, Lenis and all parallax, and stops the three.js loops.

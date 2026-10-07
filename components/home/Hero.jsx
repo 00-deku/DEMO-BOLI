@@ -12,8 +12,8 @@ export default function Hero() {
 
   // Layered parallax: as the hero scrolls away, the title lifts and fades
   // fastest, and the village layers sink at different speeds (see the
-  // data-depth groups in VillageScene). The three.js ridges behind react
-  // to scroll on their own.
+  // data-depth groups in VillageScene). The three.js mountains behind stay
+  // still, so the village visibly moves against them.
   useGSAP(
     () => {
       const mm = gsap.matchMedia();
@@ -22,7 +22,6 @@ export default function Hero() {
 
         gsap.to('[data-hero-layer="title"]', { yPercent: -45, ease: 'none', scrollTrigger: scrub });
         gsap.to('[data-hero-layer="copy"]', { yPercent: -80, opacity: 0, ease: 'none', scrollTrigger: scrub });
-        gsap.to('[data-hero-layer="cue"]', { opacity: 0, ease: 'none', scrollTrigger: { ...scrub, end: '20% top' } });
 
         gsap.utils.toArray('[data-depth]').forEach((layer) => {
           const depth = Number(layer.dataset.depth);
@@ -35,7 +34,7 @@ export default function Hero() {
   );
 
   return (
-    <section ref={root} className={styles.hero}>
+    <section ref={root} id="welcome" className={styles.hero}>
       <HillsCanvas />
       <div className={styles.village}>
         <VillageScene />
@@ -44,14 +43,11 @@ export default function Hero() {
       <div className={`container ${styles.content}`}>
         <div data-hero-layer="title" className={styles.titleBlock}>
           <p className={styles.eyebrow}>
-            <span className="deva">पैलाग!</span> Hello, welcome to
+            Welcome to
           </p>
-          <h1 className={styles.title}>
+          <h2 className={styles.title}>
             <span className={styles.word}>Boli</span>
-            <span className={`deva ${styles.deva}`} aria-hidden="true">
-              बोलि
-            </span>
-          </h1>
+          </h2>
         </div>
         <div data-hero-layer="copy" className={styles.copyBlock}>
           <p className={styles.lede}>
@@ -61,7 +57,7 @@ export default function Hero() {
           </p>
           <div className={styles.actions}>
             <Button href="/learn" size="l">
-              Start learning
+              See the lessons
             </Button>
             <Button href="/baujyu" variant="paper" size="l">
               Meet Baujyu
@@ -69,10 +65,6 @@ export default function Hero() {
           </div>
         </div>
       </div>
-
-      <a href="#manifesto" data-hero-layer="cue" className={styles.scroll} aria-label="Scroll to read more">
-        <span />
-      </a>
     </section>
   );
 }

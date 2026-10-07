@@ -25,7 +25,7 @@ export default function BaujyuIntro() {
         </Reveal>
 
         <div className={styles.copy}>
-          <SectionTag number="03" deva={baujyu.deva} tone="paper">
+          <SectionTag deva={baujyu.deva} tone="paper">
             Your companion
           </SectionTag>
           <h2 className={styles.title}>

@@ -16,7 +16,7 @@ export default function SmoothScroll() {
     const lenis = new Lenis({
       lerp: 0.09, // lower = floatier, higher = snappier
       wheelMultiplier: 1,
-      anchors: { offset: -80 },
+      anchors: true, // smooth-scroll to #links like "Explore Boli"
     });
     setLenis(lenis);
 

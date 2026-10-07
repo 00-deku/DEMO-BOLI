@@ -12,16 +12,19 @@ import styles from './Navbar.module.css';
 //  - the BOLI wordmark pinned top-left (same as the footer's),
 //  - a slim vertical rail on the right edge, one icon per page.
 // Both slide away while you scroll down and return when you scroll up.
-// The rail hides inside a lesson, which has its own close button.
+// The rail hides inside a lesson (it has its own close button), and both
+// hide on the start screen, which has its own logo and buttons.
 
-const ICONS = { '/': 'home', '/learn': 'book', '/stories': 'himalaya', '/baujyu': 'topi' };
+const ICONS = { '/home': 'home', '/learn': 'book', '/stories': 'himalaya', '/baujyu': 'topi' };
 
-const isActive = (pathname, href) => (href === '/' ? pathname === '/' : pathname.startsWith(href));
+const isActive = (pathname, href) => pathname.startsWith(href);
 
 export default function Navbar() {
   const pathname = usePathname();
   const [hidden, setHidden] = useState(false);
   const inLesson = /^\/learn\/.+/.test(pathname);
+  // The start screen at "/" has its own centred logo and buttons.
+  const onStart = pathname === '/';
 
   useEffect(() => {
     let last = window.scrollY;
@@ -40,11 +43,13 @@ export default function Navbar() {
 
   return (
     <>
-      <Link href="/" className={`${styles.logo} ${hidden ? styles.logoHidden : ''}`} aria-label="Boli home">
-        <Wordmark className={styles.logoArt} />
-      </Link>
+      {!onStart && (
+        <Link href="/home" className={`${styles.logo} ${hidden ? styles.logoHidden : ''}`} aria-label="Boli home">
+          <Wordmark className={styles.logoArt} />
+        </Link>
+      )}
 
-      {!inLesson && (
+      {!inLesson && !onStart && (
         <nav className={`${styles.rail} ${hidden ? styles.hidden : ''}`} aria-label="Main">
           {navLinks.map((link) => {
             const active = isActive(pathname, link.href);

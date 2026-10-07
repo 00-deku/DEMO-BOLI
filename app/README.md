@@ -6,7 +6,8 @@ Next.js App Router. **Each folder is a URL segment, and `page.jsx` is the page s
 | --- | --- | --- |
 | `layout.jsx` | (all pages) | Loads fonts, wraps every page in Navbar + Footer, sets default `<title>` |
 | `globals.css` | (all pages) | Design tokens, resets, grain overlay, `.reveal` animation |
-| `page.jsx` | `/` | Stacks the sections from `components/home/` |
+| `page.jsx` | `/` | Start screen (`components/start/StartScreen`) |
+| `home/page.jsx` | `/home` | Stacks the sections from `components/home/` |
 | `learn/page.jsx` | `/learn` | Progress panel and lesson list |
 | `learn/[lessonId]/page.jsx` | `/learn/:lessonId` | One lesson. Pre-rendered for every lesson in `data/lessons.js` |
 | `stories/page.jsx` | `/stories` | All stories |

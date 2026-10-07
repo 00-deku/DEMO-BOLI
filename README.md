@@ -25,7 +25,8 @@ This repository holds the **frontend prototype**: a Next.js + React website with
 
 | Page | Route | What it does |
 | --- | --- | --- |
-| Home | `/` | Every section shares the hero's **dusk-sky theme**. Opens on **"Start with one word."** over a turning **three.js Aipan mandala** on red ochre that fades into the hero, then the **layered parallax hero**: a static three.js Himalayan backdrop with an SVG Kumaoni village whose layers sink at different speeds. The hero's only text is **"Welcome to BOLI"**. Then a manifesto that lights up word by word, feature cards, Baujyu intro, the lesson trail, badges and stories. |
+| Start | `/` | Opening screen: two Aipan wheels roll in from the left and right edges (half of each on screen), then the BOLI wordmark and **Get started** / **I already have an account** buttons appear. The footer follows. |
+| Home | `/home` | Every section shares the hero's **dusk-sky theme**. Opens on **"Start with one word."** over a turning **three.js Aipan mandala** on red ochre that fades into the hero, then the **layered parallax hero**: a static three.js Himalayan backdrop with an SVG Kumaoni village whose layers sink at different speeds. The hero's only text is the **BOLI** wordmark, on a rising-sun mandala; its dark ground fades into the next section. Then a manifesto that lights up word by word, feature cards, Baujyu intro, the lesson trail, badges and stories. |
 | Learn | `/learn` | Progress panel (XP, streak, badges) and all units and lessons. |
 | Lesson | `/learn/[lessonId]` | A short lesson: intro → 3D flip word cards → multiple-choice quiz → celebration. XP and streak are saved in the browser. |
 | Stories | `/stories` | Festivals and folklore as poster cards. |
@@ -95,13 +96,15 @@ DEMO-BOLI/
 ├── app/                      # Routes (Next.js App Router). One folder = one URL.
 │   ├── layout.jsx            # Shared shell: fonts, navbar, footer
 │   ├── globals.css           # Design tokens (colours, gradients, type) + resets
-│   ├── page.jsx              # Home page: stacks the home sections
+│   ├── page.jsx              # Start screen (/)
+│   ├── home/                 # /home: stacks the home sections
 │   ├── learn/                # /learn and /learn/[lessonId]
 │   ├── stories/              # /stories and /stories/[slug]
 │   ├── baujyu/               # /baujyu
 │   └── not-found.jsx         # 404 page
 ├── components/
 │   ├── layout/               # Navbar, Footer, PageHeader
+│   ├── start/                # The start screen at /
 │   ├── home/                 # One file per home-page section
 │   ├── learn/                # LessonPlayer, Flashcard, QuizCard, dashboard
 │   ├── stories/              # StoryCard

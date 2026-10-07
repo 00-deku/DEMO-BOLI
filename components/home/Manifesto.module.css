@@ -4,6 +4,8 @@
   padding: clamp(100px, 16vh, 180px) 0;
   background: var(--grad-dusk-rise);
   color: var(--ink);
+  /* overlap the hero's faded bottom by 2px so no seam shows */
+  margin-top: -2px;
 }
 
 .inner {

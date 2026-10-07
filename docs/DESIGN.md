@@ -19,7 +19,7 @@ Three visual sources:
 **Wordmark:** "BOLI" set in the display font (Rubik Black, uppercase) with the fire gradient, and a **diya** (oil lamp) standing in for the O. The diya is as tall as the capitals plus its flame and sits on the baseline like a letter.
 
 - `components/art/Wordmark.jsx` builds it from text + the lamp artwork in `public/brand/diya.png` (used as a CSS mask, so it takes the gradient).
-- `outlined` adds an ink outline and hard offset shadow; the hero uses it, where "Welcome to BOLI" is the section's only text.
+- `outlined` adds an ink outline and hard offset shadow; the start screen and the hero use it.
 - The navbar and footer use the same plain gradient version.
 - Favicons (`public/brand/favicon.png`, `apple-touch-icon.png`) are the diya in sindoor red on a cream tile.
 
@@ -87,6 +87,8 @@ Fonts load through `next/font/google`, which downloads them at build time and se
 | Where | What | How |
 | --- | --- | --- |
 | Whole site | Smooth, gliding scroll | Lenis (`components/motion/SmoothScroll.jsx`) |
+| Start screen | Two half Aipan wheels roll in from the edges, wordmark pops in, buttons rise | CSS keyframes + three.js (`AipanCanvas fit`) |
+| Hero title | BOLI on a cream rising-sun disc ringed with slowly turning Aipan dots; hero ground fades into the manifesto's orange | CSS pseudo-elements |
 | Opening | Rotating white Aipan mandala on geru that tilts toward the pointer; text rises slightly faster than the page | three.js (`lib/three/aipan.js`) + `Parallax` |
 | Hero | Layered parallax: title lifts, village layers sink at three depths | GSAP ScrollTrigger (`components/home/Hero.jsx`) |
 | Hero backdrop | **Static** mountains; only the sky moves (drifting clouds, falling marigold petals, turning sun halo) | three.js (`lib/three/hills.js`) |

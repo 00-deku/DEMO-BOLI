@@ -10,7 +10,7 @@ import styles from './Hero.module.css';
 export default function Hero() {
   const root = useRef(null);
 
-  // Layered parallax: as the hero scrolls away, "Welcome to BOLI" lifts
+  // Layered parallax: as the hero scrolls away, the BOLI title lifts
   // fastest, and the village layers sink at different speeds (see the
   // data-depth groups in VillageScene). The three.js mountains behind stay
   // still, so the village visibly moves against them.
@@ -40,9 +40,8 @@ export default function Hero() {
       </div>
 
       <div className={`container ${styles.content}`}>
-        {/* The whole text part is one highlight: "Welcome to BOLI" */}
+        {/* BOLI on a sun mandala: the single highlight of the hero */}
         <h2 data-hero-layer="title" className={styles.titleBlock}>
-          <span className={styles.eyebrow}>Welcome to</span>
           <Wordmark outlined className={styles.word} />
         </h2>
       </div>

@@ -4,6 +4,22 @@
   overflow: hidden;
   background: var(--grad-dusk);
   isolation: isolate;
+  /* overlap the opening by 2px so no sub-pixel seam shows between them */
+  margin-top: -2px;
+}
+
+/* Fades the dark village ground into the warm orange that the next
+   section (the manifesto) starts with, so there is no hard edge. */
+.hero::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+  height: 18%;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(232, 119, 58, 0) 0%, rgba(232, 119, 58, 0.55) 55%, #e8773a 100%);
 }
 
 .village {
@@ -19,54 +35,64 @@
 .content {
   position: relative;
   z-index: 2;
-  padding-top: calc(var(--nav-h) + clamp(0px, 2vh, 20px));
+  padding-top: calc(var(--nav-h) + clamp(16px, 5vh, 56px));
   display: grid;
   justify-items: center;
 }
 
-/* "Welcome to BOLI": the single highlight of the hero */
+/* The BOLI title: the single highlight of the hero */
 .titleBlock {
   position: relative;
   display: grid;
-  justify-items: center;
-  gap: clamp(14px, 2.4vw, 26px);
+  place-items: center;
   margin: 0;
-  padding: clamp(16px, 3vw, 36px) clamp(20px, 5vw, 64px);
+  padding: clamp(40px, 7vw, 90px) clamp(20px, 5vw, 64px);
   text-align: center;
   isolation: isolate;
   will-change: transform;
 }
 
-/* Soft cream glow behind the words so the orange wordmark stands
-   clear of the peach mountains and the sun. */
+/* A rising sun behind BOLI: a warm cream disc that keeps the orange
+   letters clear of the mountains... */
 .titleBlock::before {
   content: '';
   position: absolute;
-  inset: -20% -15%;
+  top: 50%;
+  left: 50%;
   z-index: -1;
+  width: min(86vw, 600px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
   background: radial-gradient(
-    ellipse 50% 50% at 50% 50%,
-    rgba(251, 246, 238, 0.95) 0%,
-    rgba(251, 238, 219, 0.75) 45%,
-    rgba(251, 238, 219, 0) 72%
+    circle,
+    #fff8ec 0%,
+    #fdeccc 45%,
+    #f9d49a 64%,
+    rgba(246, 165, 58, 0.35) 69%,
+    rgba(246, 165, 58, 0) 71%
   );
   pointer-events: none;
+  animation: sunrise 1.4s var(--ease-out) both;
 }
 
-/* Styled like the paper "Take the first lesson" button: straight, pill, hard shadow */
-.eyebrow {
-  display: inline-block;
-  padding: 1em 2.1em;
-  border: var(--border);
-  border-radius: 999px;
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 1.1rem;
-  font-weight: 800;
-  line-height: 1;
-  letter-spacing: 0.04em;
-  box-shadow: var(--shadow-hard-s);
-  animation: drop 0.9s var(--ease-bounce) both;
+/* ...ringed with Aipan dots that turn slowly, like the mandala above. */
+.titleBlock::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: -1;
+  width: min(92vw, 650px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 6px dotted rgba(196, 39, 27, 0.55);
+  outline: 2px solid rgba(196, 39, 27, 0.25);
+  outline-offset: 12px;
+  pointer-events: none;
+  animation:
+    sunrise 1.4s var(--ease-out) both,
+    turn 90s linear infinite;
 }
 
 .word {
@@ -81,10 +107,22 @@
   }
 }
 
-@keyframes drop {
+@keyframes sunrise {
   from {
     opacity: 0;
-    transform: translateY(-30px);
+    transform: translate(-50%, -30%) scale(0.8);
+  }
+  to {
+    transform: translate(-50%, -50%);
+  }
+}
+
+@keyframes turn {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
   }
 }
 

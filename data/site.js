@@ -8,7 +8,7 @@ export const site = {
 };
 
 export const navLinks = [
-  { href: '/', label: 'Home', kumaoni: 'घर' },
+  { href: '/home', label: 'Home', kumaoni: 'घर' },
   { href: '/learn', label: 'Learn', kumaoni: 'पाठ' },
   { href: '/stories', label: 'Stories', kumaoni: 'कथा' },
   { href: '/baujyu', label: 'Baujyu', kumaoni: 'बौज्यू' },

@@ -1,0 +1,113 @@
+.screen {
+  --wheel: min(96svh, 78vw);
+  position: relative;
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: var(--grad-geru);
+  color: var(--cream);
+  isolation: isolate;
+}
+
+/* Dark glow in the middle so the wordmark and buttons sit calmly between the wheels */
+.screen::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: radial-gradient(ellipse 38% 46% at 50% 50%, rgba(79, 23, 10, 0.7) 0%, rgba(79, 23, 10, 0) 75%);
+}
+
+/* ---- Half wheels: each mandala's centre sits on the screen edge ---- */
+.wheel {
+  position: absolute;
+  top: 50%;
+  z-index: 0;
+  width: var(--wheel);
+  height: var(--wheel);
+  margin-top: calc(var(--wheel) / -2);
+}
+
+.left {
+  left: calc(var(--wheel) / -2);
+  animation: roll-left 1.6s var(--ease-out) both;
+}
+
+.right {
+  right: calc(var(--wheel) / -2);
+  animation: roll-right 1.6s var(--ease-out) both;
+}
+
+/* The wheels roll in from outside the screen, turning as they come */
+@keyframes roll-left {
+  from {
+    opacity: 0;
+    transform: translateX(-45%) rotate(-160deg) scale(0.85);
+  }
+}
+
+@keyframes roll-right {
+  from {
+    opacity: 0;
+    transform: translateX(45%) rotate(160deg) scale(0.85);
+  }
+}
+
+/* ---- Centre: logo, then buttons ---- */
+.center {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  justify-items: center;
+  gap: clamp(28px, 6vh, 56px);
+  padding: 48px var(--gutter);
+  text-align: center;
+}
+
+.logo {
+  margin: 0;
+  font-size: clamp(4.5rem, 15vw, 12rem);
+  line-height: 1;
+  animation: pop 1s var(--ease-bounce) 0.9s both;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  animation: rise 0.9s var(--ease-out) 1.35s both;
+}
+
+@keyframes pop {
+  from {
+    opacity: 0;
+    transform: scale(0.6) translateY(30px);
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+}
+
+/* Phones: wheels sit higher and lower so the middle stays clear */
+@media (max-width: 640px) {
+  .screen {
+    --wheel: 92vw;
+  }
+  .left {
+    top: 18%;
+  }
+  .right {
+    top: 82%;
+  }
+  .actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

@@ -8,7 +8,7 @@ export default function NotFound() {
       <Motif motif="himalaya" size={140} className={styles.motif} />
       <h1 className={styles.title}>Lost on the trail</h1>
       <p>This path doesn&apos;t go anywhere yet. Let&apos;s head back to the village.</p>
-      <Button href="/">Back home</Button>
+      <Button href="/home">Back home</Button>
     </section>
   );
 }

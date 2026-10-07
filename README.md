@@ -25,7 +25,7 @@ This repository holds the **frontend prototype**: a Next.js + React website with
 
 | Page | Route | What it does |
 | --- | --- | --- |
-| Home | `/` | Opens on **"Start with one word."** over a turning **three.js Aipan mandala**, then the **layered parallax hero**: a static three.js Himalayan backdrop with an SVG Kumaoni village whose layers sink at different speeds. Then a manifesto that lights up word by word, feature cards, Baujyu intro, the lesson trail, badges and stories. |
+| Home | `/` | Every section shares the hero's **dusk-sky theme**. Opens on **"Start with one word."** over a turning **three.js Aipan mandala**, then the **layered parallax hero**: a static three.js Himalayan backdrop with an SVG Kumaoni village whose layers sink at different speeds. Then a manifesto that lights up word by word, feature cards, Baujyu intro, the lesson trail, badges and stories. |
 | Learn | `/learn` | Progress panel (XP, streak, badges) and all units and lessons. |
 | Lesson | `/learn/[lessonId]` | A short lesson: intro → 3D flip word cards → multiple-choice quiz → celebration. XP and streak are saved in the browser. |
 | Stories | `/stories` | Festivals and folklore as poster cards. |
@@ -134,7 +134,7 @@ data/*.js  ──►  pages in app/  ──►  components/  ──►  CSS Modu
 ```
 
 - **Content is data.** Words, lessons, stories and badges live in `data/`. Components only render them.
-- **Server first.** Pages are React Server Components and are pre-rendered at build time. Only parts that need the browser (scroll effects, lessons, three.js, the navigation dock) are marked `'use client'`.
+- **Server first.** Pages are React Server Components and are pre-rendered at build time. Only parts that need the browser (scroll effects, lessons, three.js, the navigation rail) are marked `'use client'`.
 - **three.js scenes are plain functions** in `lib/three/`. They receive `{ THREE, scene, camera, pointer, ... }` and return `update()`. The `useThreeScene` hook owns the renderer, resizing, pausing when off-screen, `prefers-reduced-motion`, and cleanup.
 
 More detail: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).

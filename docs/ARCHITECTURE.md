@@ -103,6 +103,6 @@ Hero / Parallax / Manifesto ──► useGSAP() ──► ScrollTrigger (scrub)
 ## 7. Accessibility notes
 
 - All decorative canvases and SVGs are `aria-hidden`; meaningful SVGs (Baujyu, badges) have `<title>`.
-- The nav dock marks the current page with `aria-current="page"`; on small screens its labels are visually hidden but still read by screen readers.
+- The nav rail marks the current page with `aria-current="page"`; on small screens its labels are visually hidden but still read by screen readers.
 - Quiz options use `role="radio"`; feedback uses `role="status"` so screen readers announce it.
 - `prefers-reduced-motion` turns off CSS animation, Lenis and all parallax, and stops the three.js loops.

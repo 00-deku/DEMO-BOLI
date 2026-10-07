@@ -2,8 +2,8 @@
   position: relative;
   min-height: 140vh;
   padding: clamp(100px, 16vh, 180px) 0;
-  background: var(--grad-earth);
-  color: var(--cream);
+  background: var(--grad-dusk-rise);
+  color: var(--ink);
 }
 
 .inner {
@@ -23,7 +23,7 @@
 }
 
 .word {
-  opacity: 0.14;
+  opacity: 0.16;
   transition:
     opacity 0.4s var(--ease-out),
     color 0.4s;
@@ -34,7 +34,7 @@
 }
 
 .accent[data-lit='true'] {
-  color: var(--marigold);
+  color: var(--sindoor);
 }
 
 @media (max-width: 640px) {

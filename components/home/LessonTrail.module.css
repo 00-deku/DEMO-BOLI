@@ -1,8 +1,8 @@
 .section {
   position: relative;
   padding: clamp(80px, 14vh, 160px) 0;
-  background: var(--ink);
-  color: var(--cream);
+  background: var(--grad-sky-down);
+  color: var(--ink);
   overflow: hidden;
 }
 
@@ -23,7 +23,7 @@
 }
 
 .title :global(.serif) {
-  color: var(--marigold);
+  color: var(--sindoor);
 }
 
 .trail {
@@ -53,7 +53,7 @@
   display: grid;
   gap: 10px;
   padding: 26px 22px;
-  border: 3px solid var(--cream);
+  border: var(--border);
   border-radius: var(--radius-m);
   color: var(--ink);
   box-shadow: 6px 6px 0 var(--saffron);
@@ -77,7 +77,7 @@
 }
 
 .umber {
-  background: var(--cream);
+  background: var(--paper);
 }
 
 .number {

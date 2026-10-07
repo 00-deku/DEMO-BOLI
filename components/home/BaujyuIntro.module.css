@@ -1,8 +1,6 @@
 .section {
   padding: clamp(80px, 14vh, 160px) 0;
-  background:
-    radial-gradient(circle at 15% 30%, rgba(246, 165, 58, 0.35), transparent 45%),
-    linear-gradient(180deg, var(--cream) 0%, #f3d9b6 100%);
+  background: var(--grad-sky);
   overflow: hidden;
 }
 

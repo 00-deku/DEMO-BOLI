@@ -37,8 +37,9 @@ All colours are CSS custom properties in `app/globals.css`.
 **Gradients**
 
 - `--grad-dusk`: the hero sky, from cream through peach to saffron.
+- `--grad-dusk-rise`, `--grad-sky`, `--grad-sky-down`, `--grad-sky-glow`: slices of the same sky. **Every home section uses one of these**, so the whole page reads as one Himalayan dusk. Static `Ridges` silhouettes join the opening to the hero and the last section to the footer.
 - `--grad-fire`: marigold → saffron → sindoor. Buttons, the BOLI wordmark.
-- `--grad-geru`: radial red ochre. Aipan surfaces, the opening section.
+- `--grad-geru`: radial red ochre. Aipan borders and flashcard fronts.
 - `--grad-earth`: umber → ink. Dark sections.
 
 ## 3. Type
@@ -64,11 +65,11 @@ Fonts load through `next/font/google`, which downloads them at build time and se
 | Where | What | How |
 | --- | --- | --- |
 | Whole site | Smooth, gliding scroll | Lenis (`components/motion/SmoothScroll.jsx`) |
-| Opening | Rotating Aipan mandala that tilts toward the pointer; text rises slightly faster than the page | three.js (`lib/three/aipan.js`) + `Parallax` |
+| Opening | Rotating Aipan mandala (geru lines on the dusk sky) that tilts toward the pointer; text rises slightly faster than the page | three.js (`lib/three/aipan.js`) + `Parallax` |
 | Hero | Layered parallax: title lifts, village layers sink at three depths | GSAP ScrollTrigger (`components/home/Hero.jsx`) |
 | Hero backdrop | **Static** mountains; only the sky moves (drifting clouds, falling marigold petals, turning sun halo) | three.js (`lib/three/hills.js`) |
 | Sections | Cards and medals floating at slightly different speeds | GSAP `Parallax` |
-| Navigation | Dock slides away while scrolling down, returns on scroll up | CSS transform transition |
+| Navigation | Logo and right-hand rail slide away while scrolling down, return on scroll up | CSS transform transition |
 | Hero foreground | Birds, chimney smoke, swaying toran | CSS keyframes on SVG |
 | Manifesto | Words light up as you scroll | ScrollTrigger progress + `data-lit` attributes |
 | Sections | Fade and rise on enter | `Reveal` + IntersectionObserver |

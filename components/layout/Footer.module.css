@@ -8,8 +8,7 @@
   display: grid;
   gap: 40px;
   padding-top: 64px;
-  /* leaves room for the floating nav dock */
-  padding-bottom: 120px;
+  padding-bottom: 32px;
 }
 
 .lead {

@@ -1,4 +1,5 @@
 import Button from '@/components/ui/Button';
+import Ridges from '@/components/art/Ridges';
 import Parallax from '@/components/motion/Parallax';
 import Reveal from '@/components/ui/Reveal';
 import SectionTag from '@/components/ui/SectionTag';
@@ -34,6 +35,7 @@ export default function StoriesStrip() {
           ))}
         </div>
       </div>
+      <Ridges to="#140c08" />
     </section>
   );
 }

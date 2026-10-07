@@ -23,6 +23,11 @@
 
   /* Gradients used across sections */
   --grad-dusk: linear-gradient(180deg, #fbeedb 0%, #f9d9ac 38%, #f4ad6b 72%, #e8773a 100%);
+  /* The hero's sky, reused by every home section so they share one theme */
+  --grad-dusk-rise: linear-gradient(180deg, #e8773a 0%, #f4ad6b 22%, #f9d9ac 60%, #fbeedb 100%);
+  --grad-sky: linear-gradient(180deg, #fbeedb 0%, #f9d9ac 100%);
+  --grad-sky-down: linear-gradient(180deg, #f9d9ac 0%, #fbeedb 100%);
+  --grad-sky-glow: linear-gradient(180deg, #f9d9ac 0%, #f4ad6b 100%);
   --grad-fire: linear-gradient(135deg, var(--marigold) 0%, var(--saffron) 45%, var(--sindoor) 100%);
   --grad-geru: radial-gradient(circle at 50% 45%, #b13d1e 0%, #8a2b14 55%, #4f170a 100%);
   --grad-earth: linear-gradient(180deg, var(--umber) 0%, var(--ink) 100%);
@@ -45,6 +50,7 @@
   --gutter: clamp(16px, 4vw, 48px);
   --max: 1280px;
   --nav-h: 76px;
+  --rail-space: 112px;
 
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -151,7 +157,9 @@ canvas {
   width: 100%;
   max-width: var(--max);
   margin: 0 auto;
-  padding: 0 var(--gutter);
+  /* keeps content clear of the vertical nav rail on the right;
+     the same space on the left keeps centred sections centred */
+  padding: 0 max(var(--gutter), var(--rail-space));
 }
 
 .deva {
@@ -190,6 +198,16 @@ canvas {
 .reveal.is-visible {
   opacity: 1;
   transform: none;
+}
+
+@media (max-width: 640px) {
+  :root {
+    --rail-space: 72px;
+  }
+  /* phones: only the right side needs room for the rail */
+  .container {
+    padding-left: var(--gutter);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

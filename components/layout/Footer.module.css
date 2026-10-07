@@ -53,8 +53,8 @@
 }
 
 .wordmark {
-  display: block;
-  width: min(100%, 980px);
+  font-size: clamp(6rem, 26vw, 22rem);
+  margin: 0 -0.04em;
 }
 
 .meta {

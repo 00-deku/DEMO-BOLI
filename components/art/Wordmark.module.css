@@ -1,0 +1,43 @@
+/* Letters: one continuous fire gradient clipped to the text. */
+.wordmark {
+  display: inline-flex;
+  align-items: baseline;
+  font-family: var(--font-head);
+  font-weight: 900;
+  line-height: 0.8;
+  letter-spacing: -0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  background: var(--grad-fire);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* The diya replaces the O: as tall as the capitals plus its flame,
+   sitting on the baseline like a letter. */
+.diyaWrap {
+  display: inline-block;
+  margin: 0 0.03em 0 0.01em;
+}
+
+.diya {
+  display: block;
+  height: 0.98em;
+  aspect-ratio: 289 / 346;
+  background: linear-gradient(160deg, var(--saffron) 0%, var(--sindoor) 100%);
+  -webkit-mask: url('/brand/diya.png') center / contain no-repeat;
+  mask: url('/brand/diya.png') center / contain no-repeat;
+}
+
+/* Hero version: ink outline around every letter and the lamp,
+   plus a hard offset shadow under the whole word. */
+.outlined {
+  -webkit-text-stroke: 0.025em var(--ink);
+  filter: drop-shadow(0.04em 0.04em 0 var(--ink));
+}
+
+.outlined .diyaWrap {
+  filter: drop-shadow(0.02em 0 0 var(--ink)) drop-shadow(-0.02em 0 0 var(--ink)) drop-shadow(0 0.02em 0 var(--ink))
+    drop-shadow(0 -0.02em 0 var(--ink));
+}

@@ -3,13 +3,13 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import BoliLogo from '@/components/art/BoliLogo';
+import Wordmark from '@/components/art/Wordmark';
 import Motif from '@/components/art/Motif';
 import { navLinks } from '@/data/site';
 import styles from './Navbar.module.css';
 
 // Navigation in two parts:
-//  - the Boli logo pinned top-left,
+//  - the BOLI wordmark pinned top-left (same as the footer's),
 //  - a slim vertical rail on the right edge, one icon per page.
 // Both slide away while you scroll down and return when you scroll up.
 // The rail hides inside a lesson, which has its own close button.
@@ -41,7 +41,7 @@ export default function Navbar() {
   return (
     <>
       <Link href="/" className={`${styles.logo} ${hidden ? styles.logoHidden : ''}`} aria-label="Boli home">
-        <BoliLogo className={styles.logoArt} />
+        <Wordmark className={styles.logoArt} />
       </Link>
 
       {!inLesson && (

@@ -14,15 +14,16 @@ Three visual sources:
 | **Madhubani** (Mithila) | Bold outlines, hatching and the fish motif: badges and feature icons |
 | **Himalayan landscape** | Layered ridgelines, snow caps, deodars, slate-roofed stone houses: the hero |
 
-## 2. Logo and icons
+## 2. Wordmark and icons
 
-**Logo:** "B·L·I" in chunky, hand-drawn letters, with a **diya** (oil lamp) standing in for the O, a flame for light, and three leaves on the bowl for growth.
+**Wordmark:** "BOLI" set in the display font (Rubik Black, uppercase) with the fire gradient, and a **diya** (oil lamp) standing in for the O. The diya is as tall as the capitals plus its flame and sits on the baseline like a letter.
 
-- Source artwork: `public/brand/boli-logo.png` (full wordmark) and `public/brand/diya.png` (lamp only), both transparent PNGs.
-- `components/art/BoliLogo.jsx` uses them as a **CSS mask**, so the logo takes any `fill`. It is shown in its original black in the navbar (no background) and the hero, and in cream on the dark footer.
+- `components/art/Wordmark.jsx` builds it from text + the lamp artwork in `public/brand/diya.png` (used as a CSS mask, so it takes the gradient).
+- `outlined` adds an ink outline and hard offset shadow; the hero uses it, where "Welcome to BOLI" is the section's only text.
+- The navbar and footer use the same plain gradient version.
 - Favicons (`public/brand/favicon.png`, `apple-touch-icon.png`) are the diya in sindoor red on a cream tile.
 
-**Icons** (`components/art/Motif.jsx`) follow the logo: **solid filled shapes with cut-out details**, like the leaves in the diya's bowl. Each icon is one SVG path with `fill-rule="evenodd"`, so inner shapes become holes.
+**Icons** (`components/art/Motif.jsx`) follow the diya: **solid filled shapes with cut-out details**, like the leaves in the diya's bowl. Each icon is one SVG path with `fill-rule="evenodd"`, so inner shapes become holes.
 
 | Icon | Used for |
 | --- | --- |
@@ -30,7 +31,7 @@ Three visual sources:
 | `book` (open book) | Nav: Learn |
 | `himalaya` (peaks with snow, sun) | Nav: Stories, feature card, badge |
 | `topi` (Pahadi cap) | Nav: Baujyu, feature card |
-| `diyo` (the logo's lamp) | Streak badge, story card |
+| `diyo` (the wordmark's lamp) | Streak badge, story card |
 | `aipan` (lotus) | Feature card, first badge |
 | `chowki` (ritual square) | Badge, story card |
 | `madhubani` (fish) | Feature card, streak badge |

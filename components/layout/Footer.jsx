@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import AipanBorder from '@/components/art/AipanBorder';
-import BoliLogo from '@/components/art/BoliLogo';
+import Wordmark from '@/components/art/Wordmark';
 import { navLinks, site } from '@/data/site';
 import styles from './Footer.module.css';
 
@@ -22,7 +22,7 @@ export default function Footer() {
           ))}
         </nav>
 
-        <BoliLogo fill="var(--cream)" className={styles.wordmark} />
+        <Wordmark className={styles.wordmark} />
 
         <div className={styles.meta}>
           <span>Pilot: {site.pilotLanguage} · {site.region}</span>

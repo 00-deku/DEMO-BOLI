@@ -18,7 +18,7 @@
 }
 
 .logoArt {
-  width: 110px;
+  font-size: 2.6rem;
 }
 
 /* ---- Slim vertical rail, right edge, centred ---- */
@@ -85,7 +85,7 @@
 /* Small screens: icons only (labels still read by screen readers). */
 @media (max-width: 640px) {
   .logoArt {
-    width: 84px;
+    font-size: 2rem;
   }
   .rail {
     right: 10px;

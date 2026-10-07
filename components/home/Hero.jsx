@@ -3,15 +3,14 @@
 import { useRef } from 'react';
 import HillsCanvas from '@/components/three/HillsCanvas';
 import VillageScene from '@/components/art/VillageScene';
-import BoliLogo from '@/components/art/BoliLogo';
-import Button from '@/components/ui/Button';
+import Wordmark from '@/components/art/Wordmark';
 import { gsap, MOTION_OK, useGSAP } from '@/lib/motion';
 import styles from './Hero.module.css';
 
 export default function Hero() {
   const root = useRef(null);
 
-  // Layered parallax: as the hero scrolls away, the title lifts and fades
+  // Layered parallax: as the hero scrolls away, "Welcome to BOLI" lifts
   // fastest, and the village layers sink at different speeds (see the
   // data-depth groups in VillageScene). The three.js mountains behind stay
   // still, so the village visibly moves against them.
@@ -22,7 +21,6 @@ export default function Hero() {
         const scrub = { trigger: root.current, start: 'top top', end: 'bottom top', scrub: true };
 
         gsap.to('[data-hero-layer="title"]', { yPercent: -45, ease: 'none', scrollTrigger: scrub });
-        gsap.to('[data-hero-layer="copy"]', { yPercent: -80, opacity: 0, ease: 'none', scrollTrigger: scrub });
 
         gsap.utils.toArray('[data-depth]').forEach((layer) => {
           const depth = Number(layer.dataset.depth);
@@ -42,31 +40,11 @@ export default function Hero() {
       </div>
 
       <div className={`container ${styles.content}`}>
-        <div data-hero-layer="title" className={styles.titleBlock}>
-          <p className={styles.eyebrow}>
-            Welcome to
-          </p>
-          <h2 className={styles.title}>
-            <span className={styles.word}>
-              <BoliLogo className={styles.logoArt} />
-            </span>
-          </h2>
-        </div>
-        <div data-hero-layer="copy" className={styles.copyBlock}>
-          <p className={styles.lede}>
-            Learn <strong>BOLI</strong>{' '}
-            <span className="serif">the way it was always taught:</span> one word at a time, with a story and a
-            grandfather who never runs out of either.
-          </p>
-          <div className={styles.actions}>
-            <Button href="/learn" size="l">
-              See the lessons
-            </Button>
-            <Button href="/baujyu" variant="paper" size="l">
-              Meet Baujyu
-            </Button>
-          </div>
-        </div>
+        {/* The whole text part is one highlight: "Welcome to BOLI" */}
+        <h2 data-hero-layer="title" className={styles.titleBlock}>
+          <span className={styles.eyebrow}>Welcome to</span>
+          <Wordmark outlined className={styles.word} />
+        </h2>
       </div>
     </section>
   );

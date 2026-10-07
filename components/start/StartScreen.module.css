@@ -30,22 +30,52 @@
   top: 0;
   left: 0;
   right: 0;
-  height: max(100svh, var(--screen-min));
+  height: var(--home-h, 100svh);
   z-index: 1;
   pointer-events: none;
   opacity: 0;
   background: var(--opening-shade);
 }
 
+/* The home opening's red ground at the home opening's height (its gradient
+   is shaped by that height), under the wheels; fades in with the shading. */
+.handoffGround {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--home-h, 100svh);
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0;
+  background: var(--grad-geru);
+}
+
+/* Invisible copy of the home opening's text, only measured */
+.measure {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.measure * {
+  animation: none !important;
+}
+
 /* ---- Wheels ----
    Each wheel is a fitted mandala sized to be EXACTLY as big as the home
-   opening's mandala: 1.345 x the smaller of screen width and height
+   opening's mandala: 1.345 x the smaller of the opening's width and height
    (7.8 / (14 x tan 22.5deg), from the two cameras in lib/three/aipan.js).
+   StartScreen.jsx measures the opening and sets --wheel-size; the calc is
+   the fallback before it runs.
    So during the hand-off the wheels only slide, never scale, and the one
    that ends in the centre is pixel-for-pixel the home mandala.
    About 40% of each wheel shows at the sides to begin with. */
 .wheel {
-  --wheel: calc(1.345 * min(100cqw, 100svh));
+  --wheel: var(--wheel-size, calc(1.345 * min(100cqw, 100svh)));
   position: absolute;
   top: 50%;
   z-index: 0;

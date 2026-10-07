@@ -2,10 +2,10 @@
    bottom into the hero's dusk sky so the two sections flow together. */
 .section {
   position: relative;
-  /* exactly one screen, so the mandala's size and centre are predictable
-     (the start screen's wheels are sized to land on it) */
-  height: 100svh;
-  min-height: var(--screen-min);
+  /* at least one screen; grows with its text on short screens, and the
+     mandala grows with it (the start screen measures this, see
+     components/start/StartScreen.jsx) */
+  min-height: 100svh;
   display: grid;
   place-items: center;
   overflow: hidden;
@@ -25,14 +25,10 @@
   background: var(--opening-shade);
 }
 
-/* The mandala canvas always covers exactly the screen, even when the
-   section is taller (very short windows). */
+/* The mandala canvas covers the whole section */
 .mandala {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 100svh;
+  inset: 0;
 }
 
 .layer {
@@ -47,9 +43,9 @@
   z-index: 1;
   display: grid;
   justify-items: center;
-  gap: clamp(12px, 2.6vh, 22px);
-  padding-top: var(--nav-h);
-  padding-bottom: 16vh;
+  gap: 22px;
+  padding-top: calc(var(--nav-h) + 24px);
+  padding-bottom: 22vh;
   text-align: center;
   pointer-events: none;
 }
@@ -66,8 +62,7 @@
 }
 
 .title {
-  /* sized by width and height, so the whole block fits one screen */
-  font-size: clamp(2.6rem, min(11vw, 13vh), 9rem);
+  font-size: clamp(3.4rem, 11vw, 9rem);
   text-shadow: 6px 6px 0 var(--ink);
   animation: rise 1s var(--ease-out) 0.1s both;
 }

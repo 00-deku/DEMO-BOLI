@@ -1,11 +1,12 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import AipanCanvas from '@/components/three/AipanCanvas';
 import Wordmark from '@/components/art/Wordmark';
 import Button from '@/components/ui/Button';
 import { gsap, getLenis } from '@/lib/motion';
+import { OpeningText } from '@/components/home/Opening';
 import navStyles from '@/components/layout/Navbar.module.css';
 import styles from './StartScreen.module.css';
 
@@ -18,8 +19,9 @@ import styles from './StartScreen.module.css';
 //   1. All the text except BOLI fades away.
 //   2. The two wheels slide together. They are already exactly the size of
 //      the home page's mandala, so they only move, never scale; the right
-//      one fades out as they meet, leaving one mandala in the centre, which
-//      is exactly where the home page draws its own.
+//      one fades out as they meet, leaving one mandala exactly where the
+//      home page draws its own. The home opening grows with its text, so
+//      its size is measured from an invisible copy of that text (below).
 //   3. The home opening's shading fades in over it.
 //   4. BOLI flies into the exact box of the navbar logo on /home.
 //   5. The browser freezes that final frame (View Transitions API) while
@@ -46,7 +48,24 @@ export default function StartScreen() {
   const root = useRef(null);
   const target = useRef(null);
   const router = useRouter();
+  const measure = useRef(null);
   const [leaving, setLeaving] = useState(false);
+
+  // How tall the home opening will be: one screen, or its text if taller.
+  // Its mandala fills it, so this sets the wheels' size and destination.
+  useLayoutEffect(() => {
+    const update = () => {
+      const width = document.documentElement.clientWidth;
+      const homeHeight = Math.max(window.innerHeight, measure.current.offsetHeight);
+      // 1.345 = 7.8 / (14 x tan 22.5deg): see the two cameras in lib/three/aipan.js
+      const wheel = 1.345 * Math.min(width, homeHeight);
+      root.current.style.setProperty('--home-h', `${homeHeight}px`);
+      root.current.style.setProperty('--wheel-size', `${wheel}px`);
+    };
+    update();
+    window.addEventListener('resize', update);
+    return () => window.removeEventListener('resize', update);
+  }, []);
 
   // Fetch /home in the background so the swap at the end is instant.
   useEffect(() => {
@@ -81,7 +100,7 @@ export default function StartScreen() {
     const word = heading.querySelector('[role="img"]');
     const fading = scope.querySelectorAll('[data-start="fade"]');
     const glow = scope.querySelector('[data-start="glow"]');
-    const handoff = scope.querySelector('[data-start="handoff"]');
+    const handoff = scope.querySelectorAll('[data-start="handoff"]');
     const landing = target.current.querySelector('[role="img"]');
 
     getLenis()?.stop();
@@ -91,10 +110,10 @@ export default function StartScreen() {
     // (they have already finished, so nothing visibly changes).
     gsap.set([left, right, heading, ...fading], { animation: 'none' });
 
-    // Each wheel's centre travels to the centre of the screen, which is
-    // where the home page centres its mandala.
+    // Each wheel's centre travels to the centre of the home opening, which
+    // is where the home page centres its mandala.
     const cx = document.documentElement.clientWidth / 2;
-    const cy = window.innerHeight / 2;
+    const cy = parseFloat(scope.style.getPropertyValue('--home-h')) / 2 || window.innerHeight / 2;
     const toCentre = (el) => {
       const r = el.getBoundingClientRect();
       return { x: cx - (r.left + r.width / 2), y: cy - (r.top + r.height / 2) };
@@ -145,6 +164,7 @@ export default function StartScreen() {
       <div className={`${styles.wheel} ${styles.right}`} data-wheel="right" aria-hidden="true">
         <AipanCanvas fit />
       </div>
+      <div className={styles.handoffGround} data-start="handoff" aria-hidden="true" />
       <div className={styles.handoff} data-start="handoff" aria-hidden="true" />
       <div className={styles.glow} data-start="glow" aria-hidden="true" />
 
@@ -163,6 +183,11 @@ export default function StartScreen() {
         <button type="button" className={styles.guest} data-start="fade" onClick={continueWithoutLogin}>
           Continue without login
         </button>
+      </div>
+
+      {/* Invisible copy of the home opening's text, measured for its height */}
+      <div ref={measure} className={styles.measure} aria-hidden="true">
+        <OpeningText />
       </div>
 
       {/* Invisible copy of the navbar logo: the exact place the wordmark flies to */}

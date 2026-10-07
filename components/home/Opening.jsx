@@ -17,7 +17,7 @@ export default function Opening() {
             <br />
             one word.
           </h1>
-          <p className={styles.lede}>Learn Kumaoni in three-minute lessons. No sign-up for the demo.</p>
+          <p className={styles.lede}>Learn BOLI in three-minute lessons. No sign-up for the demo.</p>
           <div className={styles.cta}>
             <Button href="/learn/greet-elders" variant="paper" size="l">
               Take the first lesson

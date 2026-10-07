@@ -5,7 +5,7 @@
   font-family: var(--font-head);
   font-weight: 900;
   line-height: 0.8;
-  letter-spacing: -0.06em;
+  letter-spacing: -0.03em;
   text-transform: uppercase;
   white-space: nowrap;
   background: var(--grad-fire);
@@ -15,10 +15,11 @@
 }
 
 /* The diya replaces the O: as tall as the capitals plus its flame,
-   sitting on the baseline like a letter. */
+   sitting on the baseline like a letter, with clear space on both sides
+   so the bowl's rim never touches the B or the L. */
 .diyaWrap {
   display: inline-block;
-  margin: 0 0.03em 0 0.01em;
+  margin: 0 0.09em 0 0.11em;
 }
 
 .diya {

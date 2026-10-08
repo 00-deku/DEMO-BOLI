@@ -38,11 +38,19 @@
 .outlined {
   --wm-stroke: 0.025em;
   --wm-shadow: 0.04em;
-  -webkit-text-stroke: var(--wm-stroke) var(--ink);
-  filter: drop-shadow(var(--wm-shadow) var(--wm-shadow) 0 var(--ink));
+  --wm-line: var(--ink);
+  -webkit-text-stroke: var(--wm-stroke) var(--wm-line);
+  filter: drop-shadow(var(--wm-shadow) var(--wm-shadow) 0 var(--wm-line));
 }
 
 .outlined .diyaWrap {
-  filter: drop-shadow(var(--wm-stroke) 0 0 var(--ink)) drop-shadow(calc(-1 * var(--wm-stroke)) 0 0 var(--ink))
-    drop-shadow(0 var(--wm-stroke) 0 var(--ink)) drop-shadow(0 calc(-1 * var(--wm-stroke)) 0 var(--ink));
+  filter: drop-shadow(var(--wm-stroke) 0 0 var(--wm-line)) drop-shadow(calc(-1 * var(--wm-stroke)) 0 0 var(--wm-line))
+    drop-shadow(0 var(--wm-stroke) 0 var(--wm-line)) drop-shadow(0 calc(-1 * var(--wm-stroke)) 0 var(--wm-line));
+}
+
+/* Light version (hero): a thin white outline, no offset shadow */
+.outlined.light {
+  --wm-stroke: 0.012em;
+  --wm-shadow: 0em;
+  --wm-line: var(--white);
 }

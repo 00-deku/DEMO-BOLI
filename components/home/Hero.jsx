@@ -40,9 +40,9 @@ export default function Hero() {
       </div>
 
       <div className={`container ${styles.content}`}>
-        {/* BOLI on a sun mandala: the single highlight of the hero */}
+        {/* BOLI with a thin white outline: the single highlight of the hero */}
         <h2 data-hero-layer="title" className={styles.titleBlock}>
-          <Wordmark className={styles.word} />
+          <Wordmark outlined="light" className={styles.word} />
         </h2>
       </div>
     </section>

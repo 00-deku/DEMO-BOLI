@@ -6,6 +6,8 @@
   border-radius: var(--radius-l);
   overflow: hidden;
   background: var(--paper);
+  /* set explicitly so the card reads the same on light or dark sections */
+  color: var(--ink);
   box-shadow: var(--shadow-hard);
   transition:
     transform 0.4s var(--ease-bounce),

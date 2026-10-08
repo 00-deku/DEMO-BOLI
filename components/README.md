@@ -6,7 +6,7 @@ Every component is a `.jsx` file with a matching `.module.css` file next to it.
 | --- | --- |
 | `layout/` | `Navbar` (BOLI wordmark top-left + slim vertical rail on the right with one icon per page), `Footer`, `PageHeader` (banner for inner pages) |
 | `start/` | `StartScreen`: half Aipan wheels, wordmark, Get started / I already have an account |
-| `home/` | One file per home-page section, in page order: `Opening`, `Hero`, `Manifesto`, `Features`, `BaujyuIntro`, `LessonTrail`, `BadgeShelf`, `StoriesStrip` |
+| `home/` | One file per home-page section, in page order: `Opening`, `Hero`, `Manifesto`, `LessonTrail`, `BadgeShelf`, `StoriesStrip` |
 | `learn/` | `LearnDashboard`, `LessonPlayer` (the step machine), `Flashcard` (3D flip), `QuizCard`, `Celebration` (petal shower) |
 | `stories/` | `StoryCard` |
 | `baujyu/` | `ChatPreview` (static mock-up, no AI) |

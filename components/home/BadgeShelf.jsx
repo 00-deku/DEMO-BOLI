@@ -10,7 +10,7 @@ export default function BadgeShelf() {
     <section className={styles.section}>
       <div className={`container ${styles.inner}`}>
         <header className={styles.header}>
-          <SectionTag deva="खेल">
+          <SectionTag deva="खेल" tone="paper">
             Play
           </SectionTag>
           <h2 className={styles.title}>

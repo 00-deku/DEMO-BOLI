@@ -2,7 +2,8 @@
   position: relative;
   overflow: hidden;
   padding: clamp(80px, 14vh, 160px) 0 clamp(140px, 20vw, 240px);
-  background: var(--grad-sky-glow);
+  background: var(--ink);
+  color: var(--cream);
 }
 
 .inner {
@@ -30,7 +31,16 @@
 }
 
 .title :global(.serif) {
-  color: var(--clay);
+  color: var(--marigold);
+}
+
+/* Story cards: saffron shadows, since ink ones would vanish on black */
+.grid :global(a) {
+  box-shadow: 6px 6px 0 var(--saffron);
+}
+
+.grid :global(a:hover) {
+  box-shadow: 10px 12px 0 var(--saffron);
 }
 
 .grid {

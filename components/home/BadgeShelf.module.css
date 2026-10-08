@@ -2,7 +2,8 @@
   position: relative;
   overflow: hidden;
   padding: clamp(80px, 14vh, 160px) 0;
-  background: var(--grad-sky);
+  background: var(--ink);
+  color: var(--cream);
 }
 
 .inner {
@@ -39,7 +40,7 @@
   gap: 32px 20px;
   padding-bottom: 40px;
   border-bottom: 14px solid var(--bark);
-  box-shadow: 0 6px 0 var(--ink);
+  box-shadow: 0 6px 0 var(--sindoor);
 }
 
 @media (max-width: 960px) {

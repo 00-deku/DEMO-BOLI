@@ -13,14 +13,14 @@ export default function StoriesStrip() {
       <div className={`container ${styles.inner}`}>
         <header className={styles.header}>
           <div className={styles.headText}>
-            <SectionTag deva="कथा">
+            <SectionTag deva="कथा" tone="paper">
               Stories
             </SectionTag>
             <h2 className={styles.title}>
               Words need <span className="serif">somewhere to live.</span>
             </h2>
           </div>
-          <Button href="/stories" variant="ink">
+          <Button href="/stories" variant="paper">
             All stories
           </Button>
         </header>

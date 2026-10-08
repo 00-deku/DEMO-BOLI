@@ -28,6 +28,8 @@
   --grad-sky: linear-gradient(180deg, #fbeedb 0%, #f9d9ac 100%);
   --grad-sky-down: linear-gradient(180deg, #f9d9ac 0%, #fbeedb 100%);
   --grad-sky-glow: linear-gradient(180deg, #f9d9ac 0%, #f4ad6b 100%);
+  /* Dusk into night: from the hero's orange ground down to black */
+  --grad-nightfall: linear-gradient(180deg, #e8773a 0%, #9f3519 10%, #3a1d10 22%, var(--ink) 34%, var(--ink) 100%);
   --grad-fire: linear-gradient(135deg, var(--marigold) 0%, var(--saffron) 45%, var(--sindoor) 100%);
   --grad-geru: radial-gradient(circle at 50% 45%, #b13d1e 0%, #8a2b14 55%, #4f170a 100%);
   --grad-earth: linear-gradient(180deg, var(--umber) 0%, var(--ink) 100%);

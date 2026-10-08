@@ -1,8 +1,8 @@
 .section {
   position: relative;
   padding: clamp(80px, 14vh, 160px) 0;
-  background: var(--grad-sky-down);
-  color: var(--ink);
+  background: var(--ink);
+  color: var(--cream);
   overflow: hidden;
 }
 
@@ -23,7 +23,7 @@
 }
 
 .title :global(.serif) {
-  color: var(--sindoor);
+  color: var(--marigold);
 }
 
 .trail {

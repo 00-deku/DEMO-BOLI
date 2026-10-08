@@ -2,8 +2,8 @@
   position: relative;
   min-height: 140vh;
   padding: clamp(100px, 16vh, 180px) 0;
-  background: var(--grad-dusk-rise);
-  color: var(--ink);
+  background: var(--grad-nightfall);
+  color: var(--cream);
   /* overlap the hero's faded bottom by 2px so no seam shows */
   margin-top: -2px;
 }
@@ -36,7 +36,7 @@
 }
 
 .accent[data-lit='true'] {
-  color: var(--sindoor);
+  color: var(--marigold);
 }
 
 @media (max-width: 640px) {

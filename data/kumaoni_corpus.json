@@ -1,0 +1,452 @@
+[
+  {
+    "id": "greet_01",
+    "category": "greetings",
+    "kumaoni": "पैलाग",
+    "transliteration": "Pailaag",
+    "hindi": "प्रणाम / चरण स्पर्श",
+    "english": "Greetings / Touching feet (traditional Pahadi greeting for elders)",
+    "usage_notes": "Used when greeting elders, grandparents (Baujyu/Aama), or respected persons. The standard loving response from elders is 'Je raya' (जी रया - live long) or 'Bhal hejo' (भल हेजो - may good come to you).",
+    "tags": ["hello", "greeting", "namaste", "hi", "pailaag", "elders", "respect", "pranam"]
+  },
+  {
+    "id": "greet_02",
+    "category": "greetings",
+    "kumaoni": "जी रया, सुखी रया",
+    "transliteration": "Je raya, sukhi raya",
+    "hindi": "जीते रहो, सुखी रहो",
+    "english": "Live long and stay happy (Elder's blessing)",
+    "usage_notes": "Elders respond with this when younger people say 'Pailaag'. Another blessing is 'Daud-dhub panpi jaya' (grow verdant like the grass).",
+    "tags": ["blessing", "je raya", "sukhi raya", "reply to pailaag", "elders"]
+  },
+  {
+    "id": "greet_03",
+    "category": "greetings",
+    "kumaoni": "कस छा?",
+    "transliteration": "Kas chha?",
+    "hindi": "कैसे हो?",
+    "english": "How are you? (to peers/informal)",
+    "usage_notes": "Use 'Kas chhi' for females, 'Kas chha' for males. For elders or polite speech, use 'Kas chho?' (कस छो?).",
+    "tags": ["how are you", "kaisa", "kaise ho", "kas chha", "kas chho", "kas chhi"]
+  },
+  {
+    "id": "greet_04",
+    "category": "greetings",
+    "kumaoni": "भल छू!",
+    "transliteration": "Bhal chhu!",
+    "hindi": "मैं ठीक हूँ / अच्छा हूँ!",
+    "english": "I am fine / good!",
+    "usage_notes": "'Bhal' means good/well. 'Chhu' is the first-person auxiliary verb (I am). For plural or respectful, say 'Ham bhal chhaun' (हम भल छौं).",
+    "tags": ["i am fine", "good", "theek hu", "bhal", "bhal chhu", "well"]
+  },
+  {
+    "id": "intro_01",
+    "category": "introduction",
+    "kumaoni": "त्वार नौं के छ?",
+    "transliteration": "Twaar naun ke chha?",
+    "hindi": "तुम्हारा नाम क्या है?",
+    "english": "What is your name?",
+    "usage_notes": "'Twaar' = your (casual/younger), 'Naun' = name, 'Ke' = what, 'Chha' = is. Polite form: 'Tumhaar naun ke chha?'.",
+    "tags": ["what is your name", "naam", "naun", "introduction", "name", "who are you"]
+  },
+  {
+    "id": "intro_02",
+    "category": "introduction",
+    "kumaoni": "म्यर नौं [नाम] छ।",
+    "transliteration": "Myar naun [Name] chha.",
+    "hindi": "मेरा नाम [नाम] है।",
+    "english": "My name is [Name].",
+    "usage_notes": "'Myar' = my / mine.",
+    "tags": ["my name is", "mera naam", "myar", "naun", "introduction"]
+  },
+  {
+    "id": "intro_03",
+    "category": "introduction",
+    "kumaoni": "त्वार घर काँ छ?",
+    "transliteration": "Twaar ghar kaan chha?",
+    "hindi": "तुम्हारा घर कहाँ है? / तुम कहाँ के रहने वाले हो?",
+    "english": "Where is your house / village?",
+    "usage_notes": "'Ghar' = home/village, 'Kaan' = where.",
+    "tags": ["where do you live", "where is your home", "home", "village", "ghar", "kaan"]
+  },
+  {
+    "id": "intro_04",
+    "category": "introduction",
+    "kumaoni": "म्यर घर पहाड़ में छ।",
+    "transliteration": "Myar ghar pahaad mein chha.",
+    "hindi": "मेरा घर पहाड़ (उत्तराखंड) में है।",
+    "english": "My home is in the hills / mountains.",
+    "usage_notes": "Can substitute with city/village name: 'Myar ghar Almora chha'.",
+    "tags": ["pahaad", "hills", "mountains", "almora", "my house", "village"]
+  },
+  {
+    "id": "family_01",
+    "category": "family_relations",
+    "kumaoni": "बौज्यू (Baujyu) = दादाजी, आमा (Aama) = दादीजी",
+    "transliteration": "Baujyu (Grandfather), Aama (Grandmother)",
+    "hindi": "दादाजी और दादीजी",
+    "english": "Paternal grandfather and grandmother",
+    "usage_notes": "In Kumaon, '-jyu' is a reverent honorific attached to elder kinship terms.",
+    "tags": ["grandfather", "grandmother", "baujyu", "aama", "grandparents", "family"]
+  },
+  {
+    "id": "family_02",
+    "category": "family_relations",
+    "kumaoni": "इजा (Ija) = माँ, बाबु (Babu) = पिताजी",
+    "transliteration": "Ija (Mother), Babu (Father)",
+    "hindi": "माँ और पिताजी",
+    "english": "Mother and Father",
+    "usage_notes": "'Ija' is the quintessential Kumaoni word for mother. Often said as 'Eeeja!' in emotional exclamation.",
+    "tags": ["mother", "father", "parents", "ija", "babu", "maa", "pitaji"]
+  },
+  {
+    "id": "family_03",
+    "category": "family_relations",
+    "kumaoni": "दाज्यू (Dajyu) = बड़ा भाई, भुली (Bhuli) = छोटी बहन, भैल (Bhail) = छोटा भाई, दीदी (Didi) = बड़ी बहन",
+    "transliteration": "Dajyu (Elder brother), Bhuli (Younger sister), Bhail (Younger brother), Didi (Elder sister)",
+    "hindi": "भाई-बहन के रिश्ते",
+    "english": "Siblings: Elder brother, Younger sister, Younger brother, Elder sister",
+    "usage_notes": "'Dajyu' is famously used across Uttarakhand as a term of brotherly respect.",
+    "tags": ["brother", "sister", "dajyu", "bhuli", "bhail", "didi", "siblings"]
+  },
+  {
+    "id": "family_04",
+    "category": "family_relations",
+    "kumaoni": "काका (Kaka) = चाचा, काकी (Kaki) = चाची, मामा (Mama) = मामा, मैमा (Maima) = मामी",
+    "transliteration": "Kaka (Uncle/Father's brother), Kaki (Aunt), Mama (Maternal Uncle), Maima (Maternal Aunt)",
+    "hindi": "चाचा-चाची और मामा-मामी",
+    "english": "Uncles and Aunts in Kumaoni",
+    "usage_notes": "Maternal house is called 'Mamyol' (माम्योल).",
+    "tags": ["uncle", "aunt", "kaka", "kaki", "mama", "maima", "family"]
+  },
+  {
+    "id": "food_01",
+    "category": "food_and_cuisine",
+    "kumaoni": "कैल भात खा ल्हो?",
+    "transliteration": "Kail bhat kha lho?",
+    "hindi": "क्या खाना खा लिया?",
+    "english": "Have you eaten food / lunch?",
+    "usage_notes": "In the hills, 'Bhat' (boiled rice) represents the entire midday meal. Asking someone if they've eaten bhat is the primary sign of care.",
+    "tags": ["food", "lunch", "eat", "rice", "bhat", "khana", "have you eaten"]
+  },
+  {
+    "id": "food_02",
+    "category": "food_and_cuisine",
+    "kumaoni": "भट्ट की चुड़कानी और झोली-भात",
+    "transliteration": "Bhatt ki Churkani aur Jholi-Bhat",
+    "hindi": "काले भट्ट की दाल/सूप और कढ़ी-चावल",
+    "english": "Black soybean slow-cooked curry (Churkani) and Pahadi buttermilk kadhi (Jholi) with rice",
+    "usage_notes": "Churkani is cooked in a heavy iron kadhai (lohe ki kadhai) which gives it an iconic dark colour, rich in iron and protein.",
+    "tags": ["bhatt", "churkani", "jholi", "kadhi", "pahadi food", "cuisine", "dishes", "traditional food"]
+  },
+  {
+    "id": "food_03",
+    "category": "food_and_cuisine",
+    "kumaoni": "डुबके और गौथ/गहत की दाल",
+    "transliteration": "Dubke aur Gauth/Gahat ki daal",
+    "hindi": "सिलबट्टे पर पिसी दाल के डुबके और कुल्थी (गहत) की दाल",
+    "english": "Dubke (ground paste dal slow simmered) and Gahat (Horse gram) dal",
+    "usage_notes": "Gahat is eaten extensively during chilly winters because of its warming properties and medicinal benefits.",
+    "tags": ["dubke", "gahat", "gauth", "horse gram", "dal", "pahadi food", "winter food"]
+  },
+  {
+    "id": "food_04",
+    "category": "food_and_cuisine",
+    "kumaoni": "बाल मिठाई और सिगौड़ी",
+    "transliteration": "Baal Mithai aur Singodi",
+    "hindi": "अल्मोड़ा की प्रसिद्ध बाल मिठाई और मालू के पत्ते में लिपटी सिंगौड़ी",
+    "english": "Almora's roasted brown khoya fudge coated in sugar balls (Baal Mithai) and condensed milk wrapped in Maalu leaves (Singodi)",
+    "usage_notes": "World-famous desserts originating from Almora, Kumaon.",
+    "tags": ["bal mithai", "singodi", "sweets", "mithai", "almora", "dessert"]
+  },
+  {
+    "id": "food_05",
+    "category": "food_and_cuisine",
+    "kumaoni": "चा पी ल्या!",
+    "transliteration": "Cha pee lya!",
+    "hindi": "चाय पी लो!",
+    "english": "Drink/have some tea!",
+    "usage_notes": "Mountain hospitality mandates that no guest leaves without a hot cup of sweet, milky ginger tea.",
+    "tags": ["tea", "chai", "cha", "drink", "hospitality"]
+  },
+  {
+    "id": "food_06",
+    "category": "food_and_cuisine",
+    "kumaoni": "सणीं नीबू (साने हुए नींबू)",
+    "transliteration": "Sani nimbu",
+    "hindi": "भांग के बीज और गुड़ के साथ साने हुए पहाड़ी नींबू",
+    "english": "Pahadi citrus salad prepared with roasted bhang seeds (hemp seed paste), jaggery, curd, and green chilies",
+    "usage_notes": "Eaten on sunny winter afternoons sitting in the courtyard (Aangan) with family.",
+    "tags": ["nimbu", "sani nimbu", "bhang seeds", "citrus", "winter food", "snack"]
+  },
+  {
+    "id": "daily_01",
+    "category": "daily_conversation",
+    "kumaoni": "काँ जाँछा?",
+    "transliteration": "Kaan jaanchha?",
+    "hindi": "कहाँ जा रहे हो?",
+    "english": "Where are you going?",
+    "usage_notes": "Fem: 'Kaan jaanchhi?'. Plural/Polite: 'Kaan jaanchho?'.",
+    "tags": ["where are you going", "kahan ja rahe ho", "kaan", "going", "travel"]
+  },
+  {
+    "id": "daily_02",
+    "category": "daily_conversation",
+    "kumaoni": "कैल कौतिक जाँछा?",
+    "transliteration": "Kail koutik jaanchha?",
+    "hindi": "क्या मेले में जा रहे हो?",
+    "english": "Are you going to the village fair/festival?",
+    "usage_notes": "'Koutik' (कौतिक) is the Kumaoni word for a fair/mela (like Nanda Devi Mela or Uttarayani).",
+    "tags": ["mela", "fair", "koutik", "festival", "kautik"]
+  },
+  {
+    "id": "daily_03",
+    "category": "daily_conversation",
+    "kumaoni": "ठंड भौत छ आज!",
+    "transliteration": "Thand bhaut chha aaj!",
+    "hindi": "आज बहुत ठंड है!",
+    "english": "It is very cold today!",
+    "usage_notes": "'Bhaut' = very / a lot, 'Chha' = is.",
+    "tags": ["cold", "thand", "weather", "winter", "today", "aaj"]
+  },
+  {
+    "id": "daily_04",
+    "category": "daily_conversation",
+    "kumaoni": "घाम तापी ल्या।",
+    "transliteration": "Ghaam taapi lya.",
+    "hindi": "धूप सेंक लो।",
+    "english": "Bask in the warm sunlight.",
+    "usage_notes": "'Ghaam' = sunlight / sunshine, 'Taapno' = to warm oneself.",
+    "tags": ["sun", "sunlight", "sunshine", "ghaam", "warmth"]
+  },
+  {
+    "id": "daily_05",
+    "category": "daily_conversation",
+    "kumaoni": "धिरै-धिरै हिंड!",
+    "transliteration": "Dhirai-dhirai hind!",
+    "hindi": "धीरे-धीरे चलो!",
+    "english": "Walk slowly and carefully!",
+    "usage_notes": "'Hindno' (हिंडण) means to walk. Essential advice on steep hill footpaths (danda).",
+    "tags": ["walk", "slowly", "careful", "hind", "dhirai"]
+  },
+  {
+    "id": "verb_01",
+    "category": "verbs_action",
+    "kumaoni": "खाण (Khaan) = खाना (To eat)",
+    "transliteration": "Khaan (To eat) -> Khun chhu (I eat), Khaayo (ate), Khool (will eat)",
+    "hindi": "खाना क्रिया (खाण)",
+    "english": "Verb: To eat",
+    "usage_notes": "Main bhat khun chhu (I eat rice).",
+    "tags": ["verb", "eat", "khaan", "food", "grammar"]
+  },
+  {
+    "id": "verb_02",
+    "category": "verbs_action",
+    "kumaoni": "जाण (Jaan) = जाना (To go)",
+    "transliteration": "Jaan (To go) -> Jaanchhu (I go), Gyo (went), Jool (will go)",
+    "hindi": "जाना क्रिया (जाण)",
+    "english": "Verb: To go",
+    "usage_notes": "Main school jaanchhu (I go to school). Wo gyo (He went).",
+    "tags": ["verb", "go", "jaan", "grammar"]
+  },
+  {
+    "id": "verb_03",
+    "category": "verbs_action",
+    "kumaoni": "आण (Aan) = आना (To come)",
+    "transliteration": "Aan (To come) -> Aanchhu (I come), Aayo (came), Aul (will come)",
+    "hindi": "आना क्रिया (आण)",
+    "english": "Verb: To come",
+    "usage_notes": "Ghar aayo (Came home). Aaya! (Please come - polite).",
+    "tags": ["verb", "come", "aan", "grammar"]
+  },
+  {
+    "id": "verb_04",
+    "category": "verbs_action",
+    "kumaoni": "बैठण (Baithan) = बैठना (To sit)",
+    "transliteration": "Baithan (To sit) -> Baitho / Baisa (Sit down)",
+    "hindi": "बैठना क्रिया (बैठण)",
+    "english": "Verb: To sit",
+    "usage_notes": "'Baisa' (बैसा) is a polite invitation to take a seat.",
+    "tags": ["verb", "sit", "baithan", "baisa", "grammar"]
+  },
+  {
+    "id": "verb_05",
+    "category": "verbs_action",
+    "kumaoni": "बोलण (Bolan) = बोलना (To speak)",
+    "transliteration": "Bolan (To speak) -> Bol (Speak), Bolanchha (speaks)",
+    "hindi": "बोलना क्रिया (बोलण)",
+    "english": "Verb: To speak / talk",
+    "usage_notes": "'Kumaoni bola!' = Speak Kumaoni!",
+    "tags": ["verb", "speak", "talk", "bolan", "language"]
+  },
+  {
+    "id": "verb_06",
+    "category": "verbs_action",
+    "kumaoni": "देखण (Dekhan) = देखना (To see / look)",
+    "transliteration": "Dekhan (To look) -> Dekh (Look), Dekhanchhu (I see)",
+    "hindi": "देखना क्रिया (देखण)",
+    "english": "Verb: To see / look",
+    "usage_notes": "'Ya dekha!' = Look here!",
+    "tags": ["verb", "look", "see", "dekhan"]
+  },
+  {
+    "id": "grammar_pronouns",
+    "category": "grammar",
+    "kumaoni": "सर्वनाम (Pronouns): मैं (Main = I), हम (Ham = We), तू (Tu = You informal), तुम (Tum = You familiar), आप (Aap = You respectful), ऊ (Oo = He/She/That), यो (Yo = This).",
+    "transliteration": "Main (I), Ham (We), Tu (You), Aap (You formal), Oo (He/She), Yo (This)",
+    "hindi": "कुमाऊँनी सर्वनाम",
+    "english": "Kumaoni Personal Pronouns",
+    "usage_notes": "Possessive forms: Myar (My), Twaar (Your), Hmaar (Our), Unar (Their), Wokar (His/Her).",
+    "tags": ["pronouns", "grammar", "my", "your", "his", "her", "i", "you", "we"]
+  },
+  {
+    "id": "grammar_verbs_be",
+    "category": "grammar",
+    "kumaoni": "सहायक क्रिया 'होना' (Verb To Be): छु (chhu = I am), छा (chha = he is / you are - masc), छी (chhi = she is / you are - fem), छौं (chhaun = we are), छो (chho = you all / formal are).",
+    "transliteration": "Chhu (am), Chha (is/are - masc), Chhi (is/are - fem), Chhaun (we are), Chho (respectful are)",
+    "hindi": "कुमाऊँनी में 'होना' सहायक क्रिया",
+    "english": "Forms of the auxiliary verb 'To Be' in present tense",
+    "usage_notes": "Past tense equivalents: Chhiyo (था - was masc), Chhiye (थी - was fem), Chhiya (थे - were).",
+    "tags": ["verb to be", "chhu", "chha", "chhi", "grammar", "verbs", "auxiliary"]
+  },
+  {
+    "id": "numbers_01",
+    "category": "numbers",
+    "kumaoni": "१ = एक (Ek), २ = दुई (Dui), ३ = तीन (Teen), ४ = चार (Chaar), ५ = पाँच (Paanch), ६ = छ (Chha), ७ = सात (Saat), ८ = आठ (Aath), ९ = नौ (Nau), १० = दस (Das)",
+    "transliteration": "1: Ek, 2: Dui, 3: Teen, 4: Chaar, 5: Paanch, 6: Chha, 7: Saat, 8: Aath, 9: Nau, 10: Das",
+    "hindi": "गिनती १ से १०",
+    "english": "Kumaoni Numbers 1 to 10",
+    "usage_notes": "'Dui' is used for two (e.g., Dui chaa = Two teas).",
+    "tags": ["numbers", "count", "one", "two", "three", "dui", "ek", "counting", "math"]
+  },
+  {
+    "id": "nature_01",
+    "category": "nature_and_trees",
+    "kumaoni": "बुराँश (Buraansh) = लाल रोडोडेंड्रोन (Rhododendron), काफल (Kaafal) = स्वादिष्ट पहाड़ी जंगली बेरी (Bayberry)",
+    "transliteration": "Buraansh (Rhododendron), Kaafal (Wild Bayberry)",
+    "hindi": "बुरांश का फूल और काफल फल",
+    "english": "Buraansh (State tree flower used for ruby juice) and Kaafal (Beloved wild sour-sweet summer berry)",
+    "usage_notes": "Famous hill saying: 'काफल पाको चैत, मेरी छैला' (Kaafal ripens in Chaitra month). Buraansh squash is served to all summer visitors.",
+    "tags": ["buransh", "kafal", "flowers", "fruits", "berries", "nature", "trees", "rhododendron"]
+  },
+  {
+    "id": "nature_02",
+    "category": "nature_and_trees",
+    "kumaoni": "बाँज (Baanjh) = बांज / ओक का पेड़ (Himalayan Oak)",
+    "transliteration": "Baanjh (Oak tree)",
+    "hindi": "बाँज का पेड़ (पहाड़ की जीवनरेखा)",
+    "english": "Himalayan Oak tree (Quercus leucotrichophora)",
+    "usage_notes": "Known as the lifeline of Kumaon's ecosystem, retaining natural springs (Naula and Dhaara) and sweet groundwater.",
+    "tags": ["baanjh", "oak", "trees", "water", "nature", "forest"]
+  },
+  {
+    "id": "nature_03",
+    "category": "nature_and_trees",
+    "kumaoni": "नौला (Naula) और धारा (Dhaara)",
+    "transliteration": "Naula aur Dhaara",
+    "hindi": "पारंपरिक जल स्त्रोत (नौला = बावड़ी, धारा = प्राकृतिक झरना)",
+    "english": "Traditional Himalayan natural aquifer wells (Naula) and natural spring waterspouts (Dhaara)",
+    "usage_notes": "Naulas are treated with religious sanctity. Shoes are always removed before stepping down to collect sweet hill water.",
+    "tags": ["naula", "dhaara", "water", "spring", "well", "culture", "tradition"]
+  },
+  {
+    "id": "animals_01",
+    "category": "animals",
+    "kumaoni": "गाइ (Gai) = गाय, ब्यर (Byar) = बैल, भैस (Bhais) = भैंस, कुकुर (Kukur) = कुत्ता, बिरालो (Biraalo) = बिल्ली, घ्वड़ (Ghwad) = घोड़ा",
+    "transliteration": "Gai (Cow), Byar (Bullock), Bhais (Buffalo), Kukur (Dog), Biraalo (Cat), Ghwad (Horse)",
+    "hindi": "पालतू पशु (जानवर)",
+    "english": "Domestic animals in Kumaoni",
+    "usage_notes": "Kukur = Dog, Biraalo = Cat, Gai = Cow.",
+    "tags": ["animals", "dog", "cat", "cow", "kukur", "biraalo", "gai", "pets"]
+  },
+  {
+    "id": "animals_02",
+    "category": "animals",
+    "kumaoni": "बाघ (Bagh) = गुलदार / तेंदुआ (Leopard), भालू (Bhaalu) = हिमालयी काला भालू, घुरड़ (Ghurad) = पहाड़ी हिरण",
+    "transliteration": "Bagh / Guldar (Leopard), Bhaalu (Himalayan Black Bear), Ghurad (Barking Deer)",
+    "hindi": "जंगली जानवर (वन्यजीव)",
+    "english": "Wild animals of the Kumaon Himalayas",
+    "usage_notes": "In the hills, villagers colloquially say 'Bagh aago!' (बाघ आगो!) to warn of leopards near the village cattle shed.",
+    "tags": ["leopard", "bear", "wild animals", "bagh", "bhaalu", "forest"]
+  },
+  {
+    "id": "festivals_01",
+    "category": "festivals",
+    "kumaoni": "फूलदेई (Phooldei) = छम्मा देई, फूल देई, दैली का द्वार, भर भकार!",
+    "transliteration": "Phooldei, Chhamma dei, Daili ka dwaar, bhar bhakaar!",
+    "hindi": "फूलदेई (पहाड़ का बाल पर्व - वसंत ऋतु का स्वागत)",
+    "english": "Phooldei - Spring harvest flower festival where children place fresh wildflowers on village doorsteps",
+    "usage_notes": "Celebrated on the first day of the Hindu solar month Chaitra. Children sing blessings wishing granaries (bhakaar) stay full.",
+    "tags": ["phooldei", "festival", "spring", "flowers", "culture", "traditions", "uttarakhand"]
+  },
+  {
+    "id": "festivals_02",
+    "category": "festivals",
+    "kumaoni": "हरेला (Harela) = 'जी रया, जागि रया, ती स्यूं जस हरिया रया'",
+    "transliteration": "Harela: Je raya, jaagi raya, tee syun jas hariya raya",
+    "hindi": "हरेला पर्व - हरियाली और कृषि उत्सव",
+    "english": "Harela festival celebrating the monsoon, greenery, and agriculture",
+    "usage_notes": "Nine types of seeds are germinated in clay pots in the dark. On Harela day, elders place the yellow-green shoots on youth's heads with blessings.",
+    "tags": ["harela", "monsoon", "festival", "greenery", "blessing", "tradition"]
+  },
+  {
+    "id": "festivals_03",
+    "category": "festivals",
+    "kumaoni": "घुघुतिया / उत्तरायणी (Ghughutiya / Uttarayani)",
+    "transliteration": "Ghughutiya / Kale Kauwa festival",
+    "hindi": "मकर संक्रांति (घुघुतिया) - 'काले कौवा काले, घुघुति माला खा ले!'",
+    "english": "Makar Sankranti celebrated by making deep-fried sweet wheat flour twists (ghughuti) for crows and migrating birds",
+    "usage_notes": "Children string ghughuti twists into edible necklaces and chant to invite crows across the mountain ridges.",
+    "tags": ["ghughutiya", "ghughuti", "uttarayani", "makar sankranti", "festival", "sweets"]
+  },
+  {
+    "id": "art_01",
+    "category": "art_and_architecture",
+    "kumaoni": "ऐपण (Aipan) = गेरू (लाल मिट्टी) और बिस्वार (पिसे चावल के घोल) से बनाई गई पारंपरिक लोक चित्रकला",
+    "transliteration": "Aipan (Ritual folk art in red geru clay and white rice paste biswaar)",
+    "hindi": "ऐपण कला (कुमाऊँ की पारंपरिक देहरी और पूजा कला)",
+    "english": "Aipan - Sacred Kumaoni geometric folk art drawn at doorsteps, chowkis, and temples for prosperity",
+    "usage_notes": "The characteristic reddish-brown background is made with 'Geru' clay, and motifs like Vasudhaara and feet of Lakshmi are painted with 'Biswaar'.",
+    "tags": ["aipan", "geru", "biswaar", "art", "folk art", "painting", "tradition", "culture"]
+  },
+  {
+    "id": "proverb_01",
+    "category": "proverbs_pakhano",
+    "kumaoni": "जै को हुण छ भल, उक नौं घल।",
+    "transliteration": "Jai ko hun chha bhal, uk naun ghal.",
+    "hindi": "जिसका भला होना होता है, उसका नाम सब जगह फैल जाता है।",
+    "english": "One destined for good will find fortune and fame naturally.",
+    "usage_notes": "A traditional Pahadi Pakhano (proverb) illustrating destiny and honesty.",
+    "tags": ["proverb", "idiom", "saying", "pakhano", "culture", "quote"]
+  },
+  {
+    "id": "proverb_02",
+    "category": "proverbs_pakhano",
+    "kumaoni": "अंग्वाव में जो छ, उ मुक्काम में नी हुण।",
+    "transliteration": "Angwaav mein jo chha, u mukkaam mein nee hun.",
+    "hindi": "जो बात आंगन में है, वह परदेस में कहाँ!",
+    "english": "The warmth of one's own courtyard cannot be found anywhere in distant foreign lands.",
+    "usage_notes": "Reflects the deep emotional connection Pahadis feel towards their home village (Mait / Ghar).",
+    "tags": ["proverb", "saying", "pakhano", "home", "nostalgia", "village"]
+  },
+  {
+    "id": "slang_01",
+    "category": "expressions_slang",
+    "kumaoni": "बल (Bal) / ठै (Thai)",
+    "transliteration": "Bal / Thai",
+    "hindi": "अरे यार / सुना है कि / कहते हैं (बात के अंत में लगने वाला तकियाकलाम)",
+    "english": "The signature Kumaoni conversational filler tag (like 'you know' / 'they say')",
+    "usage_notes": "Used at the end of sentences everywhere: 'Kas chha bal?' (What's up, man?), 'Oo aagyo bal!' (He has arrived, apparently!).",
+    "tags": ["bal", "filler", "slang", "informal", "conversation", "thai"]
+  },
+  {
+    "id": "slang_02",
+    "category": "expressions_slang",
+    "kumaoni": "धत्तेरी की! (Dhatteri ki!) / ईजा! (Eeeja!)",
+    "transliteration": "Dhatteri ki! / Eeeja!",
+    "hindi": "अरे बाप रे! / हे भगवान! (हैरानी या आश्चर्य की अभिव्यक्ति)",
+    "english": "Exclamation of shock, amusement, or disbelief ('Oh my goodness!')",
+    "usage_notes": "When something unexpected happens, elders exclaim 'Dhatteri ki!' or call upon their mother 'Eeeja!' in amazement.",
+    "tags": ["exclamation", "dhatteri", "ija", "surprise", "expressions"]
+  }
+]
